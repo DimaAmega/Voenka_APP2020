@@ -1,0 +1,26 @@
+{
+  "name": "voenka",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DimaAmega/Voenka_APP2020.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DimaAmega/Voenka_APP2020/issues"
+  },
+  "homepage": "https://github.com/DimaAmega/Voenka_APP2020#readme",
+  "dependencies": {
+    "browserify": "^16.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "babelify": "^10.0.0"
+  }
+}

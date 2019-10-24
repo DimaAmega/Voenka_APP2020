@@ -2,8 +2,15 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 var renderer = new THREE.WebGLRenderer();
 
-camera.position.z =30;
-camera.position.y =10;
+var OrbitControls = require('three-orbitcontrols')
+var controls = new OrbitControls( camera, renderer.domElement );
+
+var Animations_arr = [];
+camera.position.z = 20
+camera.position.y = -20
+
+// camera.position.set( 0, -10, 10 );
+controls.update();
 
 
 renderer.setSize( window.innerWidth, window.innerHeight );
@@ -14,7 +21,6 @@ var light = new THREE.AmbientLight(0xffffff, 2);
 
 // Instantiate a loader
 var loader = new THREE.GLTFLoader();
-var Animations_arr = [];
 // Load a glTF resource
 loader.load(
 	// resource URL
@@ -43,9 +49,9 @@ function animate() {
 	Animations_arr.forEach((el)=>{
 		el.update(0.1);
 	});
-	
-	requestAnimationFrame( animate );
 	renderer.render(scene,camera);   
+	controls.update();
+	requestAnimationFrame( animate );
 }
 animate();
 
