@@ -1,12 +1,14 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 7000 );
 var renderer = new THREE.WebGLRenderer();
+
 var OrbitControls = require('three-orbitcontrols')
 var controls = new OrbitControls( camera, renderer.domElement );
+
 var Animations_arr = [];
-camera.position.z = 20
-camera.position.y = -20
+camera.position.z = 70;
+camera.position.y = 120;
 
 // camera.position.set( 0, -10, 10 );
 controls.update();
@@ -15,21 +17,21 @@ controls.update();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-var light = new THREE.AmbientLight(0xffffff, 2);
+var light = new THREE.AmbientLight(0xffffff, 4);
     scene.add(light);
 
 // Instantiate a loader
 var loader = new THREE.GLTFLoader();
 // Load a glTF resource
 loader.load(
-	// resource URL
-	'3dModels/scene.gltf',
+	'3dModels/CPGdone123.gltf',
 	// called when the resource is loaded
 	function ( Person ) {
+		console.log(Person)
 		var clips = Person.animations;
 		var mixer = new THREE.AnimationMixer( Person.scene);
-		var clip = THREE.AnimationClip.findByName( clips, 'Take 001' );
-		var action = mixer.clipAction( clip )
+		var clip = THREE.AnimationClip.findByName( clips, 'animation_0' );
+		var action = mixer.clipAction( clip );
 		action.play();
 		scene.add( Person.scene );
 		Animations_arr.push(mixer)
@@ -46,7 +48,7 @@ loader.load(
 
 function animate() {
 	Animations_arr.forEach((el)=>{
-		el.update(0.1);
+		el.update(0.01);
 	});
 	renderer.render(scene,camera);   
 	controls.update();
