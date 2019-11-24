@@ -1,11 +1,13 @@
 const path = require('path');
 
-
 module.exports = {
   mode:"development",
-  entry: './public/javascripts/index/main.js',
+  watch: true,
+  entry: {
+    Scene1: './Scenes/Scene1/core.js',
+  },
   output: {
-    filename: 'dest.js',
-    path: path.join(__dirname, './public/javascripts/index/'),
+    filename: '[name]/[name].js',
+    path :path.join(__dirname,'/dist/'),
   },
 };  
