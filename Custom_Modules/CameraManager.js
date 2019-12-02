@@ -200,3 +200,5 @@ class CameraManager {
         }
     }
 }
+
+export {CameraManager}

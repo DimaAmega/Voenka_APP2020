@@ -1,7 +1,7 @@
 var init = function (scene,camera,renderer){
     document.body.appendChild( renderer.domElement );
     //  set camera initial position
-    camera.position.set(0,5,-5);
+    // camera.position.set(0,5,-5);
     renderer.setSize( window.innerWidth, window.innerHeight );
     //  lights settings
     scene.add(new THREE.AmbientLight(0xffffff, 4));
