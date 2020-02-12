@@ -14,15 +14,29 @@ var renderer = new THREE.WebGLRenderer();
 var clock = new THREE.Clock();
 var cameraManager = new CameraManager({
 	"default": {
-		x:4,
+		x:5,
 		y:0,
-		z:4,
+		z:-1,
 		x_deg:0,
-		y_deg:45,
+		y_deg:80,
 		z_deg:0
 	},
-},[200000]);
+	"next": {
+		x:2,
+		y:2,
+		z:-2,
+		x_deg:10,
+		y_deg:120,
+		z_deg:0,
+	},
+},[70000]);
 var Objects = new ObjectsContainer();
+
+
+setTimeout(()=>{
+	cameraManager.state = 'next';
+},1000);
+
 
 /////////////////////////////////
 //		ADDITIONAL SETTINGS 
@@ -34,19 +48,13 @@ Objects.setPathToModels("/3dModels/");
 //	  LOAD MODEL FOR EXAMPLE
 /////////////////////////////////
 
-Objects.loadObjects(["3.gltf"]).
+Objects.loadObjects(["FD_V2.glb"]).
 then((Obj_arr)=>{
 	// ADD ALLL MODELS ON SCENE
 	for(var i = 0; i< Obj_arr.length; i++) scene.add(Obj_arr[i].obj);
-
-	// EXAMPLE ANIMATIONS
-	Obj_arr[0].setOptions({loop:true,durationAnimation:4,}).state = "Action";
 	
-	// EXAMPLE ANIMATIONS
-	setTimeout(()=>{
-		Obj_arr[0].state = "Action.002";
-	},2000);
-
+	// // EXAMPLE ANIMATIONS
+	Obj_arr[0].setOptions({loop:THREE.LoopPingPong,durationAnimation:2,}).state = "Way_mode";
 });
 
 
@@ -61,4 +69,3 @@ function renderLoop(time) {
 	requestAnimationFrame(renderLoop);
 };
 renderLoop();
-
