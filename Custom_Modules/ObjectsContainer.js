@@ -21,18 +21,15 @@ class obj_API{
      this.opt = options;
      return this;
     }
-    set state(value){
-        if (!this.currentAction) {
-            this.currentAction = this.findActionByName(value).
-            setLoop(this.opt.loop || THREE.LoopOnce).
-            setDuration(this.opt.durationAnimation || 1).play();
+    set state(value) {
+        if (this.currentAction) {
+            this.currentAction.
+            crossFadeTo(this.findActionByName(value),this.opt.transitionDuration || 0.5);
         }
-        else {
-            this.currentAction = this.currentAction.
-            crossFadeTo(this.findActionByName(value), this.opt.transitionDuration || 1).
-            setLoop(this.opt.loop || THREE.LoopOnce).
-            setDuration(this.opt.durationAnimation || 1).play();
-        }
+
+        this.currentAction = this.findActionByName(value)
+        .setLoop(this.opt.loop ?  THREE.LoopPingPong : THREE.LoopOnce)
+        .setDuration(this.opt.durationAnimation || 1).reset().play();
     }
 }
 
@@ -40,13 +37,13 @@ function ParseObj(Obj) {
     var actions_arr = {}
     var mixer = new THREE.AnimationMixer(Obj.scene);
     var clips = Obj.animations;
-
+    console.log("this animations arr\n ",clips);
+    console.log(Obj);
     for (var c_i in clips) {
         var action = mixer.clipAction(THREE.AnimationClip.findByName(clips, clips[c_i].name));
         action.clampWhenFinished = true;
         actions_arr[clips[c_i].name] = action;
     };
-    console.log(actions_arr);
     return new obj_API(Obj,mixer,actions_arr);
 };
 
