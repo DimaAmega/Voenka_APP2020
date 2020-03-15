@@ -2,7 +2,7 @@ import { GLTFLoader } from "./GLTFLoader"; // GLTF loader
 
 class obj_API {
   constructor(Obj, mixer, actions_arr) {
-    this.name = Obj.scene.name;
+    this.name = Obj.scene.name.replace(/\..+/, ""); // del .glb or smth
     this.animationMixer = mixer;
     this.actions_arr = actions_arr;
     this.obj = Obj.scene;
@@ -20,21 +20,28 @@ class obj_API {
     this.opt = options;
     return this;
   }
-  set state(value) {
-    if (this.currentAction) {
-      this.currentAction.crossFadeTo(
-        this.findActionByName(value),
-        this.opt.transitionDuration || 0.5
-      );
+  applyState(value) {
+    try {
+      if (this.findActionByName(value) == this.currentAction) {
+        return true;
+      }
+      if (this.currentAction) {
+        this.currentAction.crossFadeTo(
+          this.findActionByName(value),
+          this.opt.transitionDuration || 0.5
+        );
+      }
+      this.currentAction = this.findActionByName(value)
+        .setLoop(this.opt.loop ? THREE.LoopPingPong : THREE.LoopOnce)
+        .setDuration(this.opt.durationAnimation || 1)
+        .reset()
+        .play();
+      return true;
+    } catch (e) {
+      return false;
     }
-    this.currentAction = this.findActionByName(value)
-      .setLoop(this.opt.loop ? THREE.LoopPingPong : THREE.LoopOnce)
-      .setDuration(this.opt.durationAnimation || 1)
-      .reset()
-      .play();
   }
 }
-
 function ParseObj(Obj) {
   var actions_arr = {};
   var mixer = new THREE.AnimationMixer(Obj.scene);
@@ -47,8 +54,7 @@ function ParseObj(Obj) {
     actions_arr[clips[c_i].name] = action;
   }
   return new obj_API(Obj, mixer, actions_arr);
-}
-
+};
 var ObjectsContainer = function() {
   ///////////////////////////
   //      PRIVATE

@@ -54,7 +54,6 @@ Objects.setPathToModels("/3dModels/");
 
 Objects.loadObjects(["Cilinder.glb", "Torus.glb", "Cube.glb"]).then(Obj_arr => {
   // ADD ALLL MODELS ON SCENE
-  console.log(Obj_arr[1].obj.name);
   for (var obj of Obj_arr) {
     scene.add(obj.obj);
     obj.setOptions({ loop: true, durationAnimation: 1 });
