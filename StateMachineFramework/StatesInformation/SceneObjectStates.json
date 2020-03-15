@@ -1,8 +1,6 @@
 {
     "SceneObjects": {
-        "door": ["close", "open"],
-        "toy": ["no_have", "have"],
-        "baby":["cry", "not_cry"],
-        "button": ["off", "on"]
+        "Cube": ["Action", "CubeAction"],
+        "Cilinder": ["CylinderAction","CylinderAction.001","CylinderAction.002"]
     }
 }

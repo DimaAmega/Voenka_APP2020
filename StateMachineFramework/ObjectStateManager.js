@@ -24,7 +24,7 @@ class ObjectStateManager {
 //PUBLIC METHODS
     // if state mashine is setted returns true.
     isInitialaized()
-    {
+    {   
         return this.m_stateMashine !== undefined;
     }
 
@@ -88,17 +88,19 @@ class ObjectStateManager {
         for (var i in this.m_objects)
         {
             // TODO Dmitry Horkin use sceneObjects.applyState please ===> DONE
+            if (requiredState[this.m_objects[i].name]) //static objects dont change
             stateApplied = this.m_objects[i].applyState(requiredState[this.m_objects[i].name]);
+            if (!stateApplied) console.log(this.m_objects[i]);
         }
         this.m_stateApplied = stateApplied;
         return stateApplied;
     }
-
+    
 //SETTERS
     set stateMashine(stateMashine)
     {
         if (!this.isInitialaized())
-        {
+        {   
             this.m_stateMashine = stateMashine;
             if (!this.isStateApplyed)
             {
@@ -172,4 +174,5 @@ if (module.parent === null)
 else
 {
     module.exports = ObjectStateManager;
+    // export {ObjectStateManager}
 }

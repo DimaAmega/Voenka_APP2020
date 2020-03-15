@@ -6,6 +6,9 @@ import { OrbitControls } from "../../Custom_Modules/OrbitControls"; // controls,
 import { init } from "../../Custom_Modules/init"; // initialization light position camera and etc.
 import { CameraManager } from "../../Custom_Modules/CameraManager";
 import { ObjectsContainer } from "../../Custom_Modules/ObjectsContainer";
+import {stateMachine,statesDiscriptions,objectStateManager} from "../../Custom_Modules/testStateMacineFramework"
+
+
 /////////////////////////////////
 //		GLOBAL VARAIABLES
 /////////////////////////////////
@@ -58,9 +61,14 @@ Objects.loadObjects(["Cilinder.glb", "Torus.glb", "Cube.glb"]).then(Obj_arr => {
     scene.add(obj.obj);
     obj.setOptions({ loop: true, durationAnimation: 1 });
   }
+  // WE HAVE OUR OBJECTS
+  var SM = new objectStateManager(Obj_arr,statesDiscriptions,0,true);
+  SM.stateMashine = stateMachine;
+  // SEND TO GLOBAL SCOPE
   window.Obj_arr = Obj_arr;
-});
+  window.SM = SM;
 
+});
 ///////////////////////////
 //	    RENDER LOOP
 ///////////////////////////

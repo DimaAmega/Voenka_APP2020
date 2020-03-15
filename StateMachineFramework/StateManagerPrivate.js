@@ -76,7 +76,7 @@ class StateManager {
     
     // This function loggs available transitions
     logAvailableTransitions()
-    {
+    {   
         console.log("Аvalible transitions list:")
         for (var from in this.adjacency_matrix)
         {
