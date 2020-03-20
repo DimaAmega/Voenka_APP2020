@@ -6,9 +6,7 @@ import { OrbitControls } from "../../Custom_Modules/OrbitControls"; // controls,
 import { init } from "../../Custom_Modules/init"; // initialization light position camera and etc.
 import { CameraManager } from "../../Custom_Modules/CameraManager";
 import { ObjectsContainer } from "../../Custom_Modules/ObjectsContainer";
-import {stateMachine,statesDiscriptions,objectStateManager} from "../../Custom_Modules/testStateMacineFramework"
-
-
+import {statesDiscriptions,objectStateManager} from "../../Custom_Modules/statesDObjectSMMiddleware"
 /////////////////////////////////
 //		GLOBAL VARAIABLES
 /////////////////////////////////
@@ -21,57 +19,41 @@ var camera = new THREE.PerspectiveCamera(
   1,
   10000
 );
+var SM; // STATE MANAGER
 var controls = new OrbitControls(camera, renderer.domElement);
-camera.position.set(0, 1, 5);
-controls.update();
-// var cameraManager = new CameraManager({
-// 	"default": {
-// 		x:5,
-// 		y:0,
-// 		z:-1,
-// 		x_deg:0,
-// 		y_deg:80,
-// 		z_deg:0
-// 	},
-// 	"next": {
-// 		x:2,
-// 		y:2,
-// 		z:-2,
-// 		x_deg:10,
-// 		y_deg:120,
-// 		z_deg:0,
-// 	},
-// },[70000]);
 var Objects = new ObjectsContainer();
+Objects.setPathToModels("/3dModels/");
 
 /////////////////////////////////
 //		ADDITIONAL SETTINGS
 /////////////////////////////////
-
 init(scene, camera, renderer);
-Objects.setPathToModels("/3dModels/");
 
 /////////////////////////////////
-//	  LOAD MODEL FOR EXAMPLE
-////////////////////////////////
+//	       LOAD OBJECTS
+/////////////////////////////////
 
-Objects.loadObjects(["Cilinder.glb", "Torus.glb", "Cube.glb"]).then(Obj_arr => {
-  // ADD ALLL MODELS ON SCENE
+Objects.loadObjects(["Cilinder.glb", "Torus.glb", "Cube.glb"])
+.then(Obj_arr => {
   for (var obj of Obj_arr) {
     scene.add(obj.obj);
-    obj.setOptions({ loop: true, durationAnimation: 1 });
+    // obj.setOptions({ loop: false, durationAnimation: 1 });
   }
   // WE HAVE OUR OBJECTS
-  var SM = new objectStateManager(Obj_arr,statesDiscriptions,0,true);
-  SM.stateMashine = stateMachine;
-  // SEND TO GLOBAL SCOPE
-  window.Obj_arr = Obj_arr;
-  window.SM = SM;
 
+  
+  SM = new objectStateManager(Obj_arr,statesDiscriptions);
+  
+  // SET EVENTS ON OBJECTS
+  
+  // SEND TO GLOBAL SCOPE
+  window.SM = SM;
 });
+
 ///////////////////////////
 //	    RENDER LOOP
 ///////////////////////////
+
 function renderLoop(time) {
   var delta = clock.getDelta();
   controls.update();

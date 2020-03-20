@@ -1,3 +1,14 @@
 {
-    "StateTransition":[[0,1],[1,0]]
+    "StateTransitions1":[[0,1],[1,0]],
+    "StateTransitions2":[[0,1],[1,0]],
+    "StateTransitions3":[[0,1],[1,0]],
+    "StateTransitions4":[[0,1],[1,0]],
+    "StateTransitions5":[[0,1],[1,0]],
+    "StateTransitions6":[[0,1],[1,0]],
+    "StateTransitions7":[[0,1],[1,0]],
+    "StateTransitions8":[[0,1],[1,0]],
+    "StateTransitions9":[[0,1],[1,0]],
+    "StateTransitions10":[[0,1],[1,0]],
+    "StateTransitions11":[[0,1],[1,0]],
+    "StateTransitions12":[[0,1],[1,0]]
 }
