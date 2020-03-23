@@ -14,7 +14,6 @@ class ObjectStateManager {
 
     if (!externalStateMachine) {
       var StateManager = require("./StateManagerPrivate");
-
       this.m_stateMashine = new StateManager(objectStateList, currentState);
     }
   }
@@ -70,7 +69,7 @@ class ObjectStateManager {
       return false;
     }
     if (this.m_stateMashine.setCurrentStateNumber(value))
-      this._applyState(this.m_stateMashine.currentState);
+      this._applyState(this.m_stateMashine.currentState); // move objects in start position
   }
 
   // PRIVATE METHODS
