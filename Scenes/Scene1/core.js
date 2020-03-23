@@ -28,32 +28,26 @@ Objects.setPathToModels("/3dModels/");
 //		ADDITIONAL SETTINGS
 /////////////////////////////////
 init(scene, camera, renderer);
-
 /////////////////////////////////
 //	       LOAD OBJECTS
 /////////////////////////////////
-
 Objects.loadObjects(["Cilinder.glb", "Torus.glb", "Cube.glb"])
 .then(Obj_arr => {
   for (var obj of Obj_arr) {
     scene.add(obj.obj);
     // obj.setOptions({ loop: false, durationAnimation: 1 });
   }
-  // WE HAVE OUR OBJECTS
-
-  
+  // WE HAVE OUR OBJECT
   SM = new objectStateManager(Obj_arr,statesDiscriptions);
-  
+  // var C = new Controller(SM)
+  // C.launch(options)
   // SET EVENTS ON OBJECTS
-  
   // SEND TO GLOBAL SCOPE
   window.SM = SM;
 });
-
 ///////////////////////////
 //	    RENDER LOOP
 ///////////////////////////
-
 function renderLoop(time) {
   var delta = clock.getDelta();
   controls.update();
