@@ -10,11 +10,7 @@ $(function(){
        $('.button').addClass('close');
          }
      });
-
-
     $('body').addClass('info_is_visible');
-  
-      
    function removeClasses() {
     $(".menu ul li").each(function() {
       var custom_class = $(this).find('a').data('class');

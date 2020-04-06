@@ -21,7 +21,7 @@ class obj_API {
     return this;
   }
   blindUp(){
-    if (!this.isBlind) this.isBlind = this.findActionByName("Open")
+    if (!this.isBlind) this.isBlind = this.findActionByName("blind")
     .setLoop(this.opt.loop ? THREE.LoopPingPong : THREE.LoopOnce)
     .reset().setDuration(this.opt.durationAnimation || 1).play();
   }
