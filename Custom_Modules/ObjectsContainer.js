@@ -1,5 +1,4 @@
 import { GLTFLoader } from "./GLTFLoader"; // GLTF loader
-
 class obj_API {
   constructor(Obj, mixer, actions_arr) {
     this.name = Obj.scene.name.replace(/\..+/, ""); // del .glb or smth
@@ -7,6 +6,7 @@ class obj_API {
     this.actions_arr = actions_arr;
     this.obj = Obj.scene;
     this.currentAction = undefined;
+    this.isBlind;
     this.opt = {};
   }
   findActionByName(name) {
@@ -19,6 +19,17 @@ class obj_API {
   setOptions(options) {
     this.opt = options;
     return this;
+  }
+  blindUp(){
+    if (!this.isBlind) this.isBlind = this.findActionByName("Open")
+    .setLoop(this.opt.loop ? THREE.LoopPingPong : THREE.LoopOnce)
+    .reset().setDuration(this.opt.durationAnimation || 1).play();
+  }
+  blindOut(){
+    if (this.isBlind){
+      this.findActionByName("Open").fadeOut( this.opt.transitionDuration || 1);
+      this.isBlind = undefined;
+    }
   }
   applyState(value) {
     try {
@@ -61,12 +72,14 @@ var ObjectsContainer = function() {
   ///////////////////////////
   var Object_arr = [];
   var loader = new GLTFLoader();
+  // var loader = new FBXLoader();
   var loadObject = function(PathToObject) {
     return new Promise(function(resolve, reject) {
       loader.load(
         PathToObject,
         Obj => {
           // SET NEAME EVERY OBJECT
+          console.log(Obj);
           Obj.scene.name = PathToObject;
           resolve(Obj);
         },
