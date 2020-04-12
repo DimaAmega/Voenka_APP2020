@@ -6,7 +6,7 @@ class obj_API {
     this.actions_arr = actions_arr;
     this.obj = Obj.scene;
     this.full_obj = Obj;
-    this.currentAction = undefined;
+    this.currentAction = [];
     this.isBlind;
     this.opt = {};
     this.opacity = 1;
@@ -53,16 +53,28 @@ class obj_API {
     });
   }
   applyState(value) {
+    const actions_arr = value.split(", ")
+    const new_currentAction = []
     try {
-      if ( value != "Statick" && this.findActionByName(value) == this.currentAction ) return true;
-      if (this.currentAction) this.currentAction.fadeOut(this.opt.transitionDuration || 1);
-      if (value == "Statick") this.currentAction = undefined;
-      else{
-        this.currentAction = this.findActionByName(value)
+
+      this.currentAction.forEach((el)=>{
+        if(actions_arr.indexOf(el.name) == -1) el.action.fadeOut(this.opt.transitionDuration || 1)
+        else {
+          actions_arr.splice(actions_arr.indexOf(el.name),1);
+          new_currentAction.push(el);
+        }
+        }); 
+      this.currentAction = new_currentAction;
+      if (value== "Statick") { this.currentAction = []; return true;}
+      for (value of actions_arr){
+        this.currentAction.push({name:value,
+          action:
+          this.findActionByName(value)
           .reset()
           .setLoop(this.opt.loop ? THREE.LoopPingPong : THREE.LoopOnce)
           .setDuration(this.opt.durationAnimation || 1)
-          .play();
+          .play()
+        });
       }
       return true;
     } catch (e) {
