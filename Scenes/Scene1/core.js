@@ -36,7 +36,7 @@ init(scene, camera, renderer);
 /////////////////////////////////
 //	       LOAD OBJECTS
 /////////////////////////////////
-Objects.loadObjects(["Back_door.gltf","Cap_of_PPO.gltf","Front_door.gltf","Main_part.gltf","Cilinder.glb"]) 
+Objects.loadObjects(["Left_valwe.gltf","Back_door.gltf","Cap_of_PPO.gltf","Front_door.gltf","Main_part.gltf","Cilinder.glb"]) 
 // Objects.loadObjects(["Back_door.gltf"])                                            
 .then(Obj_arr => {
   for (var obj of Obj_arr) {
