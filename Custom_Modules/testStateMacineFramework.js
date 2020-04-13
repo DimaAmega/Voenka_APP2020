@@ -13,4 +13,4 @@ StateManagerPrivate = new StateManagerPrivate(statesDiscriptions)
 StateManagerPrivate.setConnection(transitionInfo["StateTransition"])
 var objectStateManager = require("../StateMachineFramework/ObjectStateManager");
 
-export {StateManagerPrivate as stateMachine,statesDiscriptions,objectStateManager}
+export {StateManagerPrivate as stateMachine,statesDiscriptions,objectStateManager,localObjectStates} 
