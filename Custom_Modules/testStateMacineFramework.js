@@ -10,7 +10,7 @@ var transitionInfo = require("../StateMachineFramework/StatesInformation/StatesT
 var statesDiscriptions = statesCreator.objectProduct(localObjectStates["SceneObjects"]);
 var StateManagerPrivate = require("../StateMachineFramework/StateManagerPrivate");
 StateManagerPrivate = new StateManagerPrivate(statesDiscriptions)
-StateManagerPrivate.setConnection(transitionInfo["StateTransition"])
+StateManagerPrivate.setConnection(transitionInfo["StateTransitions1"])
 var objectStateManager = require("../StateMachineFramework/ObjectStateManager");
 
 export {StateManagerPrivate as stateMachine,statesDiscriptions,objectStateManager,localObjectStates} 

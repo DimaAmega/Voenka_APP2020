@@ -1,7 +1,4 @@
 {
-<<<<<<< HEAD
-    "StateTransition":[[0,1],[1,5],[5,0]]
-=======
     "StateTransitions1":[[0,1],[1,0]],
     "StateTransitions2":[[0,1],[1,0]],
     "StateTransitions3":[[0,1],[1,0]],
@@ -14,5 +11,4 @@
     "StateTransitions10":[[0,1],[1,0]],
     "StateTransitions11":[[0,1],[1,0]],
     "StateTransitions12":[[0,1],[1,0]]
->>>>>>> 353ec2c9ebf4a27939008c590119ce532151ec79
 }

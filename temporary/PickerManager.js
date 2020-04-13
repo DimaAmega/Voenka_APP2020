@@ -28,57 +28,69 @@ class PickerManager {
         }
         // before creation
         this._processInitialParameters(domObject, camera, scene, states, stateMachine);
-        
+
         this.m_raycaster = new THREE.Raycaster();
         this.m_mouse_position = new THREE.Vector2();
+        this.m_pastMousePosition = new THREE.Vector2();
         this.m_currentState = currentState;
-        
+
         this.m_lastHighlightedShape = "";
         this.m_lastClickedShape = "";
+        this.m_checkIntersects = false;
     }
 
     // PUBLIC FUNCTIONS
-    set state(state)
-    {
-        if (state !== this.m_currentState)
-        {
+    set state(state) {
+        if (state !== this.m_currentState) {
             this.m_currentState = state;
         }
     }
 
-    lock()
-    {
+    lock() {
         this.m_lastReceivedState = this.m_currentState;
         this.m_currentState = "lockState";
     }
 
-    unLock()
-    {
+    unLock() {
         this.m_currentState = this.m_lastReceivedState;
     }
 
-    isInitialaized()
-    {
+    isInitialaized() {
         return this.m_states && this.m_stateMachine;
     }
-    
+
+    startToCheckIntersects() {
+        if (this.m_checkIntersects) {
+            return;
+        }
+
+        this.m_checkIntersects = true;
+        setInterval(() => {
+
+            if (this._checkIntersects()) {
+                this.m_domObject.style.cursor = "pointer";
+            }
+            else {
+                this.m_domObject.style.cursor = "default";
+            }
+            // this._sendStateMashineRequest(HIGHLIGHT_REQUEST, this.m_lastHighlightedShape);
+        }, 300);
+    }
+
     // The function finds the required state by trigger object and return founded state name, if there is no state return undefined.
     requiredState(triggerObject) {
-        for(let stateName in this.m_states)
-        {
+        for (let stateName in this.m_states) {
             let stateTriggerAction = this.m_states[stateName]["triggerAction"];
-            if (triggerObject && stateTriggerAction 
+            if (triggerObject && stateTriggerAction
                 && stateTriggerAction["name"] === triggerObject["name"]
-                && stateTriggerAction["state"] === triggerObject["state"])
-                {
-                    return stateName;
-                }
+                && stateTriggerAction["state"] === triggerObject["state"]) {
+                return stateName;
+            }
         }
         return undefined;
     }
     // PRIVATE FUNCTIONS
-    _sendStateMashineRequest(requestID, requestArguments)
-    {
+    _sendStateMashineRequest(requestID, requestArguments) {
         switch (requestID) {
             case TRANSITION_REQUEST:
                 this.m_stateMachine.transition(requestArguments);
@@ -93,6 +105,7 @@ class PickerManager {
     }
 
     _checkIntersects() {
+        //return back
         if (!this.m_raycaster || !this.m_camera) {
             console.log("Error: raycaster and camera are requred");
             return;
@@ -115,10 +128,8 @@ class PickerManager {
         let clickableObjects = this.m_states[this.m_currentState]["ClickableItems"]
 
         if (firstIntersectObject) {
-            for (let clickableObjectName in clickableObjects)
-            {
-                if (clickableObjectName === foundedName)
-                {
+            for (let clickableObjectName in clickableObjects) {
+                if (clickableObjectName === foundedName) {
                     let clickedObject = clickableObjects[foundedName]["triggerAction"];
                     let highlightedObject = clickableObjects[foundedName]["highlightObject"];
 
@@ -128,7 +139,7 @@ class PickerManager {
                 }
             }
         }
-        
+
         this._updateClickedObject(undefined);
         this._updateHighlightObject(undefined);
         return false;
@@ -136,19 +147,12 @@ class PickerManager {
 
     _onMouseMoveCallback(event) {
         this._resetMousePosotion(event);
-        if (this._checkIntersects()) {
-            this.m_domObject.style.cursor = "pointer";
-        }
-        else {
-            this.m_domObject.style.cursor = "default";
-        }
-        this._sendStateMashineRequest(HIGHLIGHT_REQUEST, this.m_lastHighlightedShape);
     }
 
     _onMouseClickCallback(event) {
         this._checkIntersects();
         this._sendStateMashineRequest(TRANSITION_REQUEST, this.m_lastClickedShape);
-        
+
     }
 
     _processInitialParameters(domObject, camera, scene, states, stateMachine) {
@@ -165,13 +169,11 @@ class PickerManager {
             this.m_scene = scene;
         }
 
-        if (states)
-        {
+        if (states) {
             this.m_states = states;
         }
 
-        if (stateMachine) 
-        {
+        if (stateMachine) {
             this.m_stateMachine = stateMachine;
         }
         else {
@@ -181,33 +183,33 @@ class PickerManager {
 
     _processMouseCallbacks() {
         if (this.m_domObject) {
-            this.m_domObject.addEventListener("mousemove",this._onMouseMoveCallback.bind(this));
-            this.m_domObject.addEventListener("click",this._onMouseClickCallback.bind(this));
+            this.m_domObject.addEventListener("mousemove", this._onMouseMoveCallback.bind(this));
+            this.m_domObject.addEventListener("click", this._onMouseClickCallback.bind(this));
         }
     }
 
     _resetMousePosotion(event) {
+        this.m_pastMousePosition.x = this.m_mouse_position.x;
+        this.m_pastMousePosition.y = this.m_mouse_position.y;
+
         this.m_mouse_position.x = (event.clientX / window.innerWidth) * 2 - 1;
         this.m_mouse_position.y = - (event.clientY / window.innerHeight) * 2 + 1;
     }
 
-    _updateClickedObject(object)
-    {
+    _updateClickedObject(object) {
         if (this.m_lastClickedShape != object) {
             this.m_lastClickedShape = object;
         }
     }
 
-    _updateHighlightObject(object)
-    {
+    _updateHighlightObject(object) {
         if (this.m_lastHighlightedShape != object) {
             this.m_lastHighlightedShape = object;
         }
     }
 };
 
-if (module.parent === null)
-{
+if (module.parent === null) {
     // test your picker manager here
 }
 else {
