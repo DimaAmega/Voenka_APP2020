@@ -6,20 +6,17 @@ import { OrbitControls } from "../../Custom_Modules/OrbitControls"; // controls,
 import { init } from "../../Custom_Modules/init"; // initialization light position camera and etc.
 import { CameraManager } from "../../Custom_Modules/CameraManager";
 import { ObjectsContainer } from "../../Custom_Modules/ObjectsContainer";
-<<<<<<< HEAD
 import {stateMachine,statesDiscriptions,objectStateManager,localObjectStates} from "../../Custom_Modules/testStateMacineFramework"
 import { SmoothShading } from "../../build/three.module";
 // import { Pickermanager} from "../../"
 
 var PickerManagerClass = require("../../temporary/PickerManager");
 
-=======
-import {statesDiscriptions,objectStateManager} from "../../Custom_Modules/statesDObjectSMMiddleware"
+// import {statesDiscriptions,objectStateManager} from "../../Custom_Modules/statesDObjectSMMiddleware"
 import {tips} from "../../temporary/tips"
 var t = new tips();
 t.show();
 window.t = t;
->>>>>>> 353ec2c9ebf4a27939008c590119ce532151ec79
 /////////////////////////////////
 //		GLOBAL VARAIABLES
 /////////////////////////////////
@@ -27,7 +24,6 @@ var scene = new THREE.Scene();
 var renderer = new THREE.WebGLRenderer({powerPreference:"high-performance",antialias:true,precision:"highp"});
 window.renderer = renderer;
 var clock = new THREE.Clock();
-<<<<<<< HEAD
 var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
 var controls = new OrbitControls(camera, renderer.domElement);
 
@@ -63,16 +59,13 @@ controls.update();
 
 
 
-=======
 var camera = new THREE.PerspectiveCamera(
   45,
   window.innerWidth / window.innerHeight,
   0.01,
   1000
 );
-var SM; // STATE MANAGER
 var controls = new OrbitControls(camera, renderer.domElement);
->>>>>>> 353ec2c9ebf4a27939008c590119ce532151ec79
 var Objects = new ObjectsContainer();
 Objects.setPathToModels("/3dModels/");
 
@@ -91,37 +84,26 @@ Objects.loadObjects(["Left_valwe.gltf","Back_door.gltf","Cap_of_PPO.gltf","Front
     window.Obj_arr = Obj_arr
     // obj.setOptions({ loop: false, durationAnimation: 1 });
   }
-<<<<<<< HEAD
   console.log(Obj_arr);
   // WE HAVE OUR OBJECTS
-  var SM = new objectStateManager(Obj_arr,statesDiscriptions,0,true);
+  var SM = new objectStateManager(Obj_arr,statesDiscriptions, 0, true);
   var pickerManager = new PickerManagerClass(renderer.domElement, camera,
-     scene, localObjectStates[pickerManagerStatesString], SM);
-  SM.stateMashine = stateMachine;
+     scene, localObjectStates[pickerManagerStatesString], SM, "firstState");
+     SM.stateMashine = stateMachine;
   
   SM.pickerManager = pickerManager;
   console.log("HELLO");
   if (SM.isInitialaized() && pickerManager.isInitialaized())
   {
     console.log("HELLO");
+    pickerManager.startToCheckIntersects();
   }
-=======
-  // WE HAVE OUR OBJECT
-  SM = new objectStateManager(Obj_arr,statesDiscriptions);
-  // var C = new Controller(SM)
-  // C.launch(options)
-  // SET EVENTS ON OBJECTS
->>>>>>> 353ec2c9ebf4a27939008c590119ce532151ec79
   // SEND TO GLOBAL SCOPE
   window.SM = SM;
-<<<<<<< HEAD
-=======
-  /*
+
   Obj_arr[1].applyState("Open");
   Obj_arr[1].applyState("Flip");
   Obj_arr[2].applyState("Flip_lock");
-  */
->>>>>>> 353ec2c9ebf4a27939008c590119ce532151ec79
 });
 ///////////////////////////
 //	    RENDER LOOP
