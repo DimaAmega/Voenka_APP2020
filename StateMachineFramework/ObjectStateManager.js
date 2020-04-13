@@ -22,19 +22,27 @@ class ObjectStateManager {
     }
 
 //PUBLIC METHODS
-    // if state mashine is setted returns true.
+    // If private state machine is setted and picker manager setted -> return true
     isInitialaized()
     {   
-        return this.m_stateMashine !== undefined;
+        return this.m_stateMashine && this.m_pickerManager;
     }
 
     //This function requests transition to different steta and calls apply state for 3d objects
     // return true if transition passed.
-    transition(localName, localState)
+    transition(localObject)
     {
+        let localName = localObject["name"];
+        let localState = localObject["state"];
+        
+        // This call sets state for picker manager
+        this._checkPickerState(localObject);
+        this._lockPickerManager();
+
         if (!this.isInitialaized())
         {
             console.log("Error: state mashine is undefined");
+            this._unlockPickerManager();
             return false;
         }
 
@@ -44,6 +52,7 @@ class ObjectStateManager {
         if (requiredState === undefined)
         {
             console.log("There is no transition to state");
+            this._unlockPickerManager();
             return false;
         }
         else {
@@ -51,10 +60,12 @@ class ObjectStateManager {
             if (this._applyState(requiredState))
             {
                 console.log("Current state is", requiredState);
+                this._unlockPickerManager();
                 return true;
             }
             else {
                 console.log("Error: Cannot set new current state", requiredState);
+                this._unlockPickerManager();
                 return false;
             }
         }
@@ -95,6 +106,38 @@ class ObjectStateManager {
         this.m_stateApplied = stateApplied;
         return stateApplied;
     }
+
+    _checkPickerState(localObject)
+    {
+        if (!this.m_pickerManager)
+        {
+            console.log("ERROR: pickerManager isn't setted");
+            return;
+        }
+
+        let foundedPickerState = this.m_pickerManager.requiredState(localObject);
+
+        if (foundedPickerState)
+        {
+            this.m_pickerManager.state = foundedPickerState;
+        }
+    }
+
+    _lockPickerManager()
+    {
+        if (this.m_pickerManager)
+        {
+            this.m_pickerManager.lock();
+        }
+    }
+
+    _unlockPickerManager()
+    {
+        if (this.m_pickerManager)
+        {
+            this.m_pickerManager.unLock();
+        }
+    }
     
 //SETTERS
     set stateMashine(stateMashine)
@@ -125,6 +168,13 @@ class ObjectStateManager {
         this.m_stateMashine.setConnection(newTransitions);
     }
 
+    set pickerManager(pickerManager)
+    {
+        if (pickerManager && !this.m_pickerManager) {
+            this.m_pickerManager = pickerManager;
+        }
+    }
+//GETTERS
     get isStateApplyed()
     {
         return this.m_stateApplied;

@@ -1,6 +1,61 @@
 {
     "SceneObjects": {
-        "Cube": ["Action", "CubeAction"],
-        "Cilinder": ["CylinderAction","CylinderAction.001","CylinderAction.002"]
+        "Cube": [
+            "Action",
+            "CubeAction"
+        ],
+        "Cilinder": [
+            "CylinderAction",
+            "CylinderAction.001",
+            "CylinderAction.002"
+        ]
+    },
+    "pickerManagerStates": {
+        "firstState": {
+            "ClickableItems": {
+                "Cylinder": {
+                    "triggerAction": {
+                        "name": "Cilinder",
+                        "state": "CylinderAction.001"
+                    },
+                    "highlightObject": "Cilinder"
+                },
+                "Cube": {
+                    "triggerAction": {
+                        "name": "Cube",
+                        "state": "CubeAction"
+                    },
+                    "highlightObject": "Cube"
+                },
+                "Torus": {
+                    "triggerAction": {
+                        "name": "Cube",
+                        "state": "Action"
+                    },
+                    "highlightObject": "Torus"
+                }
+            },
+            "triggerAction": {
+                "name": "Cube",
+                "state": "Action"
+            }
+        },
+        "secondState": {
+            "ClickableItems": {
+                "Torus": {
+                    "triggerAction": {
+                        "name": "Cube",
+                        "state": "Action"
+                    },
+                    "highlightObject": "Torus"
+                }
+            },
+            "triggerAction": {
+                "name": "Cube",
+                "state": "CubeAction"
+            }
+        },
+        "lockedState": {
+        }
     }
 }
