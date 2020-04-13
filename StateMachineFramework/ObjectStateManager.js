@@ -1,25 +1,22 @@
 //This class map real 3d objects and their names
 class ObjectStateManager {
-    // текущее состояние, список реальных объектов в сцене, объект с состояниями подобъектов
-    constructor(sceneObjects, objectStateList,
-         currentState = 0, externalStateMachine = false, transitions = [])
-    {
-        this.m_objects = sceneObjects;
-        
-        this.m_stateApplied = false;
+  // текущее состояние, список реальных объектов в сцене, объект с состояниями подобъектов
+  constructor(
+    sceneObjects,
+    objectStateList,
+    currentState = 0,
+    externalStateMachine = false,
+    transitions = []
+  ) {
+    this.m_objects = sceneObjects;
 
-        if (!externalStateMachine)
-        {
-            var StateManager = require("./StateManagerPrivate");
+    this.m_stateApplied = false;
 
-            this.m_stateMashine = new StateManager(objectStateList, currentState);
-            if (!this.isStateApplyed)
-            {
-                console.log("!@# apply state");
-                this._applyState(this.m_stateMashine.stateByNumber(currentState));
-            }
-        }
+    if (!externalStateMachine) {
+      var StateManager = require("./StateManagerPrivate");
+      this.m_stateMashine = new StateManager(objectStateList, currentState);
     }
+  }
 
 //PUBLIC METHODS
     // If private state machine is setted and picker manager setted -> return true
@@ -70,41 +67,44 @@ class ObjectStateManager {
             }
         }
     }
-    
-    // This function loggs valid transitions
-    showAvailableTransitions()
-    {
-        this.m_stateMashine.logAvailableTransitions();
+  }
+  // This function loggs valid transitions
+  showAvailableTransitions() {
+    this.m_stateMashine.logAvailableTransitions();
+  }
+  showAllStates() {
+    this.m_stateMashine.logAllStates();
+  }
+  changeCurrentState(value) {
+    if (!this.isInitialaized()) {
+      console.log("Error: state mashine is undefined");
+      return false;
+    }
+    if (this.m_stateMashine.setCurrentStateNumber(value))
+      this._applyState(this.m_stateMashine.currentState); // move objects in start position
+  }
+
+  // PRIVATE METHODS
+  //This function apply state
+  // state is JS Object with local names and states
+  _applyState(requiredState) {
+    if (typeof requiredState != "object") {
+      console.log("Error: incorrect empty state");
+      return false;
     }
 
-    showAllStates()
-    {
-        this.m_stateMashine.logAllStates();
-    }
-
-// PRIVATE METHODS
-    //This function apply state 
-    // state is JS Object with local names and states
-    _applyState(requiredState)
-    {
-        if (typeof(requiredState)!="object")
-        {
-            console.log("Error: incorrect empty state");
-            return false;
-        }
-
-        var stateApplied = true;
-        // if every object return true -> stateApplyed and everything worked correct
-        // else ->  badState naming or something else
-        for (var i in this.m_objects)
-        {
-            // TODO Dmitry Horkin use sceneObjects.applyState please ===> DONE
-            if (requiredState[this.m_objects[i].name]) //static objects dont change
-            stateApplied = this.m_objects[i].applyState(requiredState[this.m_objects[i].name]);
-            if (!stateApplied) console.log(this.m_objects[i]);
-        }
-        this.m_stateApplied = stateApplied;
-        return stateApplied;
+    var stateApplied = true;
+    // if every object return true -> stateApplyed and everything worked correct
+    // else ->  badState naming or something else
+    for (var i in this.m_objects) {
+      // TODO Dmitry Horkin use sceneObjects.applyState please ===> DONE
+      if (requiredState[this.m_objects[i].name])
+        //static objects dont change
+        stateApplied = this.m_objects[i].applyState(
+          requiredState[this.m_objects[i].name]
+        );
+      if (!stateApplied)
+        console.log("WRONG, this obj don't change", this.m_objects[i]);
     }
 
     _checkPickerState(localObject)
@@ -179,50 +179,19 @@ class ObjectStateManager {
     {
         return this.m_stateApplied;
     }
+
+    this.m_stateMashine.setConnection(newTransitions);
+  }
+
+  get isStateApplyed() {
+    return this.m_stateApplied;
+  }
+  //GETTERS
+  get currentStateNumber() {
+    return this.m_stateMashine.currentStateNumber;
+  }
+  get currentState() {
+    return this.m_stateMashine.currentState;
+  }
 }
-if (module.parent === null)
-{
-    console.log("Local usage")
-
-    var StatesCreator = require("./StatesObjectCreator");
-    var transitionInfo = require("./StatesInformation/StatesTransitions");
-    var localObjectStates = require("./StatesInformation/SceneObjectStates");
-
-    var statesCreator = new StatesCreator();
-    
-    var StateManagerPrivate = require("./StateManagerPrivate");
-    var states = statesCreator.objectProduct(localObjectStates["SceneObjects"]);
-    
-    // set if you want different sequence
-    var useExternalStateManager = true;
-    // var useExternalStateManager = false;
-
-    if (useExternalStateManager)
-    {
-        //agregation
-        var stateManagerPrivate = new StateManagerPrivate(states).setConnection(transitionInfo["StateTransition"]);
-        var objectStateManager = new ObjectStateManager([], states, 0, true);
-        
-        //set external state manager
-        objectStateManager.stateMashine = stateManagerPrivate;
-    }
-    else
-    {
-        // create state manager with first state and inline stateManager
-        // TODO Dmitry Horkin use right sceneObjects
-        sceneObjects = []
-        var objectStateManager = new ObjectStateManager(sceneObjects, states);
-    }
-    //try to use ObjectStateManager
-    objectStateManager.transitions = transitionInfo["StateTransition"];
-    objectStateManager.showAvailableTransitions();
-    objectStateManager.showAllStates();
-
-    objectStateManager.transition("door", "open");
-    console.log(objectStateManager.isStateApplyed);
-}
-else
-{
-    module.exports = ObjectStateManager;
-    // export {ObjectStateManager}
-}
+module.exports = ObjectStateManager;
