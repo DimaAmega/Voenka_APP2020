@@ -1,43 +1,28 @@
 {
     "SceneObjects": {
-        "Cube": [
-            "Action",
-            "CubeAction"
+        "Cap_of_PPO": [
+            "Statick",
+            "Open"
         ],
-        "Cilinder": [
-            "CylinderAction",
-            "CylinderAction.001",
-            "CylinderAction.002"
+        "Back_door":[
+            "Statick",
+            "Open"
         ]
     },
     "pickerManagerStates": {
         "firstState": {
             "ClickableItems": {
-                "Cylinder": {
+                "Cap_of_PPO": {
                     "triggerAction": {
-                        "name": "Cilinder",
-                        "state": "CylinderAction.001"
+                        "name": "Cap_of_PPO",
+                        "state": "Open"
                     },
-                    "highlightObject": "Cilinder"
-                },
-                "Cube": {
-                    "triggerAction": {
-                        "name": "Cube",
-                        "state": "CubeAction"
-                    },
-                    "highlightObject": "Cube"
-                },
-                "Torus": {
-                    "triggerAction": {
-                        "name": "Cube",
-                        "state": "Action"
-                    },
-                    "highlightObject": "Torus"
+                    "highlightObject": "Cap_of_PPO"
                 }
             },
             "triggerAction": {
-                "name": "Cube",
-                "state": "Action"
+                "name": "***",
+                "state": "Open"
             }
         },
         "secondState": {

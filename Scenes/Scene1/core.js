@@ -6,14 +6,19 @@ import { OrbitControls } from "../../Custom_Modules/OrbitControls"; // controls,
 import { init } from "../../Custom_Modules/init"; // initialization light position camera and etc.
 import { CameraManager } from "../../Custom_Modules/CameraManager";
 import { ObjectsContainer } from "../../Custom_Modules/ObjectsContainer";
-import {stateMachine,statesDiscriptions,objectStateManager,localObjectStates} from "../../Custom_Modules/testStateMacineFramework"
+import {
+  stateMachine,
+  statesDiscriptions,
+  objectStateManager,
+  localObjectStates,
+} from "../../Custom_Modules/testStateMacineFramework";
 import { SmoothShading } from "../../build/three.module";
 // import { Pickermanager} from "../../"
 
 var PickerManagerClass = require("../../temporary/PickerManager");
 
 // import {statesDiscriptions,objectStateManager} from "../../Custom_Modules/statesDObjectSMMiddleware"
-import {tips} from "../../temporary/tips"
+import { tips } from "../../temporary/tips";
 var t = new tips();
 t.show();
 window.t = t;
@@ -21,12 +26,20 @@ window.t = t;
 //		GLOBAL VARAIABLES
 /////////////////////////////////
 var scene = new THREE.Scene();
-var renderer = new THREE.WebGLRenderer({powerPreference:"high-performance",antialias:true,precision:"highp"});
+var renderer = new THREE.WebGLRenderer({
+  powerPreference: "high-performance",
+  antialias: true,
+  precision: "highp",
+});
 window.renderer = renderer;
 var clock = new THREE.Clock();
-var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
+var camera = new THREE.PerspectiveCamera(
+  45,
+  window.innerWidth / window.innerHeight,
+  1,
+  10000
+);
 var controls = new OrbitControls(camera, renderer.domElement);
-
 
 // PICKER MANAGer TEST
 
@@ -55,10 +68,6 @@ controls.update();
 // 	},
 // },[70000]);
 
-
-
-
-
 var camera = new THREE.PerspectiveCamera(
   45,
   window.innerWidth / window.innerHeight,
@@ -76,35 +85,55 @@ init(scene, camera, renderer);
 /////////////////////////////////
 //	       LOAD OBJECTS
 /////////////////////////////////
-Objects.loadObjects(["Left_valwe.gltf","Back_door.gltf","Cap_of_PPO.gltf","Front_door.gltf","Main_part.gltf","Cilinder.glb"]) 
-// Objects.loadObjects(["Back_door.gltf"])                                            
-.then(Obj_arr => {
-  for (var obj of Obj_arr) {
-    scene.add(obj.obj);
-    window.Obj_arr = Obj_arr
-    // obj.setOptions({ loop: false, durationAnimation: 1 });
-  }
-  console.log(Obj_arr);
-  // WE HAVE OUR OBJECTS
-  var SM = new objectStateManager(Obj_arr,statesDiscriptions, 0, true);
-  var pickerManager = new PickerManagerClass(renderer.domElement, camera,
-     scene, localObjectStates[pickerManagerStatesString], SM, "firstState");
-     SM.stateMashine = stateMachine;
-  
-  SM.pickerManager = pickerManager;
-  console.log("HELLO");
-  if (SM.isInitialaized() && pickerManager.isInitialaized())
-  {
-    console.log("HELLO");
-    pickerManager.startToCheckIntersects();
-  }
-  // SEND TO GLOBAL SCOPE
-  window.SM = SM;
+Objects.loadObjects([
+  "Main_part.gltf",
+  "base.gltf",
+  "Cube.gltf",
+  "Cube_1.gltf",
+  "Cube_2.gltf",
+  "Anvil.gltf",
+  "Lock_1.gltf",
+  "Oil_Tank.gltf",
+  "Support1.gltf",
+  "Support2.gltf",
+  "Support3.gltf",
+  "Support4.gltf",
+  "Back_door.gltf",
+  "Cap_of_PPO.gltf",
+  "Front_door.gltf",
+  "Left_valwe.gltf",
+  "Right_valve.gltf",
+  "ValveBotL_1.gltf",
+  "Power_checker.gltf",
+  "TPK_small_very.gltf",
+])
+  // Objects.loadObjects(["Back_door.gltf"])
+  .then((Obj_arr) => {
+    for (var obj of Obj_arr) {
+      scene.add(obj.obj);
+      window.Obj_arr = Obj_arr;
+      // obj.setOptions({ loop: false, durationAnimation: 1 });
+    }
+    console.log(Obj_arr);
+    // WE HAVE OUR OBJECTS
+    var SM = new objectStateManager(Obj_arr, statesDiscriptions, 0, true);
+    var pickerManager = new PickerManagerClass(
+      renderer.domElement,
+      camera,
+      scene,
+      localObjectStates[pickerManagerStatesString],
+      SM,
+      "firstState"
+    );
+    SM.stateMashine = stateMachine;
 
-  Obj_arr[1].applyState("Open");
-  Obj_arr[1].applyState("Flip");
-  Obj_arr[2].applyState("Flip_lock");
-});
+    SM.pickerManager = pickerManager;
+    if (SM.isInitialaized() && pickerManager.isInitialaized()) {
+      pickerManager.startToCheckIntersects();
+    }
+    // SEND TO GLOBAL SCOPE
+    window.SM = SM;
+  });
 ///////////////////////////
 //	    RENDER LOOP
 ///////////////////////////

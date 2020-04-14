@@ -1,5 +1,5 @@
 {
-    "StateTransitions1":[[0,1],[1,0]],
+    "StateTransitions1":[[0,2],[2,0]],
     "StateTransitions2":[[0,1],[1,0]],
     "StateTransitions3":[[0,1],[1,0]],
     "StateTransitions4":[[0,1],[1,0]],

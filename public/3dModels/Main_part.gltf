@@ -626,6 +626,12 @@
   "materials": [
     {
       "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.311320782,
+          0.311320782,
+          0.311320782,
+          1.0
+        ],
         "baseColorTexture": {
           "index": 0,
           "extensions": {
@@ -806,9 +812,9 @@
     {
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.256,
-          0.7909333,
-          0.8,
+          0.0,
+          0.6226415,
+          0.5419299,
           1.0
         ],
         "metallicFactor": 0.0
@@ -898,6 +904,12 @@
     },
     {
       "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.754717,
+          0.754717,
+          0.754717,
+          1.0
+        ],
         "baseColorTexture": {
           "index": 12,
           "extensions": {

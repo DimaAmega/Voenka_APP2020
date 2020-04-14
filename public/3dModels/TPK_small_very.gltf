@@ -1,0 +1,407 @@
+{
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 432672,
+      "type": "VEC3",
+      "max": [
+        0.78387099504470825,
+        1.9602998495101929,
+        1.030409574508667
+      ],
+      "min": [
+        -3.776503324508667,
+        -0.058984998613595963,
+        -1.030409574508667
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 432672,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 432672,
+      "type": "VEC4",
+      "max": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 432672,
+      "type": "VEC2",
+      "max": [
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5125,
+      "count": 1996476,
+      "type": "SCALAR",
+      "max": [
+        391683.0
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5125,
+      "count": 216864,
+      "type": "SCALAR",
+      "max": [
+        432671.0
+      ],
+      "min": [
+        391684.0
+      ]
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "count": 270,
+      "type": "SCALAR",
+      "max": [
+        8.9666671752929688
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5126,
+      "count": 270,
+      "type": "VEC3",
+      "max": [
+        5.7553911209106445,
+        1.3173482418060303,
+        -0.72073692083358765
+      ],
+      "min": [
+        5.7553911209106445,
+        1.3173482418060303,
+        -0.72073692083358765
+      ]
+    },
+    {
+      "bufferView": 8,
+      "componentType": 5126,
+      "count": 270,
+      "type": "VEC4",
+      "max": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0,
+        -0.70709729194641113,
+        0.70711630582809448
+      ]
+    },
+    {
+      "bufferView": 9,
+      "componentType": 5126,
+      "count": 270,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 0,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 1,
+          "target": {
+            "node": 0,
+            "path": "rotation"
+          }
+        },
+        {
+          "sampler": 2,
+          "target": {
+            "node": 0,
+            "path": "scale"
+          }
+        }
+      ],
+      "samplers": [
+        {
+          "input": 6,
+          "output": 7
+        },
+        {
+          "input": 6,
+          "output": 8
+        },
+        {
+          "input": 6,
+          "output": 9
+        }
+      ],
+      "name": "GoUp"
+    }
+  ],
+  "asset": {
+    "generator": "Plattar UnityGLTF (2019.3.8f1)",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "uri": "TPK_small_very.bin",
+      "byteLength": 29633496
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 5192064
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 5192064,
+      "byteLength": 5192064
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 10384128,
+      "byteLength": 6922752
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 17306880,
+      "byteLength": 3461376
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 20768256,
+      "byteLength": 7985904
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 28754160,
+      "byteLength": 867456
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 29621616,
+      "byteLength": 1080
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 29622696,
+      "byteLength": 3240
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 29625936,
+      "byteLength": 4320
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 29630256,
+      "byteLength": 3240
+    }
+  ],
+  "images": [
+    {
+      "uri": "MetalDusty.jpg",
+      "name": "MetalDusty"
+    },
+    {
+      "uri": "Armydiarrhea.jpg",
+      "name": "Armydiarrhea"
+    },
+    {
+      "uri": "TLCCAP.jpg",
+      "name": "TLCCAP"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 1,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "normalTexture": {
+        "index": 0,
+        "extensions": {
+          "KHR_texture_transform": {
+            "offset": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "name": "Армейский поносный_3"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 2,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "normalTexture": {
+        "index": 0,
+        "extensions": {
+          "KHR_texture_transform": {
+            "offset": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "name": "TLCCAP"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 5,
+          "material": 1
+        }
+      ],
+      "name": "TPK_small_very"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "translation": [
+        5.755391,
+        1.31734824,
+        0.7207369
+      ],
+      "name": "TPK_small_very"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9729
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "TPK_small_very"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "MetalDusty"
+    },
+    {
+      "sampler": 0,
+      "source": 1,
+      "name": "Armydiarrhea"
+    },
+    {
+      "sampler": 0,
+      "source": 2,
+      "name": "TLCCAP"
+    }
+  ]
+}

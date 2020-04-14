@@ -72,7 +72,7 @@ class obj_API {
           this.findActionByName(value)
           .reset()
           .setLoop(this.opt.loop ? THREE.LoopPingPong : THREE.LoopOnce)
-          .setDuration(this.opt.durationAnimation || 1)
+          // .setDuration(this.opt.durationAnimation || 1)
           .play()
         });
       }

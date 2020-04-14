@@ -94,10 +94,10 @@
     {
       "bufferView": 6,
       "componentType": 5126,
-      "count": 60,
+      "count": 82,
       "type": "SCALAR",
       "max": [
-        1.9666668176651
+        2.7000000476837158
       ],
       "min": [
         0.0
@@ -106,7 +106,7 @@
     {
       "bufferView": 7,
       "componentType": 5126,
-      "count": 60,
+      "count": 82,
       "type": "VEC3",
       "max": [
         3.3053703308105469,
@@ -122,87 +122,25 @@
     {
       "bufferView": 8,
       "componentType": 5126,
-      "count": 60,
+      "count": 82,
       "type": "VEC4",
       "max": [
-        0.27982044219970703,
+        0.45946583151817322,
         0.0,
         0.0,
-        0.99997472763061523
+        0.99972212314605713
       ],
       "min": [
-        -0.70710676908493042,
+        -0.70715850591659546,
         0.0,
         0.0,
-        0.70710676908493042
+        0.70705503225326538
       ]
     },
     {
       "bufferView": 9,
       "componentType": 5126,
-      "count": 60,
-      "type": "VEC3",
-      "max": [
-        1.0,
-        1.0,
-        1.0
-      ],
-      "min": [
-        1.0,
-        1.0,
-        1.0
-      ]
-    },
-    {
-      "bufferView": 10,
-      "componentType": 5126,
-      "count": 45,
-      "type": "SCALAR",
-      "max": [
-        1.4666666984558105
-      ],
-      "min": [
-        0.0
-      ]
-    },
-    {
-      "bufferView": 11,
-      "componentType": 5126,
-      "count": 45,
-      "type": "VEC3",
-      "max": [
-        3.3053703308105469,
-        1.5203558206558228,
-        -1.6332554817199707
-      ],
-      "min": [
-        3.3053703308105469,
-        1.5203558206558228,
-        -1.6332554817199707
-      ]
-    },
-    {
-      "bufferView": 12,
-      "componentType": 5126,
-      "count": 45,
-      "type": "VEC4",
-      "max": [
-        -0.7071068286895752,
-        0.0,
-        0.0,
-        0.7071068286895752
-      ],
-      "min": [
-        -0.7071068286895752,
-        0.0,
-        0.0,
-        0.7071068286895752
-      ]
-    },
-    {
-      "bufferView": 13,
-      "componentType": 5126,
-      "count": 45,
+      "count": 82,
       "type": "VEC3",
       "max": [
         1.0,
@@ -256,46 +194,6 @@
         }
       ],
       "name": "Open"
-    },
-    {
-      "channels": [
-        {
-          "sampler": 0,
-          "target": {
-            "node": 0,
-            "path": "translation"
-          }
-        },
-        {
-          "sampler": 1,
-          "target": {
-            "node": 0,
-            "path": "rotation"
-          }
-        },
-        {
-          "sampler": 2,
-          "target": {
-            "node": 0,
-            "path": "scale"
-          }
-        }
-      ],
-      "samplers": [
-        {
-          "input": 10,
-          "output": 11
-        },
-        {
-          "input": 10,
-          "output": 12
-        },
-        {
-          "input": 10,
-          "output": 13
-        }
-      ],
-      "name": "Static"
     }
   ],
   "asset": {
@@ -305,7 +203,7 @@
   "buffers": [
     {
       "uri": "Cap_of_PPO.bin",
-      "byteLength": 1838796
+      "byteLength": 1837784
     }
   ],
   "bufferViews": [
@@ -341,42 +239,22 @@
     {
       "buffer": 0,
       "byteOffset": 1834176,
-      "byteLength": 240
+      "byteLength": 328
     },
     {
       "buffer": 0,
-      "byteOffset": 1834416,
-      "byteLength": 720
+      "byteOffset": 1834504,
+      "byteLength": 984
     },
     {
       "buffer": 0,
-      "byteOffset": 1835136,
-      "byteLength": 960
+      "byteOffset": 1835488,
+      "byteLength": 1312
     },
     {
       "buffer": 0,
-      "byteOffset": 1836096,
-      "byteLength": 720
-    },
-    {
-      "buffer": 0,
-      "byteOffset": 1836816,
-      "byteLength": 180
-    },
-    {
-      "buffer": 0,
-      "byteOffset": 1836996,
-      "byteLength": 540
-    },
-    {
-      "buffer": 0,
-      "byteOffset": 1837536,
-      "byteLength": 720
-    },
-    {
-      "buffer": 0,
-      "byteOffset": 1838256,
-      "byteLength": 540
+      "byteOffset": 1836800,
+      "byteLength": 984
     }
   ],
   "images": [
