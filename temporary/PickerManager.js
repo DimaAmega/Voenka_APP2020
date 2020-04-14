@@ -17,6 +17,9 @@ var TRANSITION_REQUEST = "Transition";
 var HIGHLIGHT_REQUEST = "Highlight";
 
 var lockedStateAction = "lockedState";
+var clickableItems = "ClickableItems";
+var triggerAction = "triggerAction";
+var highlightObject = "highlightObject";
 
 class PickerManager {
     //передаем сцену для того чтобы знать где искать объекты
@@ -28,7 +31,10 @@ class PickerManager {
         }
         // before creation
         this._processInitialParameters(domObject, camera, scene, states, stateMachine);
+        this.m_internalPickedObject = {};
+        this._parceActiveStates();
 
+        //initial propertiess
         this.m_raycaster = new THREE.Raycaster();
         this.m_mouse_position = new THREE.Vector2();
         this.m_pastMousePosition = new THREE.Vector2();
@@ -56,7 +62,7 @@ class PickerManager {
     }
 
     isInitialaized() {
-        return this.m_states && this.m_stateMachine;
+        return this.m_states && this.m_stateMachine && this.m_internalPickedObject;
     }
 
     startToCheckIntersects() {
@@ -73,14 +79,14 @@ class PickerManager {
             else {
                 this.m_domObject.style.cursor = "default";
             }
-            // this._sendStateMashineRequest(HIGHLIGHT_REQUEST, this.m_lastHighlightedShape);
+            this._sendStateMashineRequest(HIGHLIGHT_REQUEST, this.m_lastHighlightedShape);
         }, 300);
     }
 
     // The function finds the required state by trigger object and return founded state name, if there is no state return undefined.
     requiredState(triggerObject) {
         for (let stateName in this.m_states) {
-            let stateTriggerAction = this.m_states[stateName]["triggerAction"];
+            let stateTriggerAction = this.m_states[stateName][triggerAction];
             if (triggerObject && stateTriggerAction
                 && stateTriggerAction["name"] === triggerObject["name"]
                 && stateTriggerAction["state"] === triggerObject["state"]) {
@@ -88,6 +94,19 @@ class PickerManager {
             }
         }
         return undefined;
+    }
+
+    // This functiuon finds internal objects in scene and add them to array to find
+    _parceActiveStates() {
+        for (let state in this.m_states) {
+            this.m_internalPickedObject[state] = [];
+            for (let internalObject in this.m_states[state][clickableItems]) {
+                let foundedObject = this.m_scene.getObjectByName(internalObject);
+                if (foundedObject) {
+                    this.m_internalPickedObject[state].push(foundedObject);
+                }
+            }
+        }
     }
     // PRIVATE FUNCTIONS
     _sendStateMashineRequest(requestID, requestArguments) {
@@ -113,7 +132,8 @@ class PickerManager {
 
         this.m_raycaster.setFromCamera(this.m_mouse_position, this.m_camera);
 
-        let firstIntersectObject = this.m_raycaster.intersectObjects(this.m_scene.children, true);
+        let firstIntersectObject = this.m_raycaster.intersectObjects(this.m_internalPickedObject[this.m_currentState]);
+
 
         if (firstIntersectObject.length === 0) {
             this._updateClickedObject(undefined);
@@ -125,24 +145,13 @@ class PickerManager {
 
         let foundedName = firstIntersectObject['object'].name;
 
-        let clickableObjects = this.m_states[this.m_currentState]["ClickableItems"]
-
-        if (firstIntersectObject) {
-            for (let clickableObjectName in clickableObjects) {
-                if (clickableObjectName === foundedName) {
-                    let clickedObject = clickableObjects[foundedName]["triggerAction"];
-                    let highlightedObject = clickableObjects[foundedName]["highlightObject"];
-
-                    this._updateClickedObject(clickedObject);
-                    this._updateHighlightObject(highlightedObject);
-                    return true;
-                }
-            }
-        }
-
-        this._updateClickedObject(undefined);
-        this._updateHighlightObject(undefined);
-        return false;
+        let foundedObject = this.m_states[this.m_currentState][clickableItems][foundedName];
+        let clickedObject = foundedObject[triggerAction];
+        let highlightedObject = foundedObject[highlightObject];
+        
+        this._updateClickedObject(clickedObject);
+        this._updateHighlightObject()
+        return true;
     }
 
     _onMouseMoveCallback(event) {
