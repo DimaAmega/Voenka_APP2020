@@ -1,0 +1,373 @@
+{
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 784,
+      "type": "VEC3",
+      "max": [
+        0.14165638387203217,
+        0.19372479617595673,
+        0.14160460233688354
+      ],
+      "min": [
+        -0.14165638387203217,
+        -0.19372479617595673,
+        -0.14160460233688354
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 784,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 784,
+      "type": "VEC4",
+      "max": [
+        1.0,
+        0.39540541172027588,
+        1.0,
+        -1.0
+      ],
+      "min": [
+        -1.0,
+        -0.3954053521156311,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 784,
+      "type": "VEC2",
+      "max": [
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5125,
+      "count": 1584,
+      "type": "SCALAR",
+      "max": [
+        635.0
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5125,
+      "count": 432,
+      "type": "SCALAR",
+      "max": [
+        783.0
+      ],
+      "min": [
+        636.0
+      ]
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "count": 77,
+      "type": "SCALAR",
+      "max": [
+        2.54978346824646
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5126,
+      "count": 77,
+      "type": "VEC3",
+      "max": [
+        1.156084418296814,
+        1.0205211639404297,
+        -1.2633113861083984
+      ],
+      "min": [
+        1.156084418296814,
+        0.839691698551178,
+        -1.2633113861083984
+      ]
+    },
+    {
+      "bufferView": 8,
+      "componentType": 5126,
+      "count": 77,
+      "type": "VEC4",
+      "max": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bufferView": 9,
+      "componentType": 5126,
+      "count": 77,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 0,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 1,
+          "target": {
+            "node": 0,
+            "path": "rotation"
+          }
+        },
+        {
+          "sampler": 2,
+          "target": {
+            "node": 0,
+            "path": "scale"
+          }
+        }
+      ],
+      "samplers": [
+        {
+          "input": 6,
+          "output": 7
+        },
+        {
+          "input": 6,
+          "output": 8
+        },
+        {
+          "input": 6,
+          "output": 9
+        }
+      ],
+      "name": "Down"
+    }
+  ],
+  "asset": {
+    "generator": "Plattar UnityGLTF (2019.3.8f1)",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "uri": "Support4.bin",
+      "byteLength": 49084
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 9408
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 9408,
+      "byteLength": 9408
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 18816,
+      "byteLength": 12544
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 31360,
+      "byteLength": 6272
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 37632,
+      "byteLength": 6336
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 43968,
+      "byteLength": 1728
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 45696,
+      "byteLength": 308
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 46004,
+      "byteLength": 924
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 46928,
+      "byteLength": 1232
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 48160,
+      "byteLength": 924
+    }
+  ],
+  "images": [
+    {
+      "uri": "Black-texture 3.jpg",
+      "name": "Black-texture 3"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Материал.1_4"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "metallicFactor": 0.0
+      },
+      "name": "No Name 3"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 5,
+          "material": 1
+        }
+      ],
+      "name": "Объект_Куб"
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "translation": [
+        1.15608442,
+        1.02,
+        0.169656962
+      ],
+      "name": "Support4"
+    },
+    {
+      "mesh": 0,
+      "rotation": [
+        0.0,
+        1.22464685E-16,
+        0.0,
+        -1.0
+      ],
+      "translation": [
+        0.000332296855,
+        -0.11844749,
+        0.000105547733
+      ],
+      "name": "Объект_Куб"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9729
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "Support4"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "Black-texture 3"
+    }
+  ]
+}

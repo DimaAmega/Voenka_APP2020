@@ -110,47 +110,43 @@ class PickerManager {
     }
     // PRIVATE FUNCTIONS
     _sendStateMashineRequest(requestID, requestArguments) {
+        if (!requestArguments) return;
         switch (requestID) {
             case TRANSITION_REQUEST:
                 this.m_stateMachine.transition(requestArguments);
                 break;
             case HIGHLIGHT_REQUEST:
-                this.m_stateMachine.highlight(requestArguments);
+                console.log(requestArguments,"HERE");
+                // this.m_stateMachine.highlight(requestArguments);
                 break;
             default:
                 console.log("Error: incorrect requestID", requestID);
                 break;
         }
     }
-
     _checkIntersects() {
         //return back
         if (!this.m_raycaster || !this.m_camera) {
             console.log("Error: raycaster and camera are requred");
             return;
         }
-
         this.m_raycaster.setFromCamera(this.m_mouse_position, this.m_camera);
-
-        let firstIntersectObject = this.m_raycaster.intersectObjects(this.m_internalPickedObject[this.m_currentState]);
-
-
+        let firstIntersectObject = this.m_raycaster.intersectObjects(this.m_internalPickedObject[this.m_currentState],true);
         if (firstIntersectObject.length === 0) {
             this._updateClickedObject(undefined);
             this._updateHighlightObject(undefined);
             return false;
         }
-
         firstIntersectObject = firstIntersectObject[0];
-
         let foundedName = firstIntersectObject['object'].name;
-
+        foundedName = foundedName.replace(/_\d+$/,"");
+        // console.log(foundedName);
         let foundedObject = this.m_states[this.m_currentState][clickableItems][foundedName];
         let clickedObject = foundedObject[triggerAction];
         let highlightedObject = foundedObject[highlightObject];
         
         this._updateClickedObject(clickedObject);
-        this._updateHighlightObject()
+        this._updateHighlightObject(highlightedObject)
         return true;
     }
 

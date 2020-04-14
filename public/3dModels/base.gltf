@@ -1,0 +1,678 @@
+{
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 99468,
+      "type": "VEC3",
+      "max": [
+        0.071253769099712372,
+        0.039297021925449371,
+        0.096402421593666077
+      ],
+      "min": [
+        -0.071253769099712372,
+        -0.039297021925449371,
+        -0.096402421593666077
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 99468,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 99468,
+      "type": "VEC4",
+      "max": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 99468,
+      "type": "VEC2",
+      "max": [
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5125,
+      "count": 72516,
+      "type": "SCALAR",
+      "max": [
+        26956.0
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5125,
+      "count": 3024,
+      "type": "SCALAR",
+      "max": [
+        27992.0
+      ],
+      "min": [
+        26957.0
+      ]
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5125,
+      "count": 38556,
+      "type": "SCALAR",
+      "max": [
+        34856.0
+      ],
+      "min": [
+        27993.0
+      ]
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5125,
+      "count": 179856,
+      "type": "SCALAR",
+      "max": [
+        70032.0
+      ],
+      "min": [
+        34857.0
+      ]
+    },
+    {
+      "bufferView": 8,
+      "componentType": 5125,
+      "count": 67776,
+      "type": "SCALAR",
+      "max": [
+        84239.0
+      ],
+      "min": [
+        70033.0
+      ]
+    },
+    {
+      "bufferView": 9,
+      "componentType": 5125,
+      "count": 1038,
+      "type": "SCALAR",
+      "max": [
+        84605.0
+      ],
+      "min": [
+        84240.0
+      ]
+    },
+    {
+      "bufferView": 10,
+      "componentType": 5125,
+      "count": 68898,
+      "type": "SCALAR",
+      "max": [
+        97977.0
+      ],
+      "min": [
+        84606.0
+      ]
+    },
+    {
+      "bufferView": 11,
+      "componentType": 5125,
+      "count": 2586,
+      "type": "SCALAR",
+      "max": [
+        98881.0
+      ],
+      "min": [
+        97978.0
+      ]
+    },
+    {
+      "bufferView": 12,
+      "componentType": 5125,
+      "count": 1512,
+      "type": "SCALAR",
+      "max": [
+        99171.0
+      ],
+      "min": [
+        98882.0
+      ]
+    },
+    {
+      "bufferView": 13,
+      "componentType": 5125,
+      "count": 864,
+      "type": "SCALAR",
+      "max": [
+        99467.0
+      ],
+      "min": [
+        99172.0
+      ]
+    }
+  ],
+  "asset": {
+    "generator": "Plattar UnityGLTF (2019.3.8f1)",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "uri": "base.bin",
+      "byteLength": 6520968
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 1193616
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1193616,
+      "byteLength": 1193616
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2387232,
+      "byteLength": 1591488
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 3978720,
+      "byteLength": 795744
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 4774464,
+      "byteLength": 290064
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 5064528,
+      "byteLength": 12096
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 5076624,
+      "byteLength": 154224
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 5230848,
+      "byteLength": 719424
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 5950272,
+      "byteLength": 271104
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 6221376,
+      "byteLength": 4152
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 6225528,
+      "byteLength": 275592
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 6501120,
+      "byteLength": 10344
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 6511464,
+      "byteLength": 6048
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 6517512,
+      "byteLength": 3456
+    }
+  ],
+  "images": [
+    {
+      "uri": "Black-texture.jpg",
+      "name": "Black-texture"
+    },
+    {
+      "uri": "ScrewHeadGolden.jpg",
+      "name": "ScrewHeadGolden"
+    },
+    {
+      "uri": "MetalDusty.jpg",
+      "name": "MetalDusty"
+    },
+    {
+      "uri": "Armydiarrhea.jpg",
+      "name": "Armydiarrhea"
+    },
+    {
+      "uri": "basegray1.jpg",
+      "name": "basegray1"
+    },
+    {
+      "uri": "lightpaperfibers_2X.jpg",
+      "name": "lightpaperfibers_2X"
+    },
+    {
+      "uri": "DarkMetal.jpg",
+      "name": "DarkMetal"
+    },
+    {
+      "uri": "CornerCylinder.jpg",
+      "name": "CornerCylinder"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "metallicFactor": 0.0
+      },
+      "name": "WhiteColor"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Материал.1_1"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallicFactor": 0.0
+      },
+      "name": "No Name"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1.0
+        ],
+        "baseColorTexture": {
+          "index": 1,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Болты ППО"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 3,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "normalTexture": {
+        "index": 2,
+        "extensions": {
+          "KHR_texture_transform": {
+            "offset": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "name": "Армейский поносный_3"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.6981132,
+          0.6981132,
+          0.6981132,
+          0.572549045
+        ],
+        "metallicFactor": 0.0
+      },
+      "name": "bulb2"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1.0
+        ],
+        "baseColorTexture": {
+          "index": 4,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Основа ППО"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1.0
+        ],
+        "baseColorTexture": {
+          "index": 5,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "BaseLightMetal"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1.0
+        ],
+        "baseColorTexture": {
+          "index": 6,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "гринит черный"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1.0
+        ],
+        "baseColorTexture": {
+          "index": 7,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Уголки"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 5,
+          "material": 1
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 6,
+          "material": 2
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 7,
+          "material": 3
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 8,
+          "material": 4
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 9,
+          "material": 5
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 10,
+          "material": 6
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 11,
+          "material": 7
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 12,
+          "material": 8
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 13,
+          "material": 9
+        }
+      ],
+      "name": "base"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "translation": [
+        3.44638348,
+        1.38775063,
+        1.27921569
+      ],
+      "name": "base"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9729
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "base"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "Black-texture"
+    },
+    {
+      "sampler": 0,
+      "source": 1,
+      "name": "ScrewHeadGolden"
+    },
+    {
+      "sampler": 0,
+      "source": 2,
+      "name": "MetalDusty"
+    },
+    {
+      "sampler": 0,
+      "source": 3,
+      "name": "Armydiarrhea"
+    },
+    {
+      "sampler": 0,
+      "source": 4,
+      "name": "basegray1"
+    },
+    {
+      "sampler": 0,
+      "source": 5,
+      "name": "lightpaperfibers_2X"
+    },
+    {
+      "sampler": 0,
+      "source": 6,
+      "name": "DarkMetal"
+    },
+    {
+      "sampler": 0,
+      "source": 7,
+      "name": "CornerCylinder"
+    }
+  ]
+}

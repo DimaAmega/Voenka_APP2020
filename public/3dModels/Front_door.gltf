@@ -118,10 +118,10 @@
     {
       "bufferView": 8,
       "componentType": 5126,
-      "count": 45,
+      "count": 55,
       "type": "SCALAR",
       "max": [
-        1.4666666984558105
+        1.8000000715255737
       ],
       "min": [
         0.0
@@ -130,7 +130,7 @@
     {
       "bufferView": 9,
       "componentType": 5126,
-      "count": 45,
+      "count": 55,
       "type": "VEC3",
       "max": [
         -0.48642602562904358,
@@ -146,87 +146,25 @@
     {
       "bufferView": 10,
       "componentType": 5126,
-      "count": 45,
+      "count": 55,
       "type": "VEC4",
       "max": [
-        -0.0046863122843205929,
-        -0.71619939804077148,
-        -0.012427719309926033,
-        0.69776934385299683
+        -0.004689353518188,
+        0.018228687345981598,
+        0.0192745178937912,
+        0.99984383583068848
       ],
       "min": [
-        -0.0046863122843205929,
-        -0.71619939804077148,
-        -0.012427719309926033,
-        0.69776934385299683
+        -0.01355399563908577,
+        -0.71975952386856079,
+        -0.012427248992025852,
+        0.69410210847854614
       ]
     },
     {
       "bufferView": 11,
       "componentType": 5126,
-      "count": 45,
-      "type": "VEC3",
-      "max": [
-        1.0,
-        1.0,
-        1.0
-      ],
-      "min": [
-        1.0,
-        1.0,
-        1.0
-      ]
-    },
-    {
-      "bufferView": 12,
-      "componentType": 5126,
-      "count": 49,
-      "type": "SCALAR",
-      "max": [
-        1.6326529979705811
-      ],
-      "min": [
-        0.0
-      ]
-    },
-    {
-      "bufferView": 13,
-      "componentType": 5126,
-      "count": 49,
-      "type": "VEC3",
-      "max": [
-        -0.48642602562904358,
-        1.7096738815307617,
-        -1.61151123046875
-      ],
-      "min": [
-        -0.48642602562904358,
-        1.7096738815307617,
-        -1.61151123046875
-      ]
-    },
-    {
-      "bufferView": 14,
-      "componentType": 5126,
-      "count": 49,
-      "type": "VEC4",
-      "max": [
-        -0.004689353518188,
-        -0.011506381444633007,
-        -0.0054530547931790352,
-        0.99984562397003174
-      ],
-      "min": [
-        -0.012111594900488853,
-        -0.71619868278503418,
-        -0.012427248992025852,
-        0.69777011871337891
-      ]
-    },
-    {
-      "bufferView": 15,
-      "componentType": 5126,
-      "count": 49,
+      "count": 55,
       "type": "VEC3",
       "max": [
         1.0,
@@ -279,46 +217,6 @@
           "output": 11
         }
       ],
-      "name": "Statick"
-    },
-    {
-      "channels": [
-        {
-          "sampler": 0,
-          "target": {
-            "node": 0,
-            "path": "translation"
-          }
-        },
-        {
-          "sampler": 1,
-          "target": {
-            "node": 0,
-            "path": "rotation"
-          }
-        },
-        {
-          "sampler": 2,
-          "target": {
-            "node": 0,
-            "path": "scale"
-          }
-        }
-      ],
-      "samplers": [
-        {
-          "input": 12,
-          "output": 13
-        },
-        {
-          "input": 12,
-          "output": 14
-        },
-        {
-          "input": 12,
-          "output": 15
-        }
-      ],
       "name": "Open"
     }
   ],
@@ -329,7 +227,7 @@
   "buffers": [
     {
       "uri": "Front_door.bin",
-      "byteLength": 822704
+      "byteLength": 820988
     }
   ],
   "bufferViews": [
@@ -375,42 +273,22 @@
     {
       "buffer": 0,
       "byteOffset": 818568,
-      "byteLength": 180
+      "byteLength": 220
     },
     {
       "buffer": 0,
-      "byteOffset": 818748,
-      "byteLength": 540
+      "byteOffset": 818788,
+      "byteLength": 660
     },
     {
       "buffer": 0,
-      "byteOffset": 819288,
-      "byteLength": 720
+      "byteOffset": 819448,
+      "byteLength": 880
     },
     {
       "buffer": 0,
-      "byteOffset": 820008,
-      "byteLength": 540
-    },
-    {
-      "buffer": 0,
-      "byteOffset": 820548,
-      "byteLength": 196
-    },
-    {
-      "buffer": 0,
-      "byteOffset": 820744,
-      "byteLength": 588
-    },
-    {
-      "buffer": 0,
-      "byteOffset": 821332,
-      "byteLength": 784
-    },
-    {
-      "buffer": 0,
-      "byteOffset": 822116,
-      "byteLength": 588
+      "byteOffset": 820328,
+      "byteLength": 660
     }
   ],
   "images": [
