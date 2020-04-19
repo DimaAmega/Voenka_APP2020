@@ -1,0 +1,546 @@
+{
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 1323,
+      "type": "VEC3",
+      "max": [
+        0.014029999263584614,
+        0.015839999541640282,
+        0.014899999834597111
+      ],
+      "min": [
+        -0.014029999263584614,
+        -0.015839999541640282,
+        -0.014899999834597111
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1323,
+      "type": "VEC3",
+      "max": [
+        0.9999995231628418,
+        1.0,
+        0.9999995231628418
+      ],
+      "min": [
+        -0.9999995231628418,
+        -1.0,
+        -0.9999995231628418
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 1323,
+      "type": "VEC4",
+      "max": [
+        0.040857408195734024,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -0.045107681304216385,
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 1323,
+      "type": "VEC2",
+      "max": [
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5125,
+      "count": 432,
+      "type": "SCALAR",
+      "max": [
+        147.0
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5125,
+      "count": 4200,
+      "type": "SCALAR",
+      "max": [
+        1322.0
+      ],
+      "min": [
+        148.0
+      ]
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "count": 60,
+      "type": "SCALAR",
+      "max": [
+        1.9666668176651
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5126,
+      "count": 60,
+      "type": "VEC3",
+      "max": [
+        3.4450395107269287,
+        1.32345712184906,
+        -1.3045932054519653
+      ],
+      "min": [
+        3.4450395107269287,
+        1.32345712184906,
+        -1.3045932054519653
+      ]
+    },
+    {
+      "bufferView": 8,
+      "componentType": 5126,
+      "count": 60,
+      "type": "VEC4",
+      "max": [
+        0.0,
+        -0.34277486801147461,
+        0.61847019195556641,
+        0.70710670948028564
+      ],
+      "min": [
+        -0.61847025156021118,
+        -0.7071068286895752,
+        0.0,
+        0.34277480840682983
+      ]
+    },
+    {
+      "bufferView": 9,
+      "componentType": 5126,
+      "count": 60,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "bufferView": 10,
+      "componentType": 5126,
+      "count": 45,
+      "type": "SCALAR",
+      "max": [
+        1.4666666984558105
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 11,
+      "componentType": 5126,
+      "count": 45,
+      "type": "VEC3",
+      "max": [
+        -0.018259197473526,
+        0.12407712638378143,
+        -0.06828511506319046
+      ],
+      "min": [
+        -0.023991622030735016,
+        0.12407712638378143,
+        -0.068299978971481323
+      ]
+    },
+    {
+      "bufferView": 12,
+      "componentType": 5126,
+      "count": 45,
+      "type": "VEC4",
+      "max": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "min": [
+        -0.91656094789505,
+        -6.43486401941118E-08,
+        -1.2186934839064634E-07,
+        0.39989495277404785
+      ]
+    },
+    {
+      "bufferView": 13,
+      "componentType": 5126,
+      "count": 45,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 0,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 1,
+          "target": {
+            "node": 0,
+            "path": "rotation"
+          }
+        },
+        {
+          "sampler": 2,
+          "target": {
+            "node": 0,
+            "path": "scale"
+          }
+        }
+      ],
+      "samplers": [
+        {
+          "input": 6,
+          "output": 7
+        },
+        {
+          "input": 6,
+          "output": 8
+        },
+        {
+          "input": 6,
+          "output": 9
+        }
+      ],
+      "name": "Rotation"
+    },
+    {
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 1,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 1,
+          "target": {
+            "node": 1,
+            "path": "rotation"
+          }
+        },
+        {
+          "sampler": 2,
+          "target": {
+            "node": 1,
+            "path": "scale"
+          }
+        }
+      ],
+      "samplers": [
+        {
+          "input": 10,
+          "output": 11
+        },
+        {
+          "input": 10,
+          "output": 12
+        },
+        {
+          "input": 10,
+          "output": 13
+        }
+      ],
+      "name": "Open"
+    }
+  ],
+  "asset": {
+    "generator": "Plattar UnityGLTF (2019.3.8f1)",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "uri": "ValveTopR.bin",
+      "byteLength": 86652
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 15876
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 15876,
+      "byteLength": 15876
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 31752,
+      "byteLength": 21168
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 52920,
+      "byteLength": 10584
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 63504,
+      "byteLength": 1728
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 65232,
+      "byteLength": 16800
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 82032,
+      "byteLength": 240
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 82272,
+      "byteLength": 720
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 82992,
+      "byteLength": 960
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 83952,
+      "byteLength": 720
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 84672,
+      "byteLength": 180
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 84852,
+      "byteLength": 540
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 85392,
+      "byteLength": 720
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 86112,
+      "byteLength": 540
+    }
+  ],
+  "images": [
+    {
+      "uri": "basegray1.jpg",
+      "name": "basegray1"
+    },
+    {
+      "uri": "MetalDusty.jpg",
+      "name": "MetalDusty"
+    },
+    {
+      "uri": "Armydiarrhea.jpg",
+      "name": "Armydiarrhea"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1.0
+        ],
+        "baseColorTexture": {
+          "index": 0,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Основа ППО"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 2,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "normalTexture": {
+        "index": 1,
+        "extensions": {
+          "KHR_texture_transform": {
+            "offset": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "name": "Армейский поносный_3"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 5,
+          "material": 1
+        }
+      ],
+      "name": "ValveTopR"
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "rotation": [
+        0.0,
+        -0.7071068,
+        0.0,
+        -0.7071068
+      ],
+      "scale": [
+        1.00000024,
+        1.0,
+        1.00000024
+      ],
+      "translation": [
+        3.44503951,
+        1.32345712,
+        1.30459321
+      ],
+      "name": "ValveTopR"
+    },
+    {
+      "mesh": 0,
+      "rotation": [
+        0.0,
+        -2.46519033E-32,
+        0.0,
+        -1.0
+      ],
+      "translation": [
+        -0.0182591975,
+        0.124077126,
+        0.0682851151
+      ],
+      "name": "ValveTopR"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9729
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "ValveTopR"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "basegray1"
+    },
+    {
+      "sampler": 0,
+      "source": 1,
+      "name": "MetalDusty"
+    },
+    {
+      "sampler": 0,
+      "source": 2,
+      "name": "Armydiarrhea"
+    }
+  ]
+}
