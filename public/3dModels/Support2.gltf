@@ -94,10 +94,10 @@
     {
       "bufferView": 6,
       "componentType": 5126,
-      "count": 77,
+      "count": 60,
       "type": "SCALAR",
       "max": [
-        2.54978346824646
+        1.9666668176651
       ],
       "min": [
         0.0
@@ -106,23 +106,23 @@
     {
       "bufferView": 7,
       "componentType": 5126,
-      "count": 77,
+      "count": 60,
       "type": "VEC3",
       "max": [
-        1.156084418296814,
-        1.0205211639404297,
-        -1.2633113861083984
+        4.5775375366210938,
+        0.93002158403396606,
+        -0.1697625070810318
       ],
       "min": [
-        1.156084418296814,
-        0.839691698551178,
-        -1.2633113861083984
+        4.5775375366210938,
+        0.70006197690963745,
+        -0.1697625070810318
       ]
     },
     {
       "bufferView": 8,
       "componentType": 5126,
-      "count": 77,
+      "count": 60,
       "type": "VEC4",
       "max": [
         0.0,
@@ -140,7 +140,7 @@
     {
       "bufferView": 9,
       "componentType": 5126,
-      "count": 77,
+      "count": 60,
       "type": "VEC3",
       "max": [
         1.0,
@@ -203,7 +203,7 @@
   "buffers": [
     {
       "uri": "Support2.bin",
-      "byteLength": 49084
+      "byteLength": 48336
     }
   ],
   "bufferViews": [
@@ -239,33 +239,39 @@
     {
       "buffer": 0,
       "byteOffset": 45696,
-      "byteLength": 308
+      "byteLength": 240
     },
     {
       "buffer": 0,
-      "byteOffset": 46004,
-      "byteLength": 924
+      "byteOffset": 45936,
+      "byteLength": 720
     },
     {
       "buffer": 0,
-      "byteOffset": 46928,
-      "byteLength": 1232
+      "byteOffset": 46656,
+      "byteLength": 960
     },
     {
       "buffer": 0,
-      "byteOffset": 48160,
-      "byteLength": 924
+      "byteOffset": 47616,
+      "byteLength": 720
     }
   ],
   "images": [
     {
-      "uri": "Black-texture 1.jpg",
-      "name": "Black-texture 1"
+      "uri": "Black-texture.jpg",
+      "name": "Black-texture"
     }
   ],
   "materials": [
     {
       "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.15,
+          0.15,
+          0.15,
+          1.0
+        ],
         "baseColorTexture": {
           "index": 0,
           "extensions": {
@@ -279,13 +285,13 @@
         },
         "metallicFactor": 0.0
       },
-      "name": "Материал.1_2"
+      "name": "Материал.1_1"
     },
     {
       "pbrMetallicRoughness": {
         "metallicFactor": 0.0
       },
-      "name": "No Name 1"
+      "name": "No Name"
     }
   ],
   "meshes": [
@@ -312,27 +318,10 @@
           "material": 1
         }
       ],
-      "name": "Ground"
+      "name": "Support2"
     }
   ],
   "nodes": [
-    {
-      "children": [
-        1
-      ],
-      "rotation": [
-        0.0,
-        0.0,
-        0.0,
-        -1.0
-      ],
-      "translation": [
-        4.577205,
-        1.02,
-        0.169656962
-      ],
-      "name": "Support2"
-    },
     {
       "mesh": 0,
       "rotation": [
@@ -342,11 +331,11 @@
         -1.0
       ],
       "translation": [
-        0.000332296855,
-        -0.11844749,
-        0.000105547733
+        4.57753754,
+        0.93,
+        0.1697625
       ],
-      "name": "Ground"
+      "name": "Support2"
     }
   ],
   "samplers": [
@@ -367,7 +356,7 @@
     {
       "sampler": 0,
       "source": 0,
-      "name": "Black-texture 1"
+      "name": "Black-texture"
     }
   ]
 }

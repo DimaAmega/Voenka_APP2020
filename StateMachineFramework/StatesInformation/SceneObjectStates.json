@@ -1,12 +1,28 @@
 {
     "SceneObjects": {
         "Cap_of_PPO": [
-            "Statick",
+            "Static",
             "Open"
         ],
-        "Back_door":[
-            "Statick",
+        "ppo_lock":[
+            "Static",
             "Open"
+        ],
+        "Lock1":[
+            "Static",
+            "Open"
+        ],
+        "Anvil":[
+            "Static",
+            "Move1",
+            "Move2",
+            "Move3",
+            "Move4",
+            "Move5",
+            "Move6",
+            "Move7",
+            "Move8",
+            "Move9"
         ]
     },
     "pickerManagerStates": {
@@ -15,32 +31,89 @@
                 "Cap_of_PPO": {
                     "triggerAction": {
                         "name": "Cap_of_PPO",
-                        "state": "Open"
+                        "state": "Open",
+                        "pickerState": "secondState"
                     },
-                    "highlightObject": "Cap_of_PPO"
+                    "highlightObject": {
+                        "name": "Cap_of_PPO_tr",
+                        "state": "Open"
+                    }
                 }
-            },
-            "triggerAction": {
-                "name": "***",
-                "state": "Open"
             }
         },
         "secondState": {
             "ClickableItems": {
-                "Torus": {
+                "Cap_of_PPO": {
                     "triggerAction": {
-                        "name": "Cube",
-                        "state": "Action"
+                        "name": "Cap_of_PPO",
+                        "state": "Static",
+                        "pickerState" : "firstState"
                     },
-                    "highlightObject": "Torus"
+                    "highlightObject": {
+                        "name": "Cap_of_PPO_tr",
+                        "state": "Static"
+                    }
+                },
+                "ppo_lock": {
+                    "triggerAction": {
+                        "name": "ppo_lock",
+                        "state": "Open",
+                        "pickerState": "thirdState"
+                    },
+                    "highlightObject": "ppo_lock"
                 }
-            },
-            "triggerAction": {
-                "name": "Cube",
-                "state": "CubeAction"
+            }
+        },
+        "thirdState": {
+            "ClickableItems": {
+                "Cap_of_PPO": {
+                    "triggerAction": {
+                        "name": "Cap_of_PPO",
+                        "state": "Static",
+                        "pickerState": "firstState"
+                    },
+                    "highlightObject": "Cap_of_PPO"
+                },
+                "ppo_lock": {
+                    "triggerAction": {
+                        "name": "ppo_lock",
+                        "state": "Static",
+                        "pickerState": "secondState"
+                    },
+                    "highlightObject": "ppo_lock"
+                },
+                "Lock1": {
+                    "triggerAction": {
+                        "name": "Lock1",
+                        "state": "Open",
+                        "pickerState": "fourState"
+                    },
+                    "highlightObject": "Lock1"
+                }
+            }
+        },
+        "fourState": {
+            "ClickableItems": {
+                "ppo_lock": {
+                    "triggerAction": {
+                        "name": "ppo_lock",
+                        "state": "Static",
+                        "pickerState": "secondState"
+                    },
+                    "highlightObject": "ppo_lock"
+                },
+                "Lock1": {
+                    "triggerAction": {
+                        "name": "Lock1",
+                        "state": "Static",
+                        "pickerState": "thirdState"
+                    },
+                    "highlightObject": "Lock1"
+                }
             }
         },
         "lockedState": {
+            
         }
     }
 }

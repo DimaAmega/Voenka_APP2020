@@ -58,14 +58,14 @@ class obj_API {
     try {
 
       this.currentAction.forEach((el)=>{
-        if(actions_arr.indexOf(el.name) == -1) el.action.fadeOut(this.opt.transitionDuration || 1)
+        if(actions_arr.indexOf(el.name) == -1) el.action.fadeOut(1)
         else {
           actions_arr.splice(actions_arr.indexOf(el.name),1);
           new_currentAction.push(el);
         }
         }); 
       this.currentAction = new_currentAction;
-      if (value== "Statick") { this.currentAction = []; return true;}
+      if (value== "Static") { this.currentAction = []; return true;}
       for (value of actions_arr){
         this.currentAction.push({name:value,
           action:
@@ -109,7 +109,7 @@ var ObjectsContainer = function () {
         PathToObject,
         (Obj) => {
           // SET NEAME EVERY OBJECT
-          console.log(Obj);
+          // console.log(Obj);
           Obj.scene.name = PathToObject;
           resolve(Obj);
         },

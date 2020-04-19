@@ -5,6 +5,7 @@ var localObjectStates = require("../StateMachineFramework/StatesInformation/Scen
 var statesCreator = new StatesCreator();
 var transitionInfo = require("../StateMachineFramework/StatesInformation/StatesTransitions");
 var statesDiscriptions = statesCreator.objectProduct(localObjectStates["SceneObjects"]);
+console.log(statesDiscriptions);
 var StateManagerPrivate = require("../StateMachineFramework/StateManagerPrivate");
 StateManagerPrivate = new StateManagerPrivate(statesDiscriptions)
 StateManagerPrivate.setConnection(transitionInfo["StateTransitions1"])

@@ -1,0 +1,413 @@
+{
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 1323,
+      "type": "VEC3",
+      "max": [
+        0.014899999834597111,
+        0.014029999263584614,
+        0.015839999541640282
+      ],
+      "min": [
+        -0.014899999834597111,
+        -0.014029999263584614,
+        -0.015839999541640282
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1323,
+      "type": "VEC3",
+      "max": [
+        0.9999995231628418,
+        0.9999995231628418,
+        1.0
+      ],
+      "min": [
+        -0.9999995231628418,
+        -0.9999995231628418,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 1323,
+      "type": "VEC4",
+      "max": [
+        1.0,
+        0.045107681304216385,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -0.040857411921024323,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 1323,
+      "type": "VEC2",
+      "max": [
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5125,
+      "count": 432,
+      "type": "SCALAR",
+      "max": [
+        147.0
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5125,
+      "count": 4200,
+      "type": "SCALAR",
+      "max": [
+        1322.0
+      ],
+      "min": [
+        148.0
+      ]
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "count": 49,
+      "type": "SCALAR",
+      "max": [
+        1.6326529979705811
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5126,
+      "count": 49,
+      "type": "VEC3",
+      "max": [
+        -0.018259197473526,
+        0.12407712638378143,
+        0.070199966430664063
+      ],
+      "min": [
+        -0.025790691375732422,
+        0.12407708168029785,
+        0.070187069475650787
+      ]
+    },
+    {
+      "bufferView": 8,
+      "componentType": 5126,
+      "count": 49,
+      "type": "VEC4",
+      "max": [
+        -0.50227242708206177,
+        0.70695734024047852,
+        0.49771714210510254,
+        0.4977172315120697
+      ],
+      "min": [
+        -0.70696359872817993,
+        0.502272367477417,
+        -0.493272602558136,
+        -0.49327266216278076
+      ]
+    },
+    {
+      "bufferView": 9,
+      "componentType": 5126,
+      "count": 49,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 0,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 1,
+          "target": {
+            "node": 0,
+            "path": "rotation"
+          }
+        },
+        {
+          "sampler": 2,
+          "target": {
+            "node": 0,
+            "path": "scale"
+          }
+        }
+      ],
+      "samplers": [
+        {
+          "input": 6,
+          "output": 7
+        },
+        {
+          "input": 6,
+          "output": 8
+        },
+        {
+          "input": 6,
+          "output": 9
+        }
+      ],
+      "name": "Open"
+    }
+  ],
+  "asset": {
+    "generator": "Plattar UnityGLTF (2019.3.8f1)",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "uri": "ValveTopL_1.bin",
+      "byteLength": 84188
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 15876
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 15876,
+      "byteLength": 15876
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 31752,
+      "byteLength": 21168
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 52920,
+      "byteLength": 10584
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 63504,
+      "byteLength": 1728
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 65232,
+      "byteLength": 16800
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 82032,
+      "byteLength": 196
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 82228,
+      "byteLength": 588
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 82816,
+      "byteLength": 784
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 83600,
+      "byteLength": 588
+    }
+  ],
+  "images": [
+    {
+      "uri": "basegray1.jpg",
+      "name": "basegray1"
+    },
+    {
+      "uri": "MetalDusty.jpg",
+      "name": "MetalDusty"
+    },
+    {
+      "uri": "Armydiarrhea.jpg",
+      "name": "Armydiarrhea"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1.0
+        ],
+        "baseColorTexture": {
+          "index": 0,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Основа ППО"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.376,
+          0.8,
+          0.383066654,
+          1.0
+        ],
+        "baseColorTexture": {
+          "index": 2,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "normalTexture": {
+        "index": 1,
+        "extensions": {
+          "KHR_texture_transform": {
+            "offset": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "name": "Армейский поносный_3"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 5,
+          "material": 1
+        }
+      ],
+      "name": "ValveTopL_1"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        -0.7070995,
+        0.0032210052,
+        0.00322109461,
+        -0.707099557
+      ],
+      "scale": [
+        1.00000024,
+        1.00000048,
+        1.00000036
+      ],
+      "translation": [
+        3.37485242,
+        1.4475342,
+        1.32285237
+      ],
+      "name": "ValveTopL_1"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9729
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "ValveTopL_1"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "basegray1"
+    },
+    {
+      "sampler": 0,
+      "source": 1,
+      "name": "MetalDusty"
+    },
+    {
+      "sampler": 0,
+      "source": 2,
+      "name": "Armydiarrhea"
+    }
+  ]
+}

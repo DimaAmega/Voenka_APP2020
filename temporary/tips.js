@@ -26,9 +26,11 @@ class tips{
     }
     setText(message){
         this.elem.css({fontSize:"0"})
+        this.hide();
         setTimeout(()=>{
             this.elem.html(message);
             this.elem.css({fontSize:"20px"})
+            this.show();
         },700)
     }
 }

@@ -50,14 +50,20 @@ class StateManager {
         this.removeConnections();
         this.setConnection(newConnections);
     }
+    compareStates(st1,st2){
+        for(var i in st1) if (st1[i]!=st2[i]) return false;
+        return true;
+    }
 
     //This function returns current state like {} or {a:asdasd, asdasd:asdas}
     // if state in statesArray and required transition is valid
     requestTransition(localName, localState) {
         var candidates = this.adjacency_matrix[this.current_state_number];
+        var requiredState = {...this.currentState}
+        requiredState[localName] = localState
         for (var i in candidates) {
             //если есть переход от текущего состояния к запрашиваемому и изменяется наш элемент
-            if (candidates[i] === 1 && this.states_arr[i][localName] === localState) {
+            if (candidates[i] === 1 && this.compareStates(this.stateByNumber(i),requiredState)) {
                 this.current_state_number = i;
                 return this.currentState;
             }

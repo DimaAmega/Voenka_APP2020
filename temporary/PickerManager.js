@@ -79,19 +79,17 @@ class PickerManager {
             else {
                 this.m_domObject.style.cursor = "default";
             }
-            this._sendStateMashineRequest(HIGHLIGHT_REQUEST, this.m_lastHighlightedShape);
+            if(this.m_currentState !== "lockedState") {
+                this._sendStateMashineRequest(HIGHLIGHT_REQUEST, this.m_lastHighlightedShape);
+            }
         }, 300);
     }
 
     // The function finds the required state by trigger object and return founded state name, if there is no state return undefined.
-    requiredState(triggerObject) {
-        for (let stateName in this.m_states) {
-            let stateTriggerAction = this.m_states[stateName][triggerAction];
-            if (triggerObject && stateTriggerAction
-                && stateTriggerAction["name"] === triggerObject["name"]
-                && stateTriggerAction["state"] === triggerObject["state"]) {
-                return stateName;
-            }
+    requiredState(requiredPickerState) {
+        if (this.m_states[requiredPickerState]) {
+            console.log("Our p state ",requiredPickerState);
+            return requiredPickerState;
         }
         return undefined;
     }
@@ -117,7 +115,7 @@ class PickerManager {
                 break;
             case HIGHLIGHT_REQUEST:
                 console.log(requestArguments,"HERE");
-                // this.m_stateMachine.highlight(requestArguments);
+                this.m_stateMachine.highlight(requestArguments);
                 break;
             default:
                 console.log("Error: incorrect requestID", requestID);
@@ -139,6 +137,7 @@ class PickerManager {
         }
         firstIntersectObject = firstIntersectObject[0];
         let foundedName = firstIntersectObject['object'].name;
+        // console.log(foundedName);
         foundedName = foundedName.replace(/_\d+$/,"");
         // console.log(foundedName);
         let foundedObject = this.m_states[this.m_currentState][clickableItems][foundedName];

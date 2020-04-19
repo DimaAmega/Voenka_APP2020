@@ -29,9 +29,10 @@ class ObjectStateManager {
     transition(localObject) {
         let localName = localObject["name"];
         let localState = localObject["state"];
+        let pickerState = localObject["pickerState"];
 
         // This call sets state for picker manager
-        this._checkPickerState(localObject);
+        this._checkPickerState(pickerState);
         this._lockPickerManager();
 
         if (!this.isInitialaized()) {
@@ -66,6 +67,21 @@ class ObjectStateManager {
     showAvailableTransitions() {
         this.m_stateMashine.logAvailableTransitions();
     }
+
+    highlight(localObject){
+        if (!localObject.name || !localObject.state) {
+            return false;
+        }
+        
+        for(let obj of this.m_objects)
+            if (obj.name === localObject.name) {
+                obj.blindUp(0.4);
+                obj.applyState(localObject.state);
+                return true;
+            }
+        return false;
+    }
+
     showAllStates() {
         this.m_stateMashine.logAllStates();
     }
@@ -100,11 +116,15 @@ class ObjectStateManager {
             if (!stateApplied)
                 console.log("WRONG, this obj don't change", this.m_objects[i]);
         }
+        return stateApplied;
     }
 
     _checkPickerState(localObject) {
         if (!this.m_pickerManager) {
             console.log("ERROR: pickerManager isn't setted");
+            return;
+        }
+        if (!localObject) {
             return;
         }
 

@@ -94,10 +94,10 @@
     {
       "bufferView": 6,
       "componentType": 5126,
-      "count": 77,
+      "count": 60,
       "type": "SCALAR",
       "max": [
-        2.54978346824646
+        1.9666668176651
       ],
       "min": [
         0.0
@@ -106,41 +106,41 @@
     {
       "bufferView": 7,
       "componentType": 5126,
-      "count": 77,
+      "count": 60,
       "type": "VEC3",
       "max": [
-        1.156084418296814,
-        1.0205211639404297,
-        -1.2633113861083984
+        1.1557520627975464,
+        0.93002158403396606,
+        -1.263205885887146
       ],
       "min": [
-        1.156084418296814,
-        0.839691698551178,
-        -1.2633113861083984
+        1.1557520627975464,
+        0.70006197690963745,
+        -1.263205885887146
       ]
     },
     {
       "bufferView": 8,
       "componentType": 5126,
-      "count": 77,
+      "count": 60,
       "type": "VEC4",
       "max": [
-        -6.1232342629258393E-17,
-        1.0,
-        -6.1232342629258393E-17,
-        -6.1232342629258393E-17
+        0.0,
+        1.2246468525851679E-16,
+        -1.0170445448923573E-32,
+        1.0
       ],
       "min": [
-        -6.1232342629258393E-17,
-        1.0,
-        -6.1232342629258393E-17,
-        -6.1232342629258393E-17
+        0.0,
+        1.2246468525851679E-16,
+        -1.0170445448923573E-32,
+        1.0
       ]
     },
     {
       "bufferView": 9,
       "componentType": 5126,
-      "count": 77,
+      "count": 60,
       "type": "VEC3",
       "max": [
         1.0,
@@ -203,7 +203,7 @@
   "buffers": [
     {
       "uri": "Support3.bin",
-      "byteLength": 49084
+      "byteLength": 48336
     }
   ],
   "bufferViews": [
@@ -239,33 +239,39 @@
     {
       "buffer": 0,
       "byteOffset": 45696,
-      "byteLength": 308
+      "byteLength": 240
     },
     {
       "buffer": 0,
-      "byteOffset": 46004,
-      "byteLength": 924
+      "byteOffset": 45936,
+      "byteLength": 720
     },
     {
       "buffer": 0,
-      "byteOffset": 46928,
-      "byteLength": 1232
+      "byteOffset": 46656,
+      "byteLength": 960
     },
     {
       "buffer": 0,
-      "byteOffset": 48160,
-      "byteLength": 924
+      "byteOffset": 47616,
+      "byteLength": 720
     }
   ],
   "images": [
     {
-      "uri": "Black-texture 2.jpg",
-      "name": "Black-texture 2"
+      "uri": "Black-texture.jpg",
+      "name": "Black-texture"
     }
   ],
   "materials": [
     {
       "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.15,
+          0.15,
+          0.15,
+          1.0
+        ],
         "baseColorTexture": {
           "index": 0,
           "extensions": {
@@ -279,13 +285,13 @@
         },
         "metallicFactor": 0.0
       },
-      "name": "Материал.1_3"
+      "name": "Материал.1_1"
     },
     {
       "pbrMetallicRoughness": {
         "metallicFactor": 0.0
       },
-      "name": "No Name 2"
+      "name": "No Name"
     }
   ],
   "meshes": [
@@ -312,41 +318,24 @@
           "material": 1
         }
       ],
-      "name": "Объект_Куб"
+      "name": "Support3"
     }
   ],
   "nodes": [
     {
-      "children": [
-        1
-      ],
-      "rotation": [
-        -6.123234E-17,
-        1.0,
-        6.123234E-17,
-        6.123234E-17
-      ],
-      "translation": [
-        1.15608442,
-        1.02,
-        1.26331139
-      ],
-      "name": "Support3"
-    },
-    {
       "mesh": 0,
       "rotation": [
-        -6.123234E-17,
-        1.0,
-        6.123234E-17,
-        6.123234E-17
+        0.0,
+        1.22464685E-16,
+        1.01704454E-32,
+        -1.0
       ],
       "translation": [
-        0.000332296855,
-        -0.11844749,
-        0.000105547733
+        1.15575206,
+        0.93,
+        1.26320589
       ],
-      "name": "Объект_Куб"
+      "name": "Support3"
     }
   ],
   "samplers": [
@@ -367,7 +356,7 @@
     {
       "sampler": 0,
       "source": 0,
-      "name": "Black-texture 2"
+      "name": "Black-texture"
     }
   ]
 }

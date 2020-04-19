@@ -18,10 +18,10 @@ import { SmoothShading } from "../../build/three.module";
 var PickerManagerClass = require("../../temporary/PickerManager");
 
 // import {statesDiscriptions,objectStateManager} from "../../Custom_Modules/statesDObjectSMMiddleware"
-import { tips } from "../../temporary/tips";
-var t = new tips();
-t.show();
-window.t = t;
+// import { tips } from "../../temporary/tips";
+// var t = new tips();
+// t.show();
+// window.t = t;
 /////////////////////////////////
 //		GLOBAL VARAIABLES
 /////////////////////////////////
@@ -29,7 +29,7 @@ var scene = new THREE.Scene();
 var renderer = new THREE.WebGLRenderer({
   powerPreference: "high-performance",
   antialias: true,
-  precision: "highp",
+  precision: "high",
 });
 window.renderer = renderer;
 var clock = new THREE.Clock();
@@ -44,8 +44,6 @@ var controls = new OrbitControls(camera, renderer.domElement);
 // PICKER MANAGer TEST
 
 var pickerManagerStatesString = "pickerManagerStates";
-
-console.log(localObjectStates);
 
 camera.position.set(0, 1, 5);
 controls.update();
@@ -91,19 +89,25 @@ Objects.loadObjects([
   "Cube.gltf",
   "Cube_1.gltf",
   "Cube_2.gltf",
+  "Cube_3.gltf",
+  "Cube_4.gltf",
+  "Cube_5.gltf",
+  "Cube_6.gltf",
+  "Cube_7.gltf",
+  "Cube_8.gltf",
   "Anvil.gltf",
-  "Lock_1.gltf",
+  "Lock1.gltf",
   "Oil_Tank.gltf",
+  "ppo_lock.gltf",
   "Support1.gltf",
   "Support2.gltf",
   "Support3.gltf",
   "Support4.gltf",
+  "ValveTopR.gltf",
   "Back_door.gltf",
   "Cap_of_PPO.gltf",
+  "Cap_of_PPO_tr.gltf",
   "Front_door.gltf",
-  "Left_valwe.gltf",
-  "Right_valve.gltf",
-  "ValveBotL_1.gltf",
   "Power_checker.gltf",
   "TPK_small_very.gltf",
 ])
@@ -140,8 +144,8 @@ Objects.loadObjects([
 function renderLoop(time) {
   var delta = clock.getDelta();
   controls.update();
-  renderer.render(scene, camera);
   Objects.updateAnimations(delta);
+  renderer.render(scene, camera);
   requestAnimationFrame(renderLoop);
 }
 
