@@ -24,7 +24,7 @@ var highlightObject = "highlightObject";
 class PickerManager {
     //передаем сцену для того чтобы знать где искать объекты
     // в конструктор передаются родительский элемент
-    constructor(domObject, camera, scene, states, stateMachine = undefined, currentState = "secondState", name = "PickerManager") {
+    constructor(domObject, camera, scene, states, stateMachine = undefined, currentState = "firstState", name = "PickerManager") {
         if (!THREE) {
             console.log("Need three js module");
             return;
@@ -58,7 +58,9 @@ class PickerManager {
     }
 
     unLock() {
-        this.m_currentState = this.m_lastReceivedState;
+        if (this.m_currentState === "lockState") {
+            this.m_currentState = this.m_lastReceivedState;
+        }
     }
 
     isInitialaized() {
@@ -72,7 +74,6 @@ class PickerManager {
 
         this.m_checkIntersects = true;
         setInterval(() => {
-
             if (this._checkIntersects()) {
                 this.m_domObject.style.cursor = "pointer";
             }
@@ -93,7 +94,7 @@ class PickerManager {
         }
         return undefined;
     }
-
+    
     // This functiuon finds internal objects in scene and add them to array to find
     _parceActiveStates() {
         for (let state in this.m_states) {
@@ -111,10 +112,9 @@ class PickerManager {
         if (!requestArguments) return;
         switch (requestID) {
             case TRANSITION_REQUEST:
-                this.m_stateMachine.transition(requestArguments);
+                this.m_stateMachine.transition(requestArguments).then(()=>{console.log("End of transition")});
                 break;
             case HIGHLIGHT_REQUEST:
-                console.log(requestArguments,"HERE");
                 this.m_stateMachine.highlight(requestArguments);
                 break;
             default:
@@ -137,13 +137,10 @@ class PickerManager {
         }
         firstIntersectObject = firstIntersectObject[0];
         let foundedName = firstIntersectObject['object'].name;
-        // console.log(foundedName);
         foundedName = foundedName.replace(/_\d+$/,"");
-        // console.log(foundedName);
         let foundedObject = this.m_states[this.m_currentState][clickableItems][foundedName];
         let clickedObject = foundedObject[triggerAction];
         let highlightedObject = foundedObject[highlightObject];
-        
         this._updateClickedObject(clickedObject);
         this._updateHighlightObject(highlightedObject)
         return true;
@@ -156,7 +153,6 @@ class PickerManager {
     _onMouseClickCallback(event) {
         this._checkIntersects();
         this._sendStateMashineRequest(TRANSITION_REQUEST, this.m_lastClickedShape);
-
     }
 
     _processInitialParameters(domObject, camera, scene, states, stateMachine) {
@@ -219,5 +215,4 @@ if (module.parent === null) {
 else {
     module.exports = PickerManager;
 }
-
 // privateClass 

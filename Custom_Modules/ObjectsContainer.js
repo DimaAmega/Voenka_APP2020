@@ -11,6 +11,25 @@ class obj_API {
     this.opt = {};
     this.opacity = 1;
     this.h = 0.01;
+    this.resolveFun;
+    this.handler = function(e) {
+      console.log("END TRANSITION");
+      this.animationMixer.removeEventListener("finished",this.handler);
+      this.resolveFun(true);
+    }.bind(this);
+    this.promise = function(){
+      return new Promise((resolve,reject)=>{
+        this.resolveFun = resolve;
+        this.animationMixer.addEventListener( 'finished', this.handler);
+      })
+    }
+    this.fadeOutPromise = function(){
+      return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+          resolve(true);
+        },1000);
+      })
+    }
   }
   findActionByName(name) {
     if (this.actions_arr[name] == undefined) throw "dont have this Action";
@@ -46,8 +65,7 @@ class obj_API {
           resolve(timer_id);
         i += this.h;
       }, 10);
-    }).then((timer_id) => {
-      console.log("END!");  
+    }).then((timer_id) => { 
       clearTimeout(timer_id);
       this.opacity = opacity;
     });
@@ -56,7 +74,6 @@ class obj_API {
     const actions_arr = value.split(", ")
     const new_currentAction = []
     try {
-
       this.currentAction.forEach((el)=>{
         if(actions_arr.indexOf(el.name) == -1) el.action.fadeOut(1)
         else {
@@ -65,18 +82,17 @@ class obj_API {
         }
         }); 
       this.currentAction = new_currentAction;
-      if (value== "Static") { this.currentAction = []; return true;}
+      if (value === "Static") { this.currentAction = []; return this.fadeOutPromise();}
       for (value of actions_arr){
         this.currentAction.push({name:value,
           action:
           this.findActionByName(value)
           .reset()
           .setLoop(this.opt.loop ? THREE.LoopPingPong : THREE.LoopOnce)
-          // .setDuration(this.opt.durationAnimation || 1)
           .play()
         });
       }
-      return true;
+      return this.promise();
     } catch (e) {
       console.log(e);
       return false;

@@ -111,7 +111,6 @@ Objects.loadObjects([
   "Power_checker.gltf",
   "TPK_small_very.gltf",
 ])
-  // Objects.loadObjects(["Back_door.gltf"])
   .then((Obj_arr) => {
     for (var obj of Obj_arr) {
       scene.add(obj.obj);
@@ -129,9 +128,9 @@ Objects.loadObjects([
       SM,
       "firstState"
     );
-    SM.stateMashine = stateMachine;
-
     SM.pickerManager = pickerManager;
+    
+    SM.stateMashine = stateMachine;
     if (SM.isInitialaized() && pickerManager.isInitialaized()) {
       pickerManager.startToCheckIntersects();
     }
