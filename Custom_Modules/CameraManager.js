@@ -12,7 +12,7 @@ class CameraManager {
         }
         else {
             this._stateModeConstructor(positions, durations);
-        }   
+        }
     }
 
     get camera() {
@@ -201,4 +201,14 @@ class CameraManager {
     }
 }
 
-export {CameraManager}
+// export {CameraManager}
+
+if (module.parent === null)
+{
+    console.log("Local used");
+}
+
+else
+{
+    module.exports = CameraManager;
+}

@@ -1,27 +1,21 @@
 //This class map real 3d objects and their names
 class ObjectStateManager {
     // текущее состояние, список реальных объектов в сцене, объект с состояниями подобъектов
-    constructor(
-        sceneObjects,
-        objectStateList,
-        currentState = 0,
-        externalStateMachine = false,
-        transitions = []
-    ) {
+    constructor (sceneObjects) {
         this.m_objects = sceneObjects;
 
         this.m_stateApplied = false;
 
-        if (!externalStateMachine) {
-            var StateManager = require("./StateManagerPrivate");
-            this.m_stateMashine = new StateManager(objectStateList, currentState);
-        }
+        // if (!externalStateMachine) {
+        //     var StateManager = require("./StateManagerPrivate");
+        //     this.m_stateMashine = new StateManager(objectStateList, currentState);
+        // }
     }
 
     //PUBLIC METHODS
     // If private state machine is setted and picker manager setted -> return true
     isInitialaized() {
-        return this.m_stateMashine && this.m_pickerManager;
+        return this.m_stateMashine;
     }
 
     //This function requests transition to different steta and calls apply state for 3d objects
@@ -29,11 +23,9 @@ class ObjectStateManager {
     transition(localObject) {
         let localName = localObject["name"];
         let localState = localObject["state"];
-        let pickerState = localObject["pickerState"];
 
         // This call sets state for picker manager
-        this._checkPickerState(pickerState);
-        this._lockPickerManager();
+        // this._lockPickerManager();
 
         if (!this.isInitialaized()) {
             console.log("Error: state mashine is undefined");
@@ -82,9 +74,26 @@ class ObjectStateManager {
         return false;
     }
 
+    localState(localObjectName)
+    {
+        if (!localObjectName) 
+        {
+            console.log("Error: need localObjectName");
+            return;
+        }
+
+        let currentState = this.m_stateMashine.currentState;
+        if (currentState[localObjectName])
+        {
+            return currentState[localObjectName];
+        }
+        console.log("Error: cannot find ", localObjectName);
+    }
+
     showAllStates() {
         this.m_stateMashine.logAllStates();
     }
+
     changeCurrentState(value) {
         if (!this.isInitialaized()) {
             console.log("Error: state mashine is undefined");
@@ -117,22 +126,6 @@ class ObjectStateManager {
                 console.log("WRONG, this obj don't change", this.m_objects[i]);
         }
         return stateApplied;
-    }
-
-    _checkPickerState(localObject) {
-        if (!this.m_pickerManager) {
-            console.log("ERROR: pickerManager isn't setted");
-            return;
-        }
-        if (!localObject) {
-            return;
-        }
-
-        let foundedPickerState = this.m_pickerManager.requiredState(localObject);
-
-        if (foundedPickerState) {
-            this.m_pickerManager.state = foundedPickerState;
-        }
     }
 
     _lockPickerManager() {
