@@ -127,7 +127,7 @@ class MilitaryApplication extends Events {
 
         this.m_pickerManager = new PickerManagerClass(this.m_render.domElement, this.m_cameraManager.camera, this.m_mainScene, pickerStates, this.m_objectStateManager);
 
-
+        this.m_objectStateManager.pickerManager = this.m_pickerManager;
         // emit end signal
         //TODO: move to right plase
         this._applicationReady();
