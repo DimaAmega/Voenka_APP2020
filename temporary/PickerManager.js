@@ -24,7 +24,7 @@ var highlightObject = "highlightObject";
 class PickerManager {
     //передаем сцену для того чтобы знать где искать объекты
     // в конструктор передаются родительский элемент
-    constructor(domObject, camera, scene, states, stateMachine = undefined, currentState = "secondState", name = "PickerManager") {
+    constructor(domObject, camera, scene, states, stateMachine = undefined, currentState = "firstState", name = "PickerManager") {
         if (!THREE) {
             console.log("Need three js module");
             return;
@@ -39,8 +39,10 @@ class PickerManager {
         this.m_mouse_position = new THREE.Vector2();
         this.m_pastMousePosition = new THREE.Vector2();
         this.m_currentState = currentState;
+        this.m_previousState = currentState;
 
-        this.m_lastHighlightedShape = "";
+        this.m_lastHighlightedShape = undefined;
+        this.m_currentHighlightedShape = undefined;
         this.m_lastClickedShape = "";
         this.m_checkIntersects = false;
     }
@@ -48,6 +50,7 @@ class PickerManager {
     // PUBLIC FUNCTIONS
     set state(state) {
         if (state !== this.m_currentState) {
+            this.m_previousState = this.m_currentState;
             this.m_currentState = state;
         }
     }
@@ -79,8 +82,13 @@ class PickerManager {
             else {
                 this.m_domObject.style.cursor = "default";
             }
-            if(this.m_currentState !== "lockedState") {
-                this._sendStateMashineRequest(HIGHLIGHT_REQUEST, this.m_lastHighlightedShape);
+            if (this.m_currentState !== "lockedState") {
+                if (this.m_currentHighlightedShape) {
+                    this._sendStateMashineRequest(HIGHLIGHT_REQUEST, this.m_currentHighlightedShape);
+                }
+                if (this.m_lastHighlightedShape) {
+                    this._sendStateMashineRequest(HIGHLIGHT_REQUEST, this.m_lastHighlightedShape);
+                }
             }
         }, 300);
     }
@@ -88,7 +96,7 @@ class PickerManager {
     // The function finds the required state by trigger object and return founded state name, if there is no state return undefined.
     requiredState(requiredPickerState) {
         if (this.m_states[requiredPickerState]) {
-            console.log("Our p state ",requiredPickerState);
+            console.log("Our p state ", requiredPickerState);
             return requiredPickerState;
         }
         return undefined;
@@ -114,7 +122,6 @@ class PickerManager {
                 this.m_stateMachine.transition(requestArguments);
                 break;
             case HIGHLIGHT_REQUEST:
-                console.log(requestArguments,"HERE");
                 this.m_stateMachine.highlight(requestArguments);
                 break;
             default:
@@ -129,7 +136,7 @@ class PickerManager {
             return;
         }
         this.m_raycaster.setFromCamera(this.m_mouse_position, this.m_camera);
-        let firstIntersectObject = this.m_raycaster.intersectObjects(this.m_internalPickedObject[this.m_currentState],true);
+        let firstIntersectObject = this.m_raycaster.intersectObjects(this.m_internalPickedObject[this.m_currentState], true);
         if (firstIntersectObject.length === 0) {
             this._updateClickedObject(undefined);
             this._updateHighlightObject(undefined);
@@ -138,14 +145,15 @@ class PickerManager {
         firstIntersectObject = firstIntersectObject[0];
         let foundedName = firstIntersectObject['object'].name;
         // console.log(foundedName);
-        foundedName = foundedName.replace(/_\d+$/,"");
+        foundedName = foundedName.replace(/_\d+$/, "");
         // console.log(foundedName);
         let foundedObject = this.m_states[this.m_currentState][clickableItems][foundedName];
+
         let clickedObject = foundedObject[triggerAction];
         let highlightedObject = foundedObject[highlightObject];
-        
+
         this._updateClickedObject(clickedObject);
-        this._updateHighlightObject(highlightedObject)
+        this._updateHighlightObject(highlightedObject);
         return true;
     }
 
@@ -155,8 +163,19 @@ class PickerManager {
 
     _onMouseClickCallback(event) {
         this._checkIntersects();
-        this._sendStateMashineRequest(TRANSITION_REQUEST, this.m_lastClickedShape);
 
+        if (this.m_lastClickedShape) {
+            this.m_currentState = this.m_lastClickedShape["pickerState"];
+            this._sendStateMashineRequest(TRANSITION_REQUEST, this.m_lastClickedShape);
+        }
+        // if (this.m_currentHighlightedShape) {
+        //     this._sendStateMashineRequest(HIGHLIGHT_REQUEST, this.m_currentHighlightedShape);
+        //     // this.m_currentHighlightedShape = undefined;
+        // }
+        // if (this.m_lastHighlightedShape) {
+        //     this._sendStateMashineRequest(HIGHLIGHT_REQUEST, this.m_lastHighlightedShape);
+        //     // this.m_lastHighlightedShape = undefined;
+        // }
     }
 
     _processInitialParameters(domObject, camera, scene, states, stateMachine) {
@@ -207,9 +226,22 @@ class PickerManager {
     }
 
     _updateHighlightObject(object) {
-        if (this.m_lastHighlightedShape != object) {
-            this.m_lastHighlightedShape = object;
+        if (object === undefined)
+        {
+            if (this.m_currentHighlightedShape !== undefined) {
+                let realObjectName = this.m_currentHighlightedShape["name"].replace("_tr", "");
+                this.m_lastHighlightedShape = {
+                    "name": this.m_currentHighlightedShape["name"],
+                    "state": this.m_stateMachine.localState(realObjectName)
+                };
+            } 
+            else 
+            {
+                this.m_lastHighlightedShape = undefined;
+            }
         }
+
+        this.m_currentHighlightedShape = object;
     }
 };
 
@@ -220,4 +252,4 @@ else {
     module.exports = PickerManager;
 }
 
-// privateClass 
+// privateClass

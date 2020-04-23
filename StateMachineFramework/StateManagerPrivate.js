@@ -50,6 +50,7 @@ class StateManager {
         this.removeConnections();
         this.setConnection(newConnections);
     }
+
     compareStates(st1,st2){
         for(var i in st1) if (st1[i]!=st2[i]) return false;
         return true;
@@ -117,6 +118,7 @@ class StateManager {
     get arr_states() {
         return this.states_arr;
     }
+    
     setCurrentStateNumber(value) {
         if (this.isValidStateNumber(value)) this.current_state_number = value;
         else {
@@ -126,4 +128,5 @@ class StateManager {
         return true;
     }
 }
+
 module.exports = StateManager;
