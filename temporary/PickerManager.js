@@ -61,7 +61,9 @@ class PickerManager {
     }
 
     unLock() {
-        this.m_currentState = this.m_lastReceivedState;
+        if (this.m_currentState === "lockState") {
+            this.m_currentState = this.m_lastReceivedState;
+        }
     }
 
     isInitialaized() {
@@ -75,7 +77,6 @@ class PickerManager {
 
         this.m_checkIntersects = true;
         setInterval(() => {
-
             if (this._checkIntersects()) {
                 this.m_domObject.style.cursor = "pointer";
             }
@@ -101,7 +102,7 @@ class PickerManager {
         }
         return undefined;
     }
-
+    
     // This functiuon finds internal objects in scene and add them to array to find
     _parceActiveStates() {
         for (let state in this.m_states) {
@@ -119,7 +120,7 @@ class PickerManager {
         if (!requestArguments) return;
         switch (requestID) {
             case TRANSITION_REQUEST:
-                this.m_stateMachine.transition(requestArguments);
+                this.m_stateMachine.transition(requestArguments).then(()=>{console.log("End of transition")});
                 break;
             case HIGHLIGHT_REQUEST:
                 this.m_stateMachine.highlight(requestArguments);
@@ -151,7 +152,6 @@ class PickerManager {
 
         let clickedObject = foundedObject[triggerAction];
         let highlightedObject = foundedObject[highlightObject];
-
         this._updateClickedObject(clickedObject);
         this._updateHighlightObject(highlightedObject);
         return true;
