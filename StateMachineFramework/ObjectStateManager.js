@@ -32,7 +32,7 @@ class ObjectStateManager {
             this._unlockPickerManager();
             return false;
         }
-
+        
         var requiredState = this.m_stateMashine.requestTransition(localName, localState);
         console.log("Required state is ", requiredState, "by", localName, localState);
 
@@ -42,17 +42,18 @@ class ObjectStateManager {
             return false;
         }
         else {
-            this.m_stateApplied = false;
-            if (this._applyState(requiredState)) {
-                console.log("Current state is", requiredState);
-                this._unlockPickerManager();
-                return true;
-            }
-            else {
-                console.log("Error: Cannot set new current state", requiredState);
-                this._unlockPickerManager();
-                return false;
-            }
+            return this._applyState(requiredState); // it is promise
+            // this.m_stateApplied = false;
+            // if (this._applyState(requiredState)) {
+            //     console.log("Current state is", requiredState);
+            //     this._unlockPickerManager();
+            //     return true;
+            // }
+            // else {
+            //     console.log("Error: Cannot set new current state", requiredState);
+            //     this._unlockPickerManager();
+            //     return false;
+            // }
         }
     }
     // This function loggs valid transitions
@@ -100,32 +101,35 @@ class ObjectStateManager {
             return false;
         }
         if (this.m_stateMashine.setCurrentStateNumber(value))
-            this._applyState(this.m_stateMashine.currentState); // move objects in start position
+            this._applyState(this.m_stateMashine.currentState).then(()=>{
+                console.log("end start transiton");
+            }); // move objects in start position
     }
 
     // PRIVATE METHODS
     //This function apply state
     // state is JS Object with local names and states
-    _applyState(requiredState) {
+    async _applyState(requiredState) { // async function will return promise
+        this.m_stateApplied = false;
+
         if (typeof requiredState != "object") {
             console.log("Error: incorrect empty state");
             return false;
         }
-
-        var stateApplied = true;
-        // if every object return true -> stateApplyed and everything worked correct
-        // else ->  badState naming or something else
+        var promises = [];
+        // Every object return promise
         for (var i in this.m_objects) {
-            // TODO Dmitry Horkin use sceneObjects.applyState please ===> DONE
-            if (requiredState[this.m_objects[i].name])
-                //static objects dont change
-                stateApplied = this.m_objects[i].applyState(
-                    requiredState[this.m_objects[i].name]
-                );
-            if (!stateApplied)
-                console.log("WRONG, this obj don't change", this.m_objects[i]);
+            if (requiredState[this.m_objects[i].name]) //static objects dont change
+            promises.push(this.m_objects[i].applyState(requiredState[this.m_objects[i].name]));
         }
-        return stateApplied;
+        var res = await Promise.all(promises); // wait end of all animations  
+        this._unlockPickerManager();
+        this.m_stateApplied = true;
+        for(var r_i of res) if (r_i === false) {  // if all promises return true -> the state was applied
+            this.m_stateApplied = false;
+            break;
+        }
+        return this.m_stateApplied; 
     }
 
     _lockPickerManager() {
@@ -146,6 +150,7 @@ class ObjectStateManager {
             this.m_stateMashine = stateMashine;
             if (!this.isStateApplyed) {
                 var currentState = this.m_stateMashine.currentState;
+                this._lockPickerManager() 
                 this._applyState(currentState);
             }
         }
