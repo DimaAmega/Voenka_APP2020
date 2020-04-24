@@ -1,7 +1,7 @@
 // import { GLTFLoader } from "./GLTFLoader"; // GLTF loader
 let GLTFLoader = require("./GLTFLoader");
 
-class obj_API {
+class obj_API{
     constructor(Obj, mixer, actions_arr) {
         this.name = Obj.scene.name.replace(/\..+/, ""); // del .glb or smth
         this.animationMixer = mixer;
@@ -15,7 +15,6 @@ class obj_API {
         this.h = 0.01;
         this.resolveFun;
         this.handler = function (e) {
-            console.log("END TRANSITION");
             this.animationMixer.removeEventListener("finished", this.handler);
             this.resolveFun(true);
         }.bind(this);
@@ -117,37 +116,6 @@ class obj_API {
             clearTimeout(timer_id);
             this.opacity = opacity;
         });
-    }
-    applyState(value) {
-        const actions_arr = value.split(", ")
-        const new_currentAction = []
-        try {
-
-            this.currentAction.forEach((el) => {
-                if (actions_arr.indexOf(el.name) == -1) el.action.fadeOut(1)
-                else {
-                    actions_arr.splice(actions_arr.indexOf(el.name), 1);
-                    new_currentAction.push(el);
-                }
-            });
-            this.currentAction = new_currentAction;
-            if (value == "Static") { this.currentAction = []; return true; }
-            for (value of actions_arr) {
-                this.currentAction.push({
-                    name: value,
-                    action:
-                        this.findActionByName(value)
-                            .reset()
-                            .setLoop(this.opt.loop ? THREE.LoopPingPong : THREE.LoopOnce)
-                            // .setDuration(this.opt.durationAnimation || 1)
-                            .play()
-                });
-            }
-            return true;
-        } catch (e) {
-            console.log(e);
-            return false;
-        }
     }
 }
 

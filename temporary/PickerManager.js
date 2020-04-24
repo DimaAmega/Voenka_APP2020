@@ -168,14 +168,6 @@ class PickerManager {
             this.m_currentState = this.m_lastClickedShape["pickerState"];
             this._sendStateMashineRequest(TRANSITION_REQUEST, this.m_lastClickedShape);
         }
-        // if (this.m_currentHighlightedShape) {
-        //     this._sendStateMashineRequest(HIGHLIGHT_REQUEST, this.m_currentHighlightedShape);
-        //     // this.m_currentHighlightedShape = undefined;
-        // }
-        // if (this.m_lastHighlightedShape) {
-        //     this._sendStateMashineRequest(HIGHLIGHT_REQUEST, this.m_lastHighlightedShape);
-        //     // this.m_lastHighlightedShape = undefined;
-        // }
     }
 
     _processInitialParameters(domObject, camera, scene, states, stateMachine) {
@@ -240,7 +232,6 @@ class PickerManager {
                 this.m_lastHighlightedShape = undefined;
             }
         }
-
         this.m_currentHighlightedShape = object;
     }
 };
