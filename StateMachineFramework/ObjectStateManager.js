@@ -25,7 +25,7 @@ class ObjectStateManager {
         let localState = localObject["state"];
 
         // This call sets state for picker manager
-        // this._lockPickerManager();
+        this._lockPickerManager();
 
         if (!this.isInitialaized()) {
             console.log("Error: state mashine is undefined");

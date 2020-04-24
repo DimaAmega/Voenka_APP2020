@@ -36,18 +36,18 @@ class MilitaryApplication extends Events {
         this.m_applicationReady = false;
         this.m_applicationStarted = false;
 
-        this.m_objectStateManager = undefined;
-        this.m_pickerManager = undefined;
-        this.m_cameraManager = undefined;
-        this.m_statesCreator = undefined;
-        this.m_transitionInfo = undefined;
-        this.m_statesDiscriptions = undefined;
+        this.m_objectStateManager;
+        this.m_pickerManager;
+        this.m_cameraManager;
+        this.m_statesCreator;
+        this.m_transitionInfo;
+        this.m_statesDiscriptions;
 
         // render variable
-        this.m_mainScene = {};
-        this.m_render = {};
-        this.m_statesObject = {};
-        this.m_objectLoader = undefined;
+        this.m_mainScene;
+        this.m_render;
+        this.m_statesObject;
+        this.m_objectLoader;
 
         this._initMainScene();
         this._initCameraManager();
@@ -60,7 +60,6 @@ class MilitaryApplication extends Events {
 
         this.on(checkRequiredModules, this._checkRequiredModules);
         this.on(readyToPickerManager, this._initPickerManager);
-        
     }
 // Public functions:
     startApplication()
@@ -110,12 +109,9 @@ class MilitaryApplication extends Events {
         let globalStates = pathProvider.globalStates();
         let transitionsInfo = pathProvider.transitionsInfo()
         let privateStateMashine = new PrivateStateMachine(globalStates);
-
         privateStateMashine.setConnection(transitionsInfo["StateTransitions1"]);
-        
         this.m_objectStateManager = new StateMachine(this.m_sceneObjects);
         this.m_objectStateManager.stateMashine = privateStateMashine;
-        
         // this.emit(StateMashineCreated);
         this.emit(checkRequiredModules);
     }
@@ -144,13 +140,9 @@ class MilitaryApplication extends Events {
                 }
                 this.m_sceneObjects = Obj_arr;
                 console.log(Obj_arr);
-                //TODO set ligh
-
                 this._addLightToScene();
-
                 this.emit(SceneObjectsLoaded);
                 this.emit(checkRequiredModules);
-
             }).bind(this)
         );
     }
@@ -223,7 +215,6 @@ class MilitaryApplication extends Events {
             return;
         }
 
-        // TODO Dmitry  - set up the lights please
         let hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.6);
         hemiLight.position.set(0, -5, 0);
         var dirLight = new THREE.DirectionalLight(0xffffff, 3);
