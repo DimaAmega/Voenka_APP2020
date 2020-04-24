@@ -57,63 +57,26 @@
                 "ppo_lock": {
                     "triggerAction": {
                         "name": "ppo_lock",
-                        "state": "Open",
-                        "pickerState": "thirdState"
+                        "state": "Open"
                     },
-                    "highlightObject": "ppo_lock"
-                }
-            }
-        },
-        "thirdState": {
-            "ClickableItems": {
-                "Cap_of_PPO": {
-                    "triggerAction": {
-                        "name": "Cap_of_PPO",
-                        "state": "Static",
-                        "pickerState": "firstState"
-                    },
-                    "highlightObject": "Cap_of_PPO"
-                },
-                "ppo_lock": {
-                    "triggerAction": {
-                        "name": "ppo_lock",
-                        "state": "Static",
-                        "pickerState": "secondState"
-                    },
-                    "highlightObject": "ppo_lock"
+                    "highlightObject": {
+                        "name": "ppo_lock_tr",
+                        "state": "Open"
+                    }
                 },
                 "Lock1": {
                     "triggerAction": {
                         "name": "Lock1",
-                        "state": "Open",
-                        "pickerState": "fourState"
+                        "state": "Open"
                     },
-                    "highlightObject": "Lock1"
-                }
-            }
-        },
-        "fourState": {
-            "ClickableItems": {
-                "ppo_lock": {
-                    "triggerAction": {
-                        "name": "ppo_lock",
-                        "state": "Static",
-                        "pickerState": "secondState"
-                    },
-                    "highlightObject": "ppo_lock"
-                },
-                "Lock1": {
-                    "triggerAction": {
-                        "name": "Lock1",
-                        "state": "Static",
-                        "pickerState": "thirdState"
-                    },
-                    "highlightObject": "Lock1"
+                    "highlightObject": {
+                        "name": "Lock1_tr",
+                        "state": "Open"
+                    }
                 }
             }
         },
         "lockedState": {
-            
         }
     }
 }
