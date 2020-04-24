@@ -180,8 +180,8 @@ class MilitaryApplication extends Events {
         let camera = new THREE.PerspectiveCamera(
             45,
             window.innerWidth / window.innerHeight,
-            1,
-            10000
+            0.1,
+            10
         );
         camera.position.set(3, 1, 5);
 

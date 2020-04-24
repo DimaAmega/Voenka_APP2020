@@ -1,0 +1,381 @@
+{
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 22159,
+      "type": "VEC3",
+      "max": [
+        0.0047276881523430347,
+        0.0068737436085939407,
+        0.036658328026533127
+      ],
+      "min": [
+        -0.0047276881523430347,
+        -0.00049497501458972692,
+        4.7372144763357937E-05
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 22159,
+      "type": "VEC3",
+      "max": [
+        0.99991714954376221,
+        0.9999992847442627,
+        0.99994397163391113
+      ],
+      "min": [
+        -0.99991714954376221,
+        -0.9999992847442627,
+        -0.99994385242462158
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 22159,
+      "type": "VEC4",
+      "max": [
+        0.99999129772186279,
+        0.42967993021011353,
+        0.999996542930603,
+        1.0
+      ],
+      "min": [
+        -0.99999833106994629,
+        -0.3936750590801239,
+        -0.999997615814209,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 22159,
+      "type": "VEC2",
+      "max": [
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5125,
+      "count": 13104,
+      "type": "SCALAR",
+      "max": [
+        4893.0
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5125,
+      "count": 98052,
+      "type": "SCALAR",
+      "max": [
+        22158.0
+      ],
+      "min": [
+        4894.0
+      ]
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "count": 55,
+      "type": "SCALAR",
+      "max": [
+        1.8000000715255737
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5126,
+      "count": 55,
+      "type": "VEC3",
+      "max": [
+        3.5216691493988037,
+        1.3957464694976807,
+        -1.3131536245346069
+      ],
+      "min": [
+        3.5216691493988037,
+        1.3957464694976807,
+        -1.3131536245346069
+      ]
+    },
+    {
+      "bufferView": 8,
+      "componentType": 5126,
+      "count": 55,
+      "type": "VEC4",
+      "max": [
+        -0.50256645679473877,
+        -0.502566397190094,
+        0.49742037057876587,
+        0.49742031097412109
+      ],
+      "min": [
+        -0.70710676908493042,
+        -0.70710664987564087,
+        -0.0098215285688638687,
+        -0.00982152670621872
+      ]
+    },
+    {
+      "bufferView": 9,
+      "componentType": 5126,
+      "count": 55,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 0,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 1,
+          "target": {
+            "node": 0,
+            "path": "rotation"
+          }
+        },
+        {
+          "sampler": 2,
+          "target": {
+            "node": 0,
+            "path": "scale"
+          }
+        }
+      ],
+      "samplers": [
+        {
+          "input": 6,
+          "output": 7
+        },
+        {
+          "input": 6,
+          "output": 8
+        },
+        {
+          "input": 6,
+          "output": 9
+        }
+      ],
+      "name": "Open"
+    }
+  ],
+  "asset": {
+    "generator": "Plattar UnityGLTF (2019.3.8f1)",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "uri": "Lock1.bin",
+      "byteLength": 1510676
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 265908
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 265908,
+      "byteLength": 265908
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 531816,
+      "byteLength": 354544
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 886360,
+      "byteLength": 177272
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1063632,
+      "byteLength": 52416
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1116048,
+      "byteLength": 392208
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1508256,
+      "byteLength": 220
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1508476,
+      "byteLength": 660
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1509136,
+      "byteLength": 880
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1510016,
+      "byteLength": 660
+    }
+  ],
+  "images": [
+    {
+      "uri": "ScrewHeadGolden.jpg",
+      "name": "ScrewHeadGolden"
+    },
+    {
+      "uri": "Plastic.jpg",
+      "name": "Plastic"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Болты ППО"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 1,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Black Plastic"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 5,
+          "material": 1
+        }
+      ],
+      "name": "Lock1"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        -0.5026633,
+        -0.5026632,
+        -0.49732253,
+        -0.49732244
+      ],
+      "scale": [
+        1.0,
+        0.9999999,
+        0.9999999
+      ],
+      "translation": [
+        3.52166915,
+        1.39574647,
+        1.31315362
+      ],
+      "name": "Lock1"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9729
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "Lock1"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "ScrewHeadGolden"
+    },
+    {
+      "sampler": 0,
+      "source": 1,
+      "name": "Plastic"
+    }
+  ]
+}

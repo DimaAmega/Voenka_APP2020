@@ -166,6 +166,7 @@ class PickerManager {
 
         if (this.m_lastClickedShape) {
             this.m_currentState = this.m_lastClickedShape["pickerState"];
+            console.log("WARNING NEW STATE ,",this.m_lastClickedShape["pickerState"]);
             this._sendStateMashineRequest(TRANSITION_REQUEST, this.m_lastClickedShape);
         }
     }

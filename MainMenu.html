@@ -9,70 +9,55 @@
 <style>
 </style>
 <body>
-    <div class="button">
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-      </div>
-      <!-- navbar menu -->
-      <div class='menu'>
-        <nav>
-          <ul>
-            <li>
-              <a href='#' data-class='info_is_visible '>Инструкция</a>
-            </li>
-            <li>
-                <a href='#' data-class='scene_is_visible '>Сцена</a>
-              </li>
-            <li>
-              <a href='#' data-class='records_is_visible'>Таблица рекордов</a>
-            </li>
-            <li>
-              <a href='#' data-class='mode_is_visible'>Режимы работы</a>
-            </li>
-            <li>
-              <a href='#' data-class='about_is_visible '>О программе</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <!-- content -->
-      <div class='content info'>
-        <div class="wrapper">
-        <h1>Инструкция</h1>
-        <p>Данная программа предназначена для обучения студентов ... </p>
-        </div>
-        </div>
-      <div class='content scene'>
-          <iframe src="/Scene1/Scene1.html" frameborder="0"></iframe>
-      </div>
-      </div>
-      <div class='content records'>
-        <div class="wrapper">
-        <h1>Таблица рекордов</h1>
-        <p>1. Иванов Иван</p>
-        <p>2. Максимов Максим</p>
-      </div>
-      </div>
-      <div class='content mode'>
-        <div class="wrapper">
-        <h1>Режим работы программы</h1>
-        <p>1. ППО</p>
-        <p>2. ППУ</p>
-        <p>3. ППE</p>
-      </div>
-      </div>
-      <div class='content about'>
-        <div class="wrapper">
-        <h1>О программе</h1>
-        <p>Эта программа была написана с благодаря...</p>
-      </div>
-      </div>
-      <script
+
+
+
+  <iframe src="/Scene1/Scene1.html" frameborder="0"></iframe>
+
+  <div id="menu" class="menu_grid">
+    <div id="regimes" class="regimes_def_position regimes_grid">
+      <p>Выберите сценарий</p>
+    <div id="start_position">
+      <p class="sub_titles">Начальное положениe</p>
+      <form action="">
+        <input type="radio" name="start_position" value="walk">Пходное<Br>
+        <input type="radio" name="start_position" value="war">Боевое<Br>
+        <input type="radio" name="start_position" value="deployed">Развёрнутое<Br>
+      </form>
+    </div>
+    <div id="end_position">
+      <p class="sub_titles">Конечное положениe</p>
+      <form action="">
+        <input id="walk" type="radio" name="end_position" value="walk">Пходное<Br>
+        <input id="war" type="radio" name="end_position" value="war">Боевое<Br>
+        <input id="deployed" type="radio" name="end_position" value="deployed">Развёрнутое<Br>
+      </form>
+    </div>
+    <div id="ppo_control">
+      <p class="sub_titles">Управление ПУ с</p>
+      <form action="">
+        <input type="radio" name="ppo_control" value="ppk">ППК<Br>
+        <input type="radio" name="ppo_control" value="ppo">ППО<Br>
+      </form>
+    </div>
+    <div id="mode_header">
+      <p><button id="start_button" >Начать</button></p>
+    </div>
+    <div id="modes">
+      <form action="" class="modes_grid">
+       <div> <p><input type="radio" name="modes" value="learning">Обучение</p></div>
+       <div><p><input type="radio" name="modes" value="exam">Экзамен</p></div>
+      </form>
+    </div>
+    </div>
+  </div>
+  
+    <script
         src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous">
     </script>
+
     <script src="/javascripts/MainMenu.js"></script>
 </body>
 </html>
