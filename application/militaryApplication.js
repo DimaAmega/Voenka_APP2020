@@ -67,7 +67,7 @@ class MilitaryApplication extends Events {
         this.m_applicationStarted = true;
         this.emit(startApplication);
     }
-    
+
     _applicationReady()
     {
         this.m_applicationReady = true;
@@ -112,6 +112,7 @@ class MilitaryApplication extends Events {
         privateStateMashine.setConnection(transitionsInfo["StateTransitions1"]);
         this.m_objectStateManager = new StateMachine(this.m_sceneObjects);
         this.m_objectStateManager.stateMashine = privateStateMashine;
+        window.SM = this.m_objectStateManager;
         // this.emit(StateMashineCreated);
         this.emit(checkRequiredModules);
     }
