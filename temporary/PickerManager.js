@@ -49,7 +49,7 @@ class PickerManager {
 
     // PUBLIC FUNCTIONS
     set state(state) {
-        if (state !== this.m_currentState) {
+        if (state !== this.m_currentState && state !== undefined) {
             this.m_previousState = this.m_currentState;
             this.m_currentState = state;
         }
@@ -163,10 +163,8 @@ class PickerManager {
 
     _onMouseClickCallback(event) {
         this._checkIntersects();
-
         if (this.m_lastClickedShape) {
-            this.m_currentState = this.m_lastClickedShape["pickerState"];
-            console.log("WARNING NEW STATE ,",this.m_lastClickedShape["pickerState"]);
+            this.state = this.m_lastClickedShape["pickerState"];
             this._sendStateMashineRequest(TRANSITION_REQUEST, this.m_lastClickedShape);
         }
     }
