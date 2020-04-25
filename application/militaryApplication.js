@@ -67,7 +67,7 @@ class MilitaryApplication extends Events {
         this.m_applicationStarted = true;
         this.emit(startApplication);
     }
-
+    
     _applicationReady()
     {
         this.m_applicationReady = true;
@@ -140,6 +140,7 @@ class MilitaryApplication extends Events {
                 }
                 this.m_sceneObjects = Obj_arr;
                 console.log(Obj_arr);
+                window.Obj_arr = Obj_arr;
                 this._addLightToScene();
                 this.emit(SceneObjectsLoaded);
                 this.emit(checkRequiredModules);
