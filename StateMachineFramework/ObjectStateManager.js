@@ -25,11 +25,9 @@ class ObjectStateManager {
         let localState = localObject["state"];
 
         // This call sets state for picker manager
-        this._lockPickerManager();
 
         if (!this.isInitialaized()) {
             console.log("Error: state mashine is undefined");
-            this._unlockPickerManager();
             return false;
         }
         
@@ -38,22 +36,10 @@ class ObjectStateManager {
 
         if (requiredState === undefined) {
             console.log("There is no transition to state");
-            this._unlockPickerManager();
             return false;
         }
         else {
             return this._applyState(requiredState); // it is promise
-            // this.m_stateApplied = false;
-            // if (this._applyState(requiredState)) {
-            //     console.log("Current state is", requiredState);
-            //     this._unlockPickerManager();
-            //     return true;
-            // }
-            // else {
-            //     console.log("Error: Cannot set new current state", requiredState);
-            //     this._unlockPickerManager();
-            //     return false;
-            // }
         }
     }
     // This function loggs valid transitions
@@ -116,6 +102,7 @@ class ObjectStateManager {
             console.log("Error: incorrect empty state");
             return false;
         }
+        this._lockPickerManager();
         var promises = [];
         // Every object return promise
         for (var i in this.m_objects) {
