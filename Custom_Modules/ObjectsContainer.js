@@ -8,7 +8,7 @@ class obj_API{
         this.actions_arr = actions_arr;
         this.obj = Obj.scene;
         this.full_obj = Obj;
-        this.currentAction = [];
+        this.currentAction;
         this.isBlind;
         this.opt = {};
         this.opacity = 1;
@@ -18,17 +18,20 @@ class obj_API{
             this.animationMixer.removeEventListener("finished", this.handler);
             this.resolveFun(true);
         }.bind(this);
-        this.promise = function () {
+        this.transitionPromise = function () {
             return new Promise((resolve, reject) => {
                 this.resolveFun = resolve;
                 this.animationMixer.addEventListener('finished', this.handler);
             })
         }
-        this.fadeOutPromise = function () {
+        this.emptyPromise = function(bool) {
+            return new Promise((resolve,reject)=>{resolve(bool)});
+        }
+        this.fadeOutPromise = function (sec) {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
                     resolve(true);
-                }, 1000);
+                },sec*1000);
             })
         }
     }
@@ -72,35 +75,31 @@ class obj_API{
         });
     }
     applyState(value) {
-        const actions_arr = value.split(", ")
-        const new_currentAction = []
-        try {
-            this.currentAction.forEach((el) => {
-                if (actions_arr.indexOf(el.name) == -1) el.action.fadeOut(1)
-                else {
-                    actions_arr.splice(actions_arr.indexOf(el.name), 1);
-                    new_currentAction.push(el);
+        try{
+            if (this.currentAction){
+                if (this.currentAction.name == value) return this.emptyPromise(true);
+                if (this.currentAction.name != "Static") this.currentAction.action.fadeOut(1)
+            }              
+            if (value == "Static"){
+                this.currentAction = {
+                    name:"Static"
                 }
-            });
-            this.currentAction = new_currentAction;
-            if (value === "Static") { this.currentAction = []; return this.fadeOutPromise(); }
-            for (value of actions_arr) {
-                this.currentAction.push({
-                    name: value,
-                    action:
-                        this.findActionByName(value)
-                            .reset()
-                            .setLoop(this.opt.loop ? THREE.LoopPingPong : THREE.LoopOnce)
-                            .play()
-                });
+                return this.fadeOutPromise(1);
             }
-            return this.promise();
-        } catch (e) {
+            this.currentAction = {
+                name: value,
+                action: this.findActionByName(value)
+                        .reset()
+                        .setLoop(this.opt.loop ? THREE.LoopPingPong : THREE.LoopOnce)
+                        .play()
+            }
+            return this.transitionPromise();
+        }
+        catch(e){
             console.log(e);
-            return false;
+            return this.emptyPromise(false);
         }
     }
-
     blindUp(opacity) {
         var i = this.opacity;
         if (opacity <= this.opacity) this.h = Math.min(this.h, -this.h);
@@ -118,7 +117,6 @@ class obj_API{
         });
     }
 }
-
 function ParseObj(Obj) {
     var actions_arr = {};
     var mixer = new THREE.AnimationMixer(Obj.scene);
