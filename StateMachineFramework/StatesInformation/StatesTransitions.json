@@ -1,5 +1,6 @@
 {
-    "StateTransitions1":[[0,40],[40,0],[40,60],[60,40],[60,70],[70,60],[70,71],[71,70],[71,72],[72,71],[72,73],[73,72]],
+    "StateTransitions0":[[0,40],[40,0],[40,60],[60,40],[60,70],[70,60],[70,71],[71,70],[71,72],[72,71],[72,73],[73,72]],
+    "StateTransitions1":[[0,1],[1,0]],
     "StateTransitions2":[[0,1],[1,0]],
     "StateTransitions3":[[0,1],[1,0]],
     "StateTransitions4":[[0,1],[1,0]],
@@ -9,6 +10,5 @@
     "StateTransitions8":[[0,1],[1,0]],
     "StateTransitions9":[[0,1],[1,0]],
     "StateTransitions10":[[0,1],[1,0]],
-    "StateTransitions11":[[0,1],[1,0]],
-    "StateTransitions12":[[0,1],[1,0]]
+    "StateTransitions11":[[0,1],[1,0]]
 }
