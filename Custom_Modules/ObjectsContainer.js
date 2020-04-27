@@ -36,13 +36,16 @@ class obj_API{
         if (this.actions_arr[name] == undefined) throw "dont have this Action";
         else return this.actions_arr[name];
     }
+    
     updateAnimations(delta) {
         this.animationMixer.update(delta);
     }
+
     setOptions(options) {
         this.opt = options;
         return this;
     }
+
     setOpacity(obj, opacity) {
         if (obj.material && obj.material.name != "Материал.4") {
             obj.material.opacity = opacity;
@@ -55,6 +58,7 @@ class obj_API{
             this.setOpacity.bind(this)(child, opacity);
         });
     }
+
     blindUp(opacity) {
         var i = this.opacity;
         if (opacity <= this.opacity) this.h = Math.min(this.h, -this.h);
@@ -71,6 +75,7 @@ class obj_API{
             this.opacity = opacity;
         });
     }
+
     applyState(value) {
         const actions_arr = value.split(", ")
         const new_currentAction = []

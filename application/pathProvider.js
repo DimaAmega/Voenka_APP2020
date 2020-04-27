@@ -48,9 +48,9 @@ let ObjectsNamesArray = [
     "Front_door.gltf",
     "Power_checker.gltf",
     "TPK_small_very.gltf",
-  ];
+];
 
-  var pathInfo = {
+var pathInfo = {
     [objectsContainer]: "../../Custom_Modules/ObjectsContainer",
     [cameraManager]: "../../Custom_Modules/CameraManager",
     [statesCreator]: "../../Custom_Modules/StatesObjectCreator",
@@ -58,18 +58,83 @@ let ObjectsNamesArray = [
     [localObjectStates]: "../../StateMachineFramework/StatesInformation/SceneObjectStates",
     [stateManagerPrivate]: "../../StateMachineFramework/StateManagerPrivate",
     [objectStateManager]: "../../StateMachineFramework/ObjectStateManager"
-  }
+}
+
+let modesInformation = [
+    //0
+    {
+        "pickerState": "firstState",
+        "objectManagerState": 0
+    },
+    //1
+    {
+        "pickerState": "secondState",
+        "objectManagerState": 3
+    },
+    //2
+    {
+        "pickerState": "firstState",
+        "objectManagerState": 1
+    },
+    //3
+    {
+        "pickerState": "firstState",
+        "objectManagerState": 1
+    },
+    //4
+    {
+        "pickerState": "firstState",
+        "objectManagerState": 1
+    },
+    //5
+    {
+        "pickerState": "secondState",
+        "objectManagerState": 40
+    },
+    //6
+    {
+        "pickerState": "firstState",
+        "objectManagerState": 1
+    },
+    //7
+    {
+        "pickerState": "firstState",
+        "objectManagerState": 1
+    },
+    //8
+    {
+        "pickerState": "firstState",
+        "objectManagerState": 1
+    },
+    //8
+    {
+        "pickerState": "firstState",
+        "objectManagerState": 1
+    },
+    //9
+    {
+        "pickerState": "firstState",
+        "objectManagerState": 1
+    },
+    //10
+    {
+        "pickerState": "firstState",
+        "objectManagerState": 1
+    },
+    //11
+    {
+        "pickerState": "firstState",
+        "objectManagerState": 1
+    }
+];
 
 // The internal class provides path to required modules for MillitaryApplication.
-class PathProvider
-{
-    constructor()
-    {
-        
+class PathProvider {
+    constructor() {
+
     }
 
-    module(moduleName)
-    {    
+    module(moduleName) {
         switch (moduleName) {
             case objectsContainer:
                 return require("../Custom_Modules/ObjectsContainer");
@@ -77,7 +142,7 @@ class PathProvider
                 return require("../Custom_Modules/CameraManager");
             case statesCreator:
                 return require("../StateMachineFramework/StatesObjectCreator");
-            case transitionMatrises:    
+            case transitionMatrises:
                 return require("../StateMachineFramework/StatesInformation/StatesTransitions");
             case objectStateManager:
                 return require("../StateMachineFramework/ObjectStateManager");
@@ -91,14 +156,12 @@ class PathProvider
         }
     }
     //The function returns objects for loading on scene.
-    objectsNamesArray()
-    {
+    objectsNamesArray() {
         return ObjectsNamesArray;
     }
 
     globalStates() {
-        if (statesDiscriptions === undefined)
-        {
+        if (statesDiscriptions === undefined) {
             let StatesCreator = require("../StateMachineFramework/StatesObjectCreator");
             let statesCreator = new StatesCreator();
             statesDiscriptions = statesCreator.objectProduct(this.localObjectStates());
@@ -107,42 +170,64 @@ class PathProvider
         return statesDiscriptions;
     }
 
-    localObjectStates()
-    {
-        if (localObjectStates === undefined)
-        {
+    localObjectStates() {
+        if (localObjectStates === undefined) {
             localObjectStates = require("../StateMachineFramework/StatesInformation/SceneObjectStates")["SceneObjects"];
         }
 
         return localObjectStates;
     }
 
-    pickerStates()
-    {
-        if (pickerStates === undefined)
-        {
+    pickerStates() {
+        if (pickerStates === undefined) {
             pickerStates = require("../StateMachineFramework/StatesInformation/SceneObjectStates")["pickerManagerStates"];
         }
         return pickerStates;
     }
 
-    transitionsInfo()
-    {
-        if (transitionsInfo === undefined)
-        {
+    transitionsInfo() {
+        if (transitionsInfo === undefined) {
             transitionsInfo = require("../StateMachineFramework/StatesInformation/StatesTransitions");
         }
         return transitionsInfo;
     }
+
+    pickerStateByMode(mode)
+    {
+        if ((mode < 0 ) && (mode > 12))
+        {
+            console.log("Error: error mode", mode);
+            return undefined;
+        }
+        return modesInformation[mode]["pickerState"];
+    }
+
+    objectManagerStateByMode(mode)
+    {
+        if ((mode < 0 ) && (mode > 12))
+        {
+            console.log("Error: error mode", mode);
+            return undefined;
+        }
+        return modesInformation[mode]["objectManagerState"];
+    }
+
+    transitionsByMode(mode)
+    {
+        if ((mode < 0 ) && (mode > 12))
+        {
+            console.log("Error: error mode", mode);
+            return undefined;
+        }
+        return this.transitionsInfo()[`StateTransitions${mode}`];
+    }
 }
 
-if (module.parent === null)
-{
+if (module.parent === null) {
     console.log("Local used");
 }
 
-else
-{
+else {
     module.exports = {
         "PathProvider": PathProvider,
     }

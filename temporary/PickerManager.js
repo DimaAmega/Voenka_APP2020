@@ -24,7 +24,7 @@ var highlightObject = "highlightObject";
 class PickerManager {
     //передаем сцену для того чтобы знать где искать объекты
     // в конструктор передаются родительский элемент
-    constructor(domObject, camera, scene, states, stateMachine = undefined, currentState = "firstState", name = "PickerManager") {
+    constructor(domObject, camera, scene, states, stateMachine = undefined, currentState = "lockState", name) {
         if (!THREE) {
             console.log("Need three js module");
             return;
@@ -43,7 +43,7 @@ class PickerManager {
 
         this.m_lastHighlightedShape = undefined;
         this.m_currentHighlightedShape = undefined;
-        this.m_lastClickedShape = "";
+        this.m_lastClickedShape = undefined;
         this.m_checkIntersects = false;
     }
 
@@ -164,7 +164,6 @@ class PickerManager {
     _onMouseClickCallback(event) {
         this._checkIntersects();
         if (this.m_lastClickedShape) {
-            this.state = this.m_lastClickedShape["pickerState"];
             this._sendStateMashineRequest(TRANSITION_REQUEST, this.m_lastClickedShape);
         }
     }

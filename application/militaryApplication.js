@@ -25,7 +25,9 @@ let readyToPickerManager = "readyToPickerManager";
 
 let startApplication = "startApplication";
 let applicationReady = "applicationReady";
+let modeSelected = "modeSelected";
 
+let weAreReady = "weAreReady";
 
 class MilitaryApplication extends Events {
     // The constructor of main class, temprorary without arguments
@@ -35,6 +37,11 @@ class MilitaryApplication extends Events {
 
         this.m_applicationReady = false;
         this.m_applicationStarted = false;
+
+        this.m_modeSelected = false;
+        this.m_demonstrationMode = false;// ??
+
+        this.m_currentMode = -1;
 
         this.m_objectStateManager;
         this.m_pickerManager;
@@ -60,8 +67,23 @@ class MilitaryApplication extends Events {
 
         this.on(checkRequiredModules, this._checkRequiredModules);
         this.on(readyToPickerManager, this._initPickerManager);
+
+        this.on(modeSelected, this._checkToReady);
     }
-// Public functions:
+
+//Setters
+
+    selectMode(mode)
+    {
+        this.m_currentMode = mode;
+        if (this.m_objectStateManager && this.m_pickerManager 
+            && this.m_objectStateManager.isInitialaized() && this.m_pickerManager.isInitialaized() 
+            && this.m_applicationReady && this.m_applicationStarted)
+            {
+                this._applyCurrentState();
+            }
+    }
+
     startApplication()
     {
         this.m_applicationStarted = true;
@@ -109,10 +131,12 @@ class MilitaryApplication extends Events {
         let globalStates = pathProvider.globalStates();
         let transitionsInfo = pathProvider.transitionsInfo()
         let privateStateMashine = new PrivateStateMachine(globalStates);
-        privateStateMashine.setConnection(transitionsInfo["StateTransitions1"]);
+        
+        // privateStateMashine.setConnection(transitionsInfo["StateTransitions1"]);
+    
         this.m_objectStateManager = new StateMachine(this.m_sceneObjects);
         this.m_objectStateManager.stateMashine = privateStateMashine;
-        // this.emit(StateMashineCreated);
+
         this.emit(checkRequiredModules);
     }
 
@@ -125,7 +149,7 @@ class MilitaryApplication extends Events {
 
         this.m_objectStateManager.pickerManager = this.m_pickerManager;
         // emit end signal
-        //TODO: move to right plase
+        //TODO: move to right place
         this._applicationReady();
     }
 
@@ -256,9 +280,36 @@ class MilitaryApplication extends Events {
         if (this.m_applicationStarted && this.m_applicationReady){
             console.log("----APPLICATION IS STARTED---")
             this.m_controls = new OrbitControls(this.m_cameraManager.camera, this.m_render.domElement);
+            
+            // Set the states for picker manager, objectState manager and transitions
+            this._applyCurrentState();
+
             this._mainRenderLoop();
             this.m_pickerManager.startToCheckIntersects();
         }
+    }
+
+    _checkToReady()
+    {
+        if (this.m_applicationReady && this.m_applicationStarted && this.m_modeSelected 
+            && this.m_objectStateManager.isInitialaized() && this.m_pickerManager.isInitialaized())
+            {
+                emit(weAreReady);
+                return;
+            }
+        console.log("Error: the app isn't ready");
+    }
+
+    _applyCurrentState()
+    {
+        if (this.m_currentMode > -1 && this.m_currentMode < 12)
+        {
+            this.m_pickerManager.state = pathProvider.pickerStateByMode(this.m_currentMode);
+            this.m_objectStateManager.state = pathProvider.objectManagerStateByMode(this.m_currentMode);
+            this.m_objectStateManager.transitions = pathProvider.transitionsByMode(this.m_currentMode);
+            return;
+        }
+        console.log("Error: invalid  mode", mode);
     }
 }
 

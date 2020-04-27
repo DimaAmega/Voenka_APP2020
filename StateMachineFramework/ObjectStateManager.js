@@ -5,11 +5,6 @@ class ObjectStateManager {
         this.m_objects = sceneObjects;
 
         this.m_stateApplied = false;
-
-        // if (!externalStateMachine) {
-        //     var StateManager = require("./StateManagerPrivate");
-        //     this.m_stateMashine = new StateManager(objectStateList, currentState);
-        // }
     }
 
     //PUBLIC METHODS
@@ -23,12 +18,12 @@ class ObjectStateManager {
     transition(localObject) {
         let localName = localObject["name"];
         let localState = localObject["state"];
-
+        let pickerState = localObject["pickerState"];
         // This call sets state for picker manager
 
         if (!this.isInitialaized()) {
             console.log("Error: state mashine is undefined");
-            return false;
+            return new Promise((resolve,reject)=>{resolve(false)});
         }
         
         var requiredState = this.m_stateMashine.requestTransition(localName, localState);
@@ -36,9 +31,12 @@ class ObjectStateManager {
 
         if (requiredState === undefined) {
             console.log("There is no transition to state");
-            return false;
+            return new Promise((resolve,reject)=>{resolve(false)});;
         }
         else {
+            if (pickerState) {
+                this.m_pickerManager.state = pickerState;
+            }
             return this._applyState(requiredState); // it is promise
         }
     }
@@ -60,7 +58,8 @@ class ObjectStateManager {
             }
         return false;
     }
-
+    
+    //The function returns current local state by local name
     localState(localObjectName)
     {
         if (!localObjectName) 
@@ -86,6 +85,7 @@ class ObjectStateManager {
             console.log("Error: state mashine is undefined");
             return false;
         }
+
         if (this.m_stateMashine.setCurrentStateNumber(value))
             this._applyState(this.m_stateMashine.currentState).then(()=>{
                 console.log("end start transiton");
@@ -132,13 +132,26 @@ class ObjectStateManager {
     }
 
     //SETTERS
+
+
+    set state(stateNumber)
+    {
+        let requiredState = this.m_stateMashine.stateByNumber(stateNumber);
+        this._applyState(requiredState);
+    }
+
     set stateMashine(stateMashine) {
         if (!this.isInitialaized()) {
             this.m_stateMashine = stateMashine;
             if (!this.isStateApplyed) {
                 var currentState = this.m_stateMashine.currentState;
-                this._lockPickerManager() 
-                this._applyState(currentState);
+                if (currentState) {
+                    this._applyState(currentState);
+                    return;
+                }
+                else {
+                    console.log("Error: can't apply state", undefined);
+                }
             }
         }
         else {

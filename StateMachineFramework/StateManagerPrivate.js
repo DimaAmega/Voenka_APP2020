@@ -11,6 +11,8 @@ class StateManager {
         this.current_state_number = current_state;
         this.adjacency_matrix = [];
 
+        this.m_transitionsReady = false;
+
         for (var i in states_arr) {
             var empty_arr = new Array(states_arr.length);
             for (var j in states_arr) {
@@ -21,15 +23,22 @@ class StateManager {
         this.m_statesCount = this.states_arr.length;
     }
 
+    isConnectionSet()
+    {
+        return this.m_transitionsReady;
+    }
+
     //PUBLIC METHODS
     setConnection(arr_connection) {
         for (var i in arr_connection) {
             this.adjacency_matrix[arr_connection[i][0]][arr_connection[i][1]] = 1;
         }
+        this.m_transitionsReady = true;
         return this; //for what ???
     }
 
     deleteConnection(arr_connection) {
+        this.m_transitionsReady = false;
         for (var i in arr_connection) {
             this.adjacency_matrix[arr_connection[i][0]][arr_connection[i][1]] = 0;
         }
@@ -38,6 +47,7 @@ class StateManager {
 
     // This function removes all connections.
     removeConnections() {
+        this.m_transitionsReady = false;
         for (var i in this.adjacency_matrix) {
             for (var j in this.adjacency_matrix[i]) {
                 this.adjacency_matrix[i][j] = 0;
@@ -51,7 +61,7 @@ class StateManager {
         this.setConnection(newConnections);
     }
 
-    compareStates(st1,st2){
+    compareStates(st1, st2){
         for(var i in st1) if (st1[i]!=st2[i]) return false;
         return true;
     }
