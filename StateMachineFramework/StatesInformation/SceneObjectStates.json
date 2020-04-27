@@ -11,28 +11,16 @@
         "Lock1":[
             "Static",
             "Open"
-        ],
-        "Anvil":[
-            "Static",
-            "Move1",
-            "Move2",
-            "Move3",
-            "Move4",
-            "Move5",
-            "Move6",
-            "Move7",
-            "Move8",
-            "Move9"
         ]
     },
     "pickerManagerStates": {
-        "firstState": {
+        "1_State": {
             "ClickableItems": {
                 "Cap_of_PPO": {
                     "triggerAction": {
                         "name": "Cap_of_PPO",
                         "state": "Open",
-                        "pickerState": "secondState"
+                        "pickerState": "2_State"
                     },
                     "highlightObject": {
                         "name": "Cap_of_PPO_tr",
@@ -41,13 +29,13 @@
                 }
             }
         },
-        "secondState": {
+        "3_State": {
             "ClickableItems": {
                 "Cap_of_PPO": {
                     "triggerAction": {
                         "name": "Cap_of_PPO",
                         "state": "Static",
-                        "pickerState" : "firstState"
+                        "pickerState": "4_State"
                     },
                     "highlightObject": {
                         "name": "Cap_of_PPO_tr",
@@ -57,20 +45,52 @@
                 "ppo_lock": {
                     "triggerAction": {
                         "name": "ppo_lock",
-                        "state": "Open"
+                        "state": "Static",
+                        "pickerState": "2_State"
                     },
                     "highlightObject": {
                         "name": "ppo_lock_tr",
-                        "state": "Open"
+                        "state": "Static"
                     }
-                },
-                "Lock1": {
+                }
+            }
+        },
+        "4_State": {
+            "ClickableItems": {
+                "Cap_of_PPO": {
                     "triggerAction": {
-                        "name": "Lock1",
-                        "state": "Open"
+                        "name": "Cap_of_PPO",
+                        "state": "Open",
+                        "pickerState": "3_State"
                     },
                     "highlightObject": {
-                        "name": "Lock1_tr",
+                        "name": "Cap_of_PPO_tr",
+                        "state": "Open"
+                    }
+                }
+            }
+        },
+        "2_State": {
+            "ClickableItems": {
+                "Cap_of_PPO": {
+                    "triggerAction": {
+                        "name": "Cap_of_PPO",
+                        "state": "Static",
+                        "pickerState" : "1_State"
+                    },
+                    "highlightObject": {
+                        "name": "Cap_of_PPO_tr",
+                        "state": "Static"
+                    }
+                },
+                "ppo_lock": {
+                    "triggerAction": {
+                        "name": "ppo_lock",
+                        "state": "Open",
+                        "pickerState": "3_State"
+                    },
+                    "highlightObject": {
+                        "name": "ppo_lock_tr",
                         "state": "Open"
                     }
                 }

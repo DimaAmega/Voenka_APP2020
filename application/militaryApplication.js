@@ -136,7 +136,8 @@ class MilitaryApplication extends Events {
     
         this.m_objectStateManager = new StateMachine(this.m_sceneObjects);
         this.m_objectStateManager.stateMashine = privateStateMashine;
-
+        window.SM = this.m_objectStateManager;
+        // this.emit(StateMashineCreated);
         this.emit(checkRequiredModules);
     }
 
@@ -164,6 +165,7 @@ class MilitaryApplication extends Events {
                 }
                 this.m_sceneObjects = Obj_arr;
                 console.log(Obj_arr);
+                window.Obj_arr = Obj_arr;
                 this._addLightToScene();
                 this.emit(SceneObjectsLoaded);
                 this.emit(checkRequiredModules);
