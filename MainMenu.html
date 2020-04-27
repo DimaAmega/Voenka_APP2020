@@ -14,9 +14,92 @@
 
   <iframe src="/Scene1/Scene1.html" frameborder="0"></iframe>
 
+
+
   <div id="menu" class="menu_grid">
     <div id="regimes" class="regimes_def_position regimes_grid">
-      <p>Выберите сценарий</p>
+      <div id="modes">
+        <form action="" class="mode_form_grid">
+          <input class="center" type="radio" name="modes" value="learning">
+          <p class="center">ОБУЧЕНИЕ</p>
+          <input class="center" type="radio" name="modes" value="exam">
+          <p class="center">ЭКЗАМЕН</p>
+         </form>
+      </div>
+      <div id="start_position">
+        <p>НАЧАЛЬНОЕ ПОЛОЖЕНИЕ</p>
+      </div>
+      <div id="form_start_position">
+        <form action="" class="start_position_form_grid">
+          <div class="form_item">
+            <input class="center" type="radio" name="start_position" value="walk">
+            <p class="center">ПОХОДНОЕ</p>
+          </div>
+          <div class="form_item">
+            <input class="center" type="radio" name="start_position" value="war">
+            <p class="center">БОЕВОЕ</p>
+          </div>
+          <div class="form_item">
+            <input class="center" type="radio" name="start_position" value="deployed">
+            <p class="center">РАЗВЁРНУТОЕ</p>
+          </div>
+        </form>
+      </div>
+      <div id="end_position">
+        <p>КОНЕЧНОЕ ПОЛОЖЕНИЕ</p>
+      </div>
+      <div id="form_end_position">
+        <form action="" class="end_position_form_grid">
+          <div class="form_item">
+            <input class="center" type="radio" name="end_position" value="walk">
+            <p class="center">ПОХОДНОЕ</p>
+          </div>
+          <div class="form_item">
+            <input class="center" type="radio" name="end_position" value="war">
+            <p class="center">БОЕВОЕ</p>
+          </div>
+          <div class="form_item">
+            <input class="center" type="radio" name="end_position" value="deployed">
+            <p class="center">РАЗВЁРНУТОЕ</p>
+          </div>
+        </form>
+      </div>
+      <div id="control">
+        <p>УПРАВЛЕНИЕ</p>
+      </div>
+      <div id="form_control">
+        <form action="" class="control_form_grid">
+          <div class="form_item">
+            <input class="center" type="radio" name="control" value="walk">
+            <p class="center">ППО</p>
+          </div>
+          <div class="form_item">
+            <input class="center" type="radio" name="control" value="war">
+            <p class="center">ППУ</p>
+          </div>
+        </form>
+      </div>
+      <div id="start">
+        <div class="right">
+          <button id="start_button">Начать</button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <!-- <div id="menu" class="menu_grid">
+    <div id="regimes" class="regimes_def_position regimes_grid">
+      <form action="" class="modes_grid">
+        <div><input type="radio" name="modes" value="learning">Обучение</div>
+        <div><input type="radio" name="modes" value="exam">Экзамен</div>
+       </form>
     <div id="start_position">
       <p class="sub_titles">Начальное положениe</p>
       <form action="">
@@ -50,7 +133,7 @@
       </form>
     </div>
     </div>
-  </div>
+  </div> -->
   
     <script
         src="https://code.jquery.com/jquery-3.4.1.js"
