@@ -83,7 +83,7 @@
   },
   "buffers": [
     {
-      "uri": "Cube_5.bin",
+      "uri": "Cube6.bin",
       "byteLength": 1296
     }
   ],
@@ -142,7 +142,7 @@
           "material": 0
         }
       ],
-      "name": "Cube_5"
+      "name": "Cube6"
     }
   ],
   "nodes": [
@@ -164,7 +164,7 @@
         1.41200852,
         1.310503
       ],
-      "name": "Cube_5"
+      "name": "Cube6"
     }
   ],
   "scene": 0,
@@ -173,7 +173,7 @@
       "nodes": [
         0
       ],
-      "name": "Cube_5"
+      "name": "Cube6"
     }
   ]
 }

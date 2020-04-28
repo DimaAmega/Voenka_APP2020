@@ -80,7 +80,12 @@ class ObjectStateManager {
     showAllStates() {
         this.m_stateMashine.logAllStates();
     }
-
+    getNumberByState(state){
+        let states_arr = this.m_stateMashine.states_arr
+        for(let i = 0; i < states_arr.length; i++)
+            if (this.m_stateMashine.compareStates(state,states_arr[i])) return i;
+            return -1; 
+    }
     changeCurrentState(value) {
         if (!this.isInitialaized()) {
             console.log("Error: state mashine is undefined");
