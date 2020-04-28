@@ -11,27 +11,17 @@ class StatesCreator
         });
         return r;
     };
-    
-    objectProduct(obj) {
-        var keys = Object.keys(obj),
-            values = keys.map(function(x) { return obj[x] });
-        return this._product(values).map(function(p) {
-            var e = {};
-            keys.forEach(function(k, n) { e[k] = p[n] });
-            return e;
-        });
-    }
     objectProduct(obj) {
         console.log(obj);
         let count = 1;
         for(let k_i in obj) count*=obj[k_i].length
-        console.log(count);
+        console.log("Count of States",count);
         return {
-            get: function(i){
+            get: function(i) {
                 let res = {};
                 for (let k_i in obj){
-                    i%=obj[k_i].length;
-                    res[k_i] = obj[k_i][i]
+                    let tmp = i%obj[k_i].length;
+                    res[k_i] = obj[k_i][tmp]
                     i = Math.floor(i/obj[k_i].length)
                 }
                 return res;

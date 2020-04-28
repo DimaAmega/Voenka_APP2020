@@ -48,6 +48,8 @@ let ObjectsNamesArray = [
     "lamp5.gltf",
     "lamp6.gltf",
     "lamp7.gltf",
+    "Radio_PPO.gltf",
+    "Radiostation.gltf",
     "Back_door.gltf",
     "Cap_of_PPO.gltf",
     "Cap_of_PPO_tr.gltf",
