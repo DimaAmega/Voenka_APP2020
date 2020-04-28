@@ -5,11 +5,6 @@ class ObjectStateManager {
         this.m_objects = sceneObjects;
 
         this.m_stateApplied = false;
-
-        // if (!externalStateMachine) {
-        //     var StateManager = require("./StateManagerPrivate");
-        //     this.m_stateMashine = new StateManager(objectStateList, currentState);
-        // }
     }
 
     //PUBLIC METHODS
@@ -51,7 +46,6 @@ class ObjectStateManager {
         if (!localObject.name || !localObject.state) {
             return false;
         }
-        
         for(let obj of this.m_objects)
             if (obj.name === localObject.name) {
                 obj.blindUp(0.4);
@@ -77,14 +71,13 @@ class ObjectStateManager {
         console.log("Error: cannot find ", localObjectName);
     }
 
-    showAllStates() {
+    showAllStates() { // it is kill your console!)
         this.m_stateMashine.logAllStates();
     }
     getNumberByState(state){
-        let states_arr = this.m_stateMashine.states_arr
-        for(let i = 0; i < states_arr.length; i++)
-            if (this.m_stateMashine.compareStates(state,states_arr[i])) return i;
-            return -1; 
+        for(let i = 0; i < this.m_stateMashine.m_statesCount; i++)
+            if (this.m_stateMashine.compareStates(state,this.m_stateMashine.stateByNumber(i)))  return i;
+            return -1;
     }
     changeCurrentState(value) {
         if (!this.isInitialaized()) {

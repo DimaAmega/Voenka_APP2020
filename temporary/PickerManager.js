@@ -122,7 +122,7 @@ class PickerManager {
             case TRANSITION_REQUEST:
                 this.m_stateMachine.transition(requestArguments).then(()=>{
                     console.log("End of transition");
-                    console.log(this.m_currentState);
+                    console.log(this.m_currentStates);
                 });
                 break;
             case HIGHLIGHT_REQUEST:

@@ -9,38 +9,22 @@ class StateManager {
         
         this.states_arr = states_arr;
         this.current_state_number = current_state;
-        this.adjacency_matrix = [];
-
-        for (var i = 0; i < states_arr.length;i++) {
-            var empty_arr = new Array(states_arr.length);
-            for (var j = 0; j < states_arr.length;j++) {
-                empty_arr[j] = 0;
-            }
-            this.adjacency_matrix.push(empty_arr);
-        }
+        this.adjacency_list = {};
         this.m_statesCount = this.states_arr.length;
     }
 
     //PUBLIC METHODS
     setConnection(arr_connection) {
-        for (var i = 0; i < arr_connection.length; i++) {
-            this.adjacency_matrix[arr_connection[i][0]][arr_connection[i][1]] = 1;
-        }
-    }
-
-    deleteConnection(arr_connection) {
-        for (var i = 0; i < arr_connection.length; i++) {
-            this.adjacency_matrix[arr_connection[i][0]][arr_connection[i][1]] = 0;
+        for (let i = 0; i<arr_connection.length;i++ ){
+            let elem = arr_connection[i];
+            if (!this.adjacency_list[elem[0]]) this.adjacency_list[elem[0]] = [elem[1]];
+            else this.adjacency_list[elem[0]].push(elem[1])
         }
     }
 
     // This function removes all connections.
     removeConnections() {
-        for (var i = 0; i < this.adjacency_matrix.length; i++) {
-            for (var j = 0; i < this.adjacency_matrix[i].length; j++) {
-                this.adjacency_matrix[i][j] = 0;
-            }
-        }
+        this.adjacency_list = {}
     }
 
     //This function deletes old connection and applies new.
@@ -57,19 +41,16 @@ class StateManager {
     //This function returns current state like {} or {a:asdasd, asdasd:asdas}
     // if state in statesArray and required transition is valid
     requestTransition(localName, localState) {
-        var candidates = this.adjacency_matrix[this.current_state_number];
+        var candidates = this.adjacency_list[this.current_state_number];
         var requiredState = {...this.currentState}
-        requiredState[localName] = localState
-        for (var i = 0; i < candidates.length; i++) {
-            //если есть переход от текущего состояния к запрашиваемому и изменяется наш элемент
-            if (candidates[i] === 1 && this.compareStates(this.stateByNumber(i),requiredState)) {
-                this.current_state_number = i;
+        requiredState[localName] = localState;
+        for (let i = 0; i < candidates.length; i++)
+            if(this.compareStates(this.stateByNumber(candidates[i]),requiredState)) {
+                this.currentStateNumber = candidates[i];
                 return this.currentState;
             }
-        }
         return invalidState;
     }
-
     // This function loggs available transitions
     logAvailableTransitions() {
         console.log("Аvalible transitions list:");
@@ -84,7 +65,7 @@ class StateManager {
 
     logAllStates() {
         console.log("All states:");
-        for (var stateNumber = 0; stateNumber < this.states_arr.length; stateNumber++) {
+        for (let stateNumber = 0; stateNumber < this.states_arr.length; stateNumber++) {
             console.log(stateNumber, this.states_arr.get(stateNumber));
         }
     }

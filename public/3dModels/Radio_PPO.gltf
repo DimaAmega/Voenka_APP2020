@@ -1,0 +1,303 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 24,
+      "type": "VEC3",
+      "max": [
+        0.062122762203216553,
+        0.02978726290166378,
+        0.0096085388213396072
+      ],
+      "min": [
+        -0.062122762203216553,
+        -0.02978726290166378,
+        -0.0096085388213396072
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 24,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 24,
+      "type": "VEC4",
+      "max": [
+        1.0,
+        0.0,
+        1.0,
+        -1.0
+      ],
+      "min": [
+        -1.0,
+        0.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 24,
+      "type": "VEC2",
+      "max": [
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5125,
+      "count": 36,
+      "type": "SCALAR",
+      "max": [
+        23.0
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5126,
+      "count": 90,
+      "type": "SCALAR",
+      "max": [
+        2.9666669368743896
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "count": 90,
+      "type": "VEC3",
+      "max": [
+        3.1757700443267822,
+        1.2131099700927734,
+        -1.5388000011444092
+      ],
+      "min": [
+        3.1757700443267822,
+        1.2131099700927734,
+        -1.5388000011444092
+      ]
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5126,
+      "count": 90,
+      "type": "VEC4",
+      "max": [
+        0.7071068286895752,
+        6.0901218921330966E-17,
+        0.7071068286895752,
+        0.0
+      ],
+      "min": [
+        0.7071068286895752,
+        6.0901218921330966E-17,
+        0.7071068286895752,
+        0.0
+      ]
+    },
+    {
+      "bufferView": 8,
+      "componentType": 5126,
+      "count": 90,
+      "type": "VEC3",
+      "max": [
+        -0.8600764274597168,
+        -1.6254910230636597,
+        -8.447932243347168
+      ],
+      "min": [
+        -0.8600764274597168,
+        -1.6254910230636597,
+        -8.447932243347168
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 0,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 1,
+          "target": {
+            "node": 0,
+            "path": "rotation"
+          }
+        },
+        {
+          "sampler": 2,
+          "target": {
+            "node": 0,
+            "path": "scale"
+          }
+        }
+      ],
+      "samplers": [
+        {
+          "input": 5,
+          "output": 6
+        },
+        {
+          "input": 5,
+          "output": 7
+        },
+        {
+          "input": 5,
+          "output": 8
+        }
+      ],
+      "name": "Used"
+    }
+  ],
+  "asset": {
+    "generator": "Plattar UnityGLTF (2019.3.8f1)",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "uri": "Radio_PPO.bin",
+      "byteLength": 5256
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 288
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 288,
+      "byteLength": 288
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 576,
+      "byteLength": 384
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 960,
+      "byteLength": 192
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1152,
+      "byteLength": 144
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1296,
+      "byteLength": 360
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1656,
+      "byteLength": 1080
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2736,
+      "byteLength": 1440
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 4176,
+      "byteLength": 1080
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        "metallicFactor": 0.0
+      },
+      "alphaMode": "BLEND",
+      "name": "transparancy"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        }
+      ],
+      "name": "Radio_PPO"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        0.7071068,
+        6.090122E-17,
+        -0.7071068,
+        0.0
+      ],
+      "scale": [
+        -0.860076666,
+        -1.62549174,
+        -8.447934
+      ],
+      "translation": [
+        3.17577,
+        1.21311,
+        1.5388
+      ],
+      "name": "Radio_PPO"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "Radio_PPO"
+    }
+  ]
+}
