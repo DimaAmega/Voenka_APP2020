@@ -21,6 +21,24 @@ class StatesCreator
             return e;
         });
     }
+    objectProduct(obj) {
+        console.log(obj);
+        let count = 1;
+        for(let k_i in obj) count*=obj[k_i].length
+        console.log(count);
+        return {
+            get: function(i){
+                let res = {};
+                for (let k_i in obj){
+                    i%=obj[k_i].length;
+                    res[k_i] = obj[k_i][i]
+                    i = Math.floor(i/obj[k_i].length)
+                }
+                return res;
+            },
+            length: count
+        }
+    }
 }
 if (module.parent === null)
 {

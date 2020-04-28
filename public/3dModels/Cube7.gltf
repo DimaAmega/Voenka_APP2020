@@ -83,7 +83,7 @@
   },
   "buffers": [
     {
-      "uri": "Cube_8.bin",
+      "uri": "Cube7.bin",
       "byteLength": 1296
     }
   ],
@@ -142,7 +142,7 @@
           "material": 0
         }
       ],
-      "name": "Cube_8"
+      "name": "Cube7"
     }
   ],
   "nodes": [
@@ -160,11 +160,11 @@
         -1.00000036
       ],
       "translation": [
-        3.488256,
-        1.416272,
+        3.51216817,
+        1.411293,
         1.310503
       ],
-      "name": "Cube_8"
+      "name": "Cube7"
     }
   ],
   "scene": 0,
@@ -173,7 +173,7 @@
       "nodes": [
         0
       ],
-      "name": "Cube_8"
+      "name": "Cube7"
     }
   ]
 }

@@ -100,7 +100,7 @@ class MilitaryApplication extends Events {
             console.warn("Error: m_sceneObjects isn't setted.");
             return;
         }
-
+        
         // member creators
         let StateMachine = pathProvider.module("ObjectStateManager");
         let PrivateStateMachine = pathProvider.module("StateManagerPrivate");

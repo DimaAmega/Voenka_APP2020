@@ -2,13 +2,14 @@
 let GLTFLoader = require("./GLTFLoader");
 
 class obj_API{
-    constructor(Obj, mixer, actions_arr) {
+    constructor(Obj, mixer, actions_arr,durations_arr) {
         this.name = Obj.scene.name.replace(/\..+/, ""); // del .glb or smth
         this.animationMixer = mixer;
         this.actions_arr = actions_arr;
+        this.durations_arr = durations_arr;
         this.obj = Obj.scene;
         this.full_obj = Obj;
-        this.currentAction;
+        this.currentAction = {name:"Static"};
         this.isBlind;
         this.opt = {};
         this.opacity = 1;
@@ -27,11 +28,23 @@ class obj_API{
         this.emptyPromise = function(bool) {
             return new Promise((resolve,reject)=>{resolve(bool)});
         }
-        this.fadeOutPromise = function (sec) {
+        this.fadeOutPromise = function () {
+            var sec = this.durations_arr[this.currentAction.name];
+            this.currentAction.action.fadeOut(sec);
+            this.currentAction = { name: "Static" };
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
                     resolve(true);
                 },sec*1000);
+            })
+        }
+        this.EmissivePromise = function(r, g, b){
+            return new Promise((resolve,reject)=>{
+                var emissive = this.obj.children[0].material.emissive;
+                emissive.r = r;
+                emissive.g = g;
+                emissive.b = b;
+                return true;
             })
         }
     }
@@ -76,27 +89,31 @@ class obj_API{
     }
     applyState(value) {
         try{
-            if (this.currentAction){
-                if (this.currentAction.name == value) return this.emptyPromise(true);
-                if (this.currentAction.name != "Static") this.currentAction.action.fadeOut(1)
-            }              
-            if (value == "Static"){
-                this.currentAction = {
-                    name:"Static"
-                }
-                return this.fadeOutPromise(1);
+            if (this.currentAction.name === value ) return this.emptyPromise(true);
+            switch (value) {
+                case "Static":
+                    if (this.currentAction.name === "Emissive") return this.EmissivePromise(0,0,0);
+                    else return this.fadeOutPromise();
+                case "Emissive":
+                    this.currentAction = { name: "Emissive" };
+                    return this.EmissivePromise(0,1,0);
+                default:
+                    if (this.currentAction.name !== "Static"){
+                        var sec = this.durations_arr[this.currentAction.name];
+                        this.currentAction.action.fadeOut(sec);
+                    }
+                    this.currentAction = {
+                        name: value,
+                        action: this.findActionByName(value)
+                                .reset()
+                                .setLoop(this.opt.loop ? THREE.LoopPingPong : THREE.LoopOnce)
+                                .play()
+                    }
+                    return this.transitionPromise();
             }
-            this.currentAction = {
-                name: value,
-                action: this.findActionByName(value)
-                        .reset()
-                        .setLoop(this.opt.loop ? THREE.LoopPingPong : THREE.LoopOnce)
-                        .play()
-            }
-            return this.transitionPromise();
         }
         catch(e){
-            console.log(e);
+            console.error(e);
             return this.emptyPromise(false);
         }
     }
@@ -119,6 +136,7 @@ class obj_API{
 }
 function ParseObj(Obj) {
     var actions_arr = {};
+    var durations_arr = {};
     var mixer = new THREE.AnimationMixer(Obj.scene);
     var clips = Obj.animations;
     for (var c_i in clips) {
@@ -127,8 +145,9 @@ function ParseObj(Obj) {
         );
         action.clampWhenFinished = true;
         actions_arr[clips[c_i].name] = action;
+        durations_arr[clips[c_i].name] = clips[c_i].duration
     }
-    return new obj_API(Obj, mixer, actions_arr);
+    return new obj_API(Obj, mixer, actions_arr,durations_arr);
 }
 var ObjectsContainer = function () {
     ///////////////////////////
