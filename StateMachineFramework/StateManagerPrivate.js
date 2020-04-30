@@ -17,8 +17,8 @@ class StateManager {
     setConnection(arr_connection) {
         for (let i = 0; i<arr_connection.length;i++ ){
             let elem = arr_connection[i];
-            if (!this.adjacency_list[elem[0]]) this.adjacency_list[elem[0]] = [elem[1]];
-            else this.adjacency_list[elem[0]].push(elem[1])
+            if (!this.adjacency_list[parseInt(elem[0],32)]) this.adjacency_list[parseInt(elem[0],32)] = [parseInt(elem[1],32)];
+            else this.adjacency_list[parseInt(elem[0],32)].push(parseInt(elem[1],32))
         }
     }
 
@@ -42,11 +42,9 @@ class StateManager {
     // if state in statesArray and required transition is valid
     requestTransition(localName, localState) {
         var candidates = this.adjacency_list[this.current_state_number];
-        var requiredState = {...this.currentState}
-        requiredState[localName] = localState;
         for (let i = 0; i < candidates.length; i++)
-            if(this.compareStates(this.stateByNumber(candidates[i]),requiredState)) {
-                this.currentStateNumber = candidates[i];
+            if (this.stateByNumber(candidates[i])[localName]===localState) {
+                this.current_state_number = candidates[i];
                 return this.currentState;
             }
         return invalidState;
@@ -66,7 +64,7 @@ class StateManager {
     logAllStates() {
         console.log("All states:");
         for (let stateNumber = 0; stateNumber < this.states_arr.length; stateNumber++) {
-            console.log(stateNumber, this.states_arr.get(stateNumber));
+            console.log(stateNumber.toString(32), this.states_arr.get(stateNumber));
         }
     }
 
@@ -91,7 +89,11 @@ class StateManager {
         }
         return invalidState;
     }
-
+    numberByState(state){
+        for(let i = 0; i < this.m_statesCount; i++)
+        if (this.compareStates(state,this.stateByNumber(i)))  return i.toString(32);
+        return -1;
+    }
     //this function returns statesArray.
     get arr_states() {
         return this.states_arr;

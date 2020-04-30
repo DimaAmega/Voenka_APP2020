@@ -12,37 +12,9 @@
             "Static",
             "Used"
         ],
-        "Front_door":[
-            "Static",
-            "Open"
-        ],
-        "Back_door":[
-            "Static",
-            "Open"
-        ],
-        "TPK_small_very":[
-            "Static",
-            "GoUp"
-        ],
         "ppo_button":[
             "Static",
             "Push"
-        ],
-        "Support1":[
-          "Static",
-          "Down"  
-        ],
-        "Support2":[
-          "Static",
-          "Down"  
-        ],
-        "Support3":[
-            "Static",
-            "Down"  
-        ],
-        "Support4":[
-            "Static",
-            "Down"  
         ],
         "ppo_lock":[
             "Static",
@@ -53,18 +25,61 @@
             "Open"
         ],
         "Anvil":[
-            "Static",
+            "Move3",
             "Move1",
             "Move2",
-            "Move3",
             "Move4",
             "Move5",
             "Move6",
             "Move7",
             "Move8",
             "Move9"
-        ]   
-    },
+        ],
+        "lamp1":[
+            "Static",
+            "Emissive"    
+        ], 
+        "lamp2":[
+            "Static",
+            "Emissive"    
+        ], 
+        "lamp4":[
+            "Static",
+            "Emissive"    
+        ], 
+        "lamp5":[
+            "Static",
+            "Emissive"    
+        ], 
+        "lamp6":[
+            "Static",
+            "Emissive"    
+        ], 
+        "lamp7":[
+            "Static",
+            "Emissive"    
+        ],
+        "TPK_small_very":[
+            "Static",
+            "GoUp"
+        ],
+        "Support1":[
+            "Static",
+            "Down"  
+        ],
+          "Support2":[
+            "Static",
+            "Down"  
+        ],
+          "Support3":[
+              "Static",
+              "Down"  
+        ],
+          "Support4":[
+              "Static",
+              "Down"  
+        ]
+    },  
     "pickerManagerStates": {
         "1_State": {
             "ClickableItems": {
@@ -77,6 +92,43 @@
                     "highlightObject": {
                         "name": "Cap_of_PPO_tr",
                         "state": "Open"
+                    }
+                },
+                "Power_checker": {
+                    "triggerAction": {
+                        "name": "Power_checker",
+                        "state": "SwitchOn",
+                        "pickerState":"7_State"
+                    },
+                    "highlightObject": {
+                        "name": "Power_checker_tr",
+                        "state": "SwitchOn"
+                    }
+                }
+            }
+        },
+        "7_State": {
+            "ClickableItems": {
+                "Cap_of_PPO": {
+                    "triggerAction": {
+                        "name": "Cap_of_PPO",
+                        "state": "Open",
+                        "pickerState": "2_State"
+                    },
+                    "highlightObject": {
+                        "name": "Cap_of_PPO_tr",
+                        "state": "Open"
+                    }
+                },
+                "Power_checker": {
+                    "triggerAction": {
+                        "name": "Power_checker",
+                        "state": "Static",
+                        "pickerState":"1_State"
+                    },
+                    "highlightObject": {
+                        "name": "Power_checker_tr",
+                        "state": "Static"
                     }
                 }
             }

@@ -55,6 +55,7 @@ let ObjectsNamesArray = [
     "Cap_of_PPO_tr.gltf",
     "Front_door.gltf",
     "Power_checker.gltf",
+    "Power_checker_tr.gltf",
     "TPK_small_very.gltf",
   ];
 
