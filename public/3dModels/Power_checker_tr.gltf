@@ -1,0 +1,373 @@
+{
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 973,
+      "type": "VEC3",
+      "max": [
+        0.040927484631538391,
+        0.040927484631538391,
+        0.010628503747284412
+      ],
+      "min": [
+        -0.040927484631538391,
+        -0.040927484631538391,
+        -0.010628503747284412
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 973,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        0.99957507848739624,
+        1.0
+      ],
+      "min": [
+        -0.99997520446777344,
+        -0.999966025352478,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 973,
+      "type": "VEC4",
+      "max": [
+        1.0,
+        0.99997520446777344,
+        0.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 973,
+      "type": "VEC2",
+      "max": [
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5125,
+      "count": 2442,
+      "type": "SCALAR",
+      "max": [
+        824.0
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5125,
+      "count": 432,
+      "type": "SCALAR",
+      "max": [
+        972.0
+      ],
+      "min": [
+        825.0
+      ]
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "count": 55,
+      "type": "SCALAR",
+      "max": [
+        1.8000000715255737
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5126,
+      "count": 55,
+      "type": "VEC3",
+      "max": [
+        3.0159709453582764,
+        1.3606936931610107,
+        -1.5954731702804565
+      ],
+      "min": [
+        3.0159709453582764,
+        1.3606936931610107,
+        -1.5954731702804565
+      ]
+    },
+    {
+      "bufferView": 8,
+      "componentType": 5126,
+      "count": 55,
+      "type": "VEC4",
+      "max": [
+        0.0,
+        0.0,
+        0.71922385692596436,
+        0.99999988079071045
+      ],
+      "min": [
+        0.0,
+        0.0,
+        -0.017886528745293617,
+        0.6947784423828125
+      ]
+    },
+    {
+      "bufferView": 9,
+      "componentType": 5126,
+      "count": 55,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 0,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 1,
+          "target": {
+            "node": 0,
+            "path": "rotation"
+          }
+        },
+        {
+          "sampler": 2,
+          "target": {
+            "node": 0,
+            "path": "scale"
+          }
+        }
+      ],
+      "samplers": [
+        {
+          "input": 6,
+          "output": 7
+        },
+        {
+          "input": 6,
+          "output": 8
+        },
+        {
+          "input": 6,
+          "output": 9
+        }
+      ],
+      "name": "SwitchOn"
+    }
+  ],
+  "asset": {
+    "generator": "Plattar UnityGLTF (2019.3.8f1)",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "uri": "Power_checker.bin",
+      "byteLength": 60620
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 11676
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 11676,
+      "byteLength": 11676
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 23352,
+      "byteLength": 15568
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 38920,
+      "byteLength": 7784
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 46704,
+      "byteLength": 9768
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 56472,
+      "byteLength": 1728
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 58200,
+      "byteLength": 220
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 58420,
+      "byteLength": 660
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 59080,
+      "byteLength": 880
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 59960,
+      "byteLength": 660
+    }
+  ],
+  "images": [
+    {
+      "uri": "Black-texture.jpg",
+      "name": "Black-texture"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.15,
+          0.15,
+          0.15,
+          1.0
+        ],
+        "baseColorTexture": {
+          "index": 0,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Материал.1_1"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1.0
+        ],
+        "metallicFactor": 0.0
+      },
+      "name": "Mat"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 5,
+          "material": 1
+        }
+      ],
+      "name": "Power_checker"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        0.0,
+        0.0,
+        -0.7071068,
+        -0.7071067
+      ],
+      "scale": [
+        0.9999999,
+        0.9999999,
+        1.0
+      ],
+      "translation": [
+        3.015971,
+        1.36069369,
+        1.59547317
+      ],
+      "name": "Power_checker"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9729
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "Power_checker"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "Black-texture"
+    }
+  ]
+}

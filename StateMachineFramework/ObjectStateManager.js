@@ -75,9 +75,7 @@ class ObjectStateManager {
         this.m_stateMashine.logAllStates();
     }
     getNumberByState(state){
-        for(let i = 0; i < this.m_stateMashine.m_statesCount; i++)
-            if (this.m_stateMashine.compareStates(state,this.m_stateMashine.stateByNumber(i)))  return i;
-            return -1;
+        return this.m_stateMashine.numberByState(state);
     }
     changeCurrentState(value) {
         if (!this.isInitialaized()) {
