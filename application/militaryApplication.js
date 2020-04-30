@@ -259,7 +259,7 @@ class MilitaryApplication extends Events {
             console.log("----APPLICATION IS STARTED---")
             this.m_controls = new OrbitControls(this.m_cameraManager.camera, this.m_render.domElement);
             this._mainRenderLoop();
-            this.m_pickerManager.startToCheckIntersects();
+            // this.m_pickerManager.startToCheckIntersects();
         }
     }
 }
