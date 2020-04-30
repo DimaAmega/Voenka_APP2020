@@ -92,7 +92,10 @@ class obj_API{
             if (this.currentAction.name === value ) return this.emptyPromise(true);
             switch (value) {
                 case "Static":
-                    if (this.currentAction.name === "Emissive") return this.EmissivePromise(0,0,0);
+                    if (this.currentAction.name === "Emissive") {
+                        this.currentAction = {name:"Static"};
+                        return this.EmissivePromise(0,0,0);
+                    }
                     else return this.fadeOutPromise();
                 case "Emissive":
                     this.currentAction = { name: "Emissive" };
