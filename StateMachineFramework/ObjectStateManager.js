@@ -3,8 +3,8 @@ class ObjectStateManager {
     // текущее состояние, список реальных объектов в сцене, объект с состояниями подобъектов
     constructor (sceneObjects) {
         this.m_objects = sceneObjects;
-
         this.m_stateApplied = false;
+        this.m_transitions;
     }
 
     //PUBLIC METHODS
@@ -13,29 +13,47 @@ class ObjectStateManager {
         return this.m_stateMashine;
     }
 
+    get_transition_sequence(currentStateNumber,requiredStateNumber){
+        for(let t_i of this.m_transitions) 
+            if(t_i.indexOf(currentStateNumber)===0 && t_i.indexOf(requiredStateNumber)===1)
+                return t_i;
+    }
     //This function requests transition to different steta and calls apply state for 3d objects
     // return true if transition passed.
-    transition(localObject) {
+    async transition(localObject) {
         let localName = localObject["name"];
         let localState = localObject["state"];
 
+        let currentStateNumber = this.getNumberByState(this.currentState);
         // This call sets state for picker manager
 
         if (!this.isInitialaized()) {
             console.log("Error: state mashine is undefined");
             return false;
         }
-        
-        var requiredState = this.m_stateMashine.requestTransition(localName, localState);
-        console.log("Required state is ", requiredState, "by", localName, localState);
+
+        let requiredState = this.m_stateMashine.requestTransition(localName, localState);
 
         if (requiredState === undefined) {
             console.log("There is no transition to state");
-            return false;
+            return new Promise((resolve,reject)=>{resolve(false)});
         }
         else {
-            return this._applyState(requiredState); // it is promise
+            console.log("Start Transition");
+            let requiredStateNumber = this.getNumberByState(requiredState);
+            let transition_sequence = this.get_transition_sequence(currentStateNumber,requiredStateNumber);
+            return await this.waitSequenceTarnsition(transition_sequence);
         }
+    }
+    async waitSequenceTarnsition(sequence){
+        console.log("Sequence is ",sequence);
+        for(var s_i of sequence.slice(1)) {
+            console.log("Wait tarnsition to ",s_i);
+            await this._applyState(this.getStateByNumber(s_i));
+            console.log("Current state is ", this.getStateByNumber(s_i));
+        }
+        this.m_stateMashine.currentStateNumber = s_i;
+        return true;
     }
     // This function loggs valid transitions
     showAvailableTransitions() {
@@ -76,6 +94,9 @@ class ObjectStateManager {
     }
     getNumberByState(state){
         return this.m_stateMashine.numberByState(state);
+    }
+    getStateByNumber(number){
+        return this.m_stateMashine.stateByNumber(parseInt(number,32))
     }
     changeCurrentState(value) {
         if (!this.isInitialaized()) {
@@ -148,8 +169,12 @@ class ObjectStateManager {
             console.log("Error: state manager private not initialaized");
             return;
         }
-
-        this.m_stateMashine.setConnection(newTransitions);
+        let transitionsForStateMaschine = [];
+        for (let t_i of newTransitions) 
+            for(let i = 0; i < t_i.length - 1; i++) 
+                transitionsForStateMaschine.push([t_i[i],t_i[i+1]]);
+        this.m_transitions = newTransitions;
+        this.m_stateMashine.setConnection(transitionsForStateMaschine);
     }
 
     set pickerManager(pickerManager) {

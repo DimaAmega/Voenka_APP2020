@@ -1,5 +1,9 @@
 
 //internal objects
+let tips = require("../temporary/tips").tips;
+tips = new tips();
+window.tips = tips;
+
 let pathUtils = require("./pathProvider");
 let pathProvider = new pathUtils["PathProvider"]();
 var clock = new THREE.Clock();
@@ -109,9 +113,10 @@ class MilitaryApplication extends Events {
         let globalStates = pathProvider.globalStates();
         let transitionsInfo = pathProvider.transitionsInfo()
         let privateStateMashine = new PrivateStateMachine(globalStates);
-        privateStateMashine.setConnection(transitionsInfo["StateTransitions1"]);
+        // privateStateMashine.setConnection(transitionsInfo["StateTransitions1"]);
         this.m_objectStateManager = new StateMachine(this.m_sceneObjects);
         this.m_objectStateManager.stateMashine = privateStateMashine;
+        this.m_objectStateManager.transitions = transitionsInfo["StateTransitions1"];
         window.SM = this.m_objectStateManager;
         // this.emit(StateMashineCreated);
         this.emit(checkRequiredModules);

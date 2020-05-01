@@ -1,6 +1,5 @@
 // import { GLTFLoader } from "./GLTFLoader"; // GLTF loader
 let GLTFLoader = require("./GLTFLoader");
-
 class obj_API{
     constructor(Obj, mixer, actions_arr,durations_arr) {
         this.name = Obj.scene.name.replace(/\..+/, ""); // del .glb or smth
@@ -44,7 +43,7 @@ class obj_API{
                 emissive.r = r;
                 emissive.g = g;
                 emissive.b = b;
-                return true;
+                return resolve(true);
             })
         }
     }
@@ -111,6 +110,10 @@ class obj_API{
                                 .reset()
                                 .setLoop(this.opt.loop ? THREE.LoopPingPong : THREE.LoopOnce)
                                 .play()
+                    }
+                    if(value === "Used") {
+                        tips.setText('АТАШЛИ ОТ ПУСКОВОЙ НАХРЕН!');
+                        setTimeout(()=>{tips.hide()},3000)
                     }
                     return this.transitionPromise();
             }
