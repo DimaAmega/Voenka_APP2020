@@ -44,8 +44,7 @@ class StateManager {
         var candidates = this.adjacency_list[this.current_state_number];
         for (let i = 0; i < candidates.length; i++)
             if (this.stateByNumber(candidates[i])[localName]===localState) {
-                this.current_state_number = candidates[i];
-                return this.currentState;
+                return this.stateByNumber(candidates[i]);
             }
         return invalidState;
     }
@@ -73,6 +72,10 @@ class StateManager {
         return stateNumber < this.m_statesCount;
     }
 
+    set currentStateNumber(value){
+        console.log("Final current State is ", value);
+        this.current_state_number = parseInt(value,32);
+    }
     //This function returns current state like JS object with local states.
     get currentState() {
         return this.states_arr.get(this.current_state_number);
@@ -89,6 +92,7 @@ class StateManager {
         }
         return invalidState;
     }
+    //This function returns number by state 
     numberByState(state){
         for(let i = 0; i < this.m_statesCount; i++)
         if (this.compareStates(state,this.stateByNumber(i)))  return i.toString(32);
