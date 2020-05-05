@@ -112,7 +112,7 @@ class obj_API{
                                 .play()
                     }
                     if(value === "Used") {
-                        tips.setText('АТАШЛИ ОТ ПУСКОВОЙ НАХРЕН!');
+                        tips.setText('ОТ ПУСКОВОЙ!');
                         setTimeout(()=>{tips.hide()},3000)
                     }
                     return this.transitionPromise();

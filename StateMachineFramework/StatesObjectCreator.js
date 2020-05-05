@@ -16,8 +16,9 @@ class StatesCreator
         for(let k_i in obj) count*=obj[k_i].length
         console.log("Count of States ",count.toLocaleString());
         return {
-            get: this.getStateByNumber.bind(this),
-            length: count
+            get: this.getStateByNumber,
+            length: count,
+            obj:obj
         }
     }
 }

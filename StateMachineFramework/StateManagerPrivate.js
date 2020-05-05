@@ -93,10 +93,14 @@ class StateManager {
         return invalidState;
     }
     //This function returns number by state 
-    numberByState(state){
-        for(let i = 0; i < this.m_statesCount; i++)
-        if (this.compareStates(state,this.stateByNumber(i)))  return i.toString(32);
-        return -1;
+    numberByState(state){ 
+        let obj = this.states_arr.obj;
+        let number = 0;
+        for(let k_i of Object.keys(state).reverse()){
+            let ind = obj[k_i].indexOf(state[k_i])
+            number = obj[k_i].length*number + ind;
+        }
+        return number.toString(32);
     }
     //this function returns statesArray.
     get arr_states() {
