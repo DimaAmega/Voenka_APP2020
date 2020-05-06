@@ -1,7 +1,13 @@
 //This class map real 3d objects and their names
-class ObjectStateManager {
+let Events = require('events');
+
+
+StateMachineStateChanged = "StateMachineStateChanged";
+class ObjectStateManager extends Events
+{
     // текущее состояние, список реальных объектов в сцене, объект с состояниями подобъектов
     constructor (sceneObjects) {
+        super();
         this.m_objects = sceneObjects;
 
         this.m_stateApplied = false;
@@ -111,6 +117,7 @@ class ObjectStateManager {
         }
         var res = await Promise.all(promises); // wait end of all animations  
         this._unlockPickerManager();
+        this.emit(StateMachineStateChanged, requiredState);
         this.m_stateApplied = true;
         for(var r_i of res) if (r_i === false) {  // if all promises return true -> the state was applied
             this.m_stateApplied = false;

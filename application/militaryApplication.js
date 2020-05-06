@@ -1,12 +1,14 @@
 
 //internal objects
 let pathUtils = require("./pathProvider");
-let pathProvider = new pathUtils["PathProvider"]();
+let pathProvider = pathUtils["getInstance"]();
 var clock = new THREE.Clock();
 
 let Events = require('events');
 var OrbitControls = require("../Custom_Modules/OrbitControls").OrbitControls;
 // import { OrbitControls } from "../Custom_Modules/OrbitControls";
+
+let application = undefined;
 
 // var controls = new OrbitControls(camera, renderer.domElement);
 
@@ -71,41 +73,42 @@ class MilitaryApplication extends Events {
         this.on(modeSelected, this._checkToReady);
     }
 
-//Setters
+    //Setters
 
-    selectMode(mode)
-    {
+    selectMode(mode) {
         this.m_currentMode = mode;
-        if (this.m_objectStateManager && this.m_pickerManager 
-            && this.m_objectStateManager.isInitialaized() && this.m_pickerManager.isInitialaized() 
-            && this.m_applicationReady && this.m_applicationStarted)
-            {
-                this._applyCurrentState();
-            }
+        if (this.m_objectStateManager && this.m_pickerManager
+            && this.m_objectStateManager.isInitialaized() && this.m_pickerManager.isInitialaized()
+            && this.m_applicationReady && this.m_applicationStarted) {
+            this._applyCurrentState();
+        }
     }
 
-    startApplication()
-    {
+    startApplication() {
         this.m_applicationStarted = true;
         this.emit(startApplication);
     }
 
-    _applicationReady()
-    {
+    _applicationReady() {
         this.m_applicationReady = true;
         this.emit(applicationReady);
     }
 
-    _mainRenderLoop()
-    {
+    _mainRenderLoop() {
+
+        if (!application)
+        {
+            application = this;
+        }
         let delta = clock.getDelta();
-        this.m_objectLoader.updateAnimations(delta);
-        this.m_controls.update();
-        this.m_render.render(this.m_mainScene, this.m_cameraManager.camera);
-        requestAnimationFrame(this._mainRenderLoop.bind(this));
+        application.m_objectLoader.updateAnimations(delta);
+        // this.m_controls.update();
+        application.m_cameraManager.moveCamera(delta * 1000);
+        application.m_render.render(application.m_mainScene, application.m_cameraManager.camera);
+        requestAnimationFrame(application._mainRenderLoop);
     }
 
-// Private functions:
+    // Private functions:
     //The function load all scenes and add them to 
     _initMainScene() {
         if (!THREE) {
@@ -131,11 +134,9 @@ class MilitaryApplication extends Events {
         let globalStates = pathProvider.globalStates();
         let transitionsInfo = pathProvider.transitionsInfo()
         let privateStateMashine = new PrivateStateMachine(globalStates);
-        
-        // privateStateMashine.setConnection(transitionsInfo["StateTransitions1"]);
-    
         this.m_objectStateManager = new StateMachine(this.m_sceneObjects);
         this.m_objectStateManager.stateMashine = privateStateMashine;
+        this.m_objectStateManager.on(StateMachineStateChanged, this.m_cameraManager._onStateMachineStateChanged.bind(this.m_cameraManager));
         window.SM = this.m_objectStateManager;
         // this.emit(StateMashineCreated);
         this.emit(checkRequiredModules);
@@ -203,27 +204,18 @@ class MilitaryApplication extends Events {
             return;
         }
 
-        let camera = new THREE.PerspectiveCamera(
-            45,
-            window.innerWidth / window.innerHeight,
-            0.1,
-            10
-        );
-        camera.position.set(3, 1, 5);
-
-        this.m_cameraManager = {
-            "camera": camera
-        };
-        // end remove
-
         // add Positions and Duration information
-        // let CameraManagerClass = pathProvider.module("CameraManager");
-        // this.m_cameraManager = new CameraManagerClass();
+        let CameraManagerClass = pathProvider.module("CameraManager");
 
-        window.addEventListener( 'resize', (()=>{
-            this.m_cameraManager.camera.aspect = window.innerWidth / window.innerHeight;      
+        let states = pathProvider.cameraManagerStates();
+        this.m_cameraManager = new CameraManagerClass(states, 2000);
+        
+        // window.camera = this.m_cameraManager.camera;
+        // window.cameraManager = this.m_cameraManager;
+        window.addEventListener('resize', (() => {
+            this.m_cameraManager.camera.aspect = window.innerWidth / window.innerHeight;
             this.m_cameraManager.camera.updateProjectionMatrix();
-            this.m_render.setSize( window.innerWidth, window.innerHeight );
+            this.m_render.setSize(window.innerWidth, window.innerHeight);
         }).bind(this));
 
         this.emit(checkRequiredModules);
@@ -235,8 +227,7 @@ class MilitaryApplication extends Events {
             return;
         }
 
-        if (!this.m_mainScene)
-        {
+        if (!this.m_mainScene) {
             console.log("Error: need main scene");
             return;
         }
@@ -277,12 +268,11 @@ class MilitaryApplication extends Events {
         }
     }
 
-    _tryToStartApp()
-    {
-        if (this.m_applicationStarted && this.m_applicationReady){
+    _tryToStartApp() {
+        if (this.m_applicationStarted && this.m_applicationReady) {
             console.log("----APPLICATION IS STARTED---")
-            this.m_controls = new OrbitControls(this.m_cameraManager.camera, this.m_render.domElement);
-            
+            // this.m_controls = new OrbitControls(this.m_cameraManager.camera, this.m_render.domElement);
+
             // Set the states for picker manager, objectState manager and transitions
             this._applyCurrentState();
 
@@ -291,21 +281,17 @@ class MilitaryApplication extends Events {
         }
     }
 
-    _checkToReady()
-    {
-        if (this.m_applicationReady && this.m_applicationStarted && this.m_modeSelected 
-            && this.m_objectStateManager.isInitialaized() && this.m_pickerManager.isInitialaized())
-            {
-                emit(weAreReady);
-                return;
-            }
+    _checkToReady() {
+        if (this.m_applicationReady && this.m_applicationStarted && this.m_modeSelected
+            && this.m_objectStateManager.isInitialaized() && this.m_pickerManager.isInitialaized()) {
+            emit(weAreReady);
+            return;
+        }
         console.log("Error: the app isn't ready");
     }
 
-    _applyCurrentState()
-    {
-        if (this.m_currentMode > -1 && this.m_currentMode < 12)
-        {
+    _applyCurrentState() {
+        if (this.m_currentMode > -1 && this.m_currentMode < 12) {
             this.m_pickerManager.state = pathProvider.pickerStateByMode(this.m_currentMode);
             this.m_objectStateManager.state = pathProvider.objectManagerStateByMode(this.m_currentMode);
             this.m_objectStateManager.transitions = pathProvider.transitionsByMode(this.m_currentMode);
