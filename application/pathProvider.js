@@ -63,7 +63,7 @@ var pathInfo = {
 let modesInformation = [
     //0
     {
-        "pickerState": "firstState",
+        "pickerState": "1_State",
         "objectManagerState": 0
     },
     //1
@@ -128,6 +128,68 @@ let modesInformation = [
     }
 ];
 
+var cameraStates = {
+    "default": {
+        x: 2,
+        y: 2,
+        z: 6,
+        x_deg: -0.22,
+        y_deg: 0.11,
+        z_deg: 0.029
+    },
+    "next": {
+        x: 3.33,
+        y: 1.49,
+        z: 2.1,
+        x_deg: -0.40,
+        y_deg: 0.021,
+        z_deg: 0.009,
+    },
+    "next2": {
+        x: 3.42,
+        y: 1.45,
+        z: 1.65,
+        x_deg: -0.44,
+        y_deg: 0.09,
+        z_deg: 0.044,
+    }
+}
+
+var cameraMenuDomObjectId = "cameraMenu";
+var cameraMenuItems = [
+    "первое",
+    "второе",
+    "что то длиннее",
+    "ЕЩЕЕЕЕ ДЛИННЕЕЕЕ"
+];
+
+// var cameraCallbacks = [
+//     (() => {
+//         this.state = "default";
+//     }),
+//     (() => {
+//         this.state = "next";
+//     }),
+//     (() => {
+//         this.state = "next2";
+//     })
+// ];
+
+var cameraDisabledItems = {
+    "0": {
+    },
+    "1": {
+    },
+    "2": {
+        "name": "Cap_of_PPO",
+        "state": "Static"
+    },
+    "3": {
+    }
+}
+
+var classInstance = undefined;
+
 // The internal class provides path to required modules for MillitaryApplication.
 class PathProvider {
     constructor() {
@@ -139,7 +201,7 @@ class PathProvider {
             case objectsContainer:
                 return require("../Custom_Modules/ObjectsContainer");
             case cameraManager:
-                return require("../Custom_Modules/CameraManager");
+                return require("../CameraManagerClass/CameraManager");
             case statesCreator:
                 return require("../StateMachineFramework/StatesObjectCreator");
             case transitionMatrises:
@@ -192,35 +254,67 @@ class PathProvider {
         return transitionsInfo;
     }
 
-    pickerStateByMode(mode)
-    {
-        if ((mode < 0 ) && (mode > 12))
-        {
+    pickerStateByMode(mode) {
+        if ((mode < 0) && (mode > 12)) {
             console.log("Error: error mode", mode);
             return undefined;
         }
         return modesInformation[mode]["pickerState"];
     }
 
-    objectManagerStateByMode(mode)
-    {
-        if ((mode < 0 ) && (mode > 12))
-        {
+    objectManagerStateByMode(mode) {
+        if ((mode < 0) && (mode > 12)) {
             console.log("Error: error mode", mode);
             return undefined;
         }
         return modesInformation[mode]["objectManagerState"];
     }
 
-    transitionsByMode(mode)
-    {
-        if ((mode < 0 ) && (mode > 12))
-        {
+    transitionsByMode(mode) {
+        if ((mode < 0) && (mode > 12)) {
             console.log("Error: error mode", mode);
             return undefined;
         }
         return this.transitionsInfo()[`StateTransitions${mode}`];
     }
+
+    cameraManagerStates() {
+        return cameraStates;
+    }
+
+    cameraMenuDomObjectId() {
+        return cameraMenuDomObjectId;
+    }
+
+    cameraMenuItems() {
+        return cameraMenuItems;
+    }
+
+    cameraMenuCallbacks(bindObject) {
+        var cameraCallBacks = [
+            (() => {
+                bindObject.state = "default";
+            }).bind(bindObject),
+            (() => {
+                bindObject.state = "next";
+            }).bind(bindObject),
+            (() => {
+                bindObject.state = "next2";
+            }).bind(bindObject)
+        ];
+        return cameraCallBacks;
+    }
+
+    cameraDisabledItems() {
+        return cameraDisabledItems;
+    }
+}
+
+function getInstance() {
+    if (!classInstance) {
+        classInstance = new PathProvider();
+    }
+    return classInstance;
 }
 
 if (module.parent === null) {
@@ -229,6 +323,6 @@ if (module.parent === null) {
 
 else {
     module.exports = {
-        "PathProvider": PathProvider,
+        "getInstance": getInstance,
     }
 }
