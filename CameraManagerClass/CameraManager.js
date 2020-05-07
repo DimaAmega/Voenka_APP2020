@@ -1,11 +1,54 @@
 // use strict
-class CameraManager {
+let Events = require('events');
+
+let CameraMenuClass = require("./CameraMenu.js");
+//events
+let pathUtils = require("../application/pathProvider");
+let pathProvider = pathUtils["getInstance"]();
+
+StateMachineStateChanged = "StateMachineStateChanged";
+
+class CameraManager extends Events {
     constructor(positions, durations) {
+        super();
         if (!THREE) {
             console.log("Need to use THREE JS module");
             return;
         }
         this._setUpCamera();
+
+        let domElementId = pathProvider.cameraMenuDomObjectId();
+        let menuItems = pathProvider.cameraMenuItems();
+        let cameraMenuCallbacks = pathProvider.cameraMenuCallbacks(this);
+        let cameraDisabledItems = pathProvider.cameraDisabledItems();
+
+        // this.m_menu = new CameraMenuClass("cameraMenu", ["первое", "второе", "что то длиннее", "ЕЩЕЕЕЕ ДЛИННЕЕЕЕ"],
+        //     [
+        //         (() => {
+        //             this.state = "default";
+        //         }).bind(this),
+        //         (() => {
+        //             this.state = "next";
+        //         }).bind(this),
+        //         (() => {
+        //             this.state = "next2";
+        //         }).bind(this)
+        //     ],
+        //     {
+        //         "0": {
+        //         },
+        //         "1": {
+        //         },
+        //         "2": {
+        //             "name": "Cap_of_PPO",
+        //             "state": "Static"
+        //         }
+        //         , "4": {
+        //         }
+        //     }
+        // );
+
+        this.m_menu = new CameraMenuClass(domElementId, menuItems, cameraMenuCallbacks, cameraDisabledItems);
 
         if (Array.isArray(positions)) {
             this._orderModeConstructor(positions, durations);
@@ -27,7 +70,7 @@ class CameraManager {
         for (; stateIndex < this.m_states.length; stateIndex++) {
             if (this.m_states[stateIndex] === stateName) {
                 this.m_currentPointIndex = stateIndex;
-                this.m_duration = this.m_durations[0];
+                this.m_duration = this.m_durations;
                 this._newPosition();
                 this.m_onState = false;
                 return;
@@ -71,15 +114,16 @@ class CameraManager {
             this.m_states.push(state);
             this.m_pointsArray.push(states[state]);
         }
-        this._setDefaultPosition(); 
+        this._setDefaultPosition();
     }
 
     _setUpCamera() {
-        const fav = 75;
-        const aspect = 2;
-        const near = 0.1;
-        const far = 50;
-        this.m_camera = new THREE.PerspectiveCamera(fav, aspect, near, far);
+        this.m_camera = new THREE.PerspectiveCamera(
+            45,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            10
+        );
     }
 
     _newPosition() {
@@ -110,23 +154,23 @@ class CameraManager {
     }
 
     _setCoordinateShifts(newPosition) {
-        let duration =  (this.m_stateMode) ? this.m_duration : this.m_durations[this.m_currentPointIndex - 1];
+        let duration = this.m_duration;
 
         let current_x = this.m_camera.position.x;
         let current_y = this.m_camera.position.y;
         let current_z = this.m_camera.position.z;
 
-        let current_x_deg = this.m_camera.rotation.x * 180 / Math.PI;
-        let current_y_deg = this.m_camera.rotation.y * 180 / Math.PI;
-        let current_z_deg = this.m_camera.rotation.z * 180 / Math.PI;
+        let current_x_deg = this.m_camera.rotation.x;
+        let current_y_deg = this.m_camera.rotation.y;
+        let current_z_deg = this.m_camera.rotation.z;
 
         this.m_coordinatesShifts = {
-            x: (newPosition.x !== undefined) ? (newPosition.x - current_x) / duration : 0,
-            y: (newPosition.y !== undefined) ? (newPosition.y - current_y) / duration : 0,
-            z: (newPosition.z !== undefined) ? (newPosition.z - current_z) / duration : 0,
-            x_deg: (newPosition.x_deg !== undefined) ? (newPosition.x_deg - current_x_deg) / duration : 0,
-            y_deg: (newPosition.y_deg !== undefined) ? (newPosition.y_deg - current_y_deg) / duration : 0,
-            z_deg: (newPosition.z_deg !== undefined) ? (newPosition.z_deg - current_z_deg) / duration : 0,
+            x: (newPosition.x - current_x) / duration,
+            y: (newPosition.y - current_y) / duration,
+            z: (newPosition.z - current_z) / duration,
+            x_deg: (newPosition.x_deg - current_x_deg) / duration,
+            y_deg: (newPosition.y_deg - current_y_deg) / duration,
+            z_deg: (newPosition.z_deg - current_z_deg) / duration,
         };
     }
 
@@ -136,43 +180,32 @@ class CameraManager {
         }
         let defaultPosition = this.m_pointsArray[this.m_currentPointIndex];
         if (defaultPosition) {
-            this.m_camera.position.x = (defaultPosition.x)
-                ? defaultPosition.x : 0;
-            this.m_camera.position.y = (defaultPosition.y)
-                ? defaultPosition : 0;
+            this.m_camera.position.x = defaultPosition.x
+            this.m_camera.position.y = defaultPosition.y
             this.m_camera.position.z = (defaultPosition.z)
-                ? defaultPosition.z : 0;
-            this.m_camera.rotation.x = (defaultPosition.x_deg)
-                ? defaultPosition.x_deg * Math.PI / 180 : 0;
-            this.m_camera.rotation.y = (defaultPosition.y_deg)
-                ? defaultPosition.y_deg * Math.PI / 180 : 0;
-            this.m_camera.rotation.z = (defaultPosition.z_deg)
-                ? defaultPosition.z_deg * Math.PI / 180 : 0;
+                
+            this.m_camera.rotation.x = defaultPosition.x_deg;
+            this.m_camera.rotation.y = defaultPosition.y_deg
+            this.m_camera.rotation.z = defaultPosition.z_deg
         }
         else {
             console.log("Default camera position not found.");
         }
     }
 
-    moveCamera(time) {
-        if (this._stop()) {
+    moveCamera(delta) {
+    
+        if (this.m_onState){
             return;
         }
 
-        if (this.m_currentTime === undefined) {
-            this.m_currentTime = time;
-            return;
+        if (this.m_duration - delta > 0) {
+            this.m_duration -= delta;
+            this._shiftPosition(delta);
         }
-
-        let timeDifference = time - this.m_currentTime;
-
-        if (this.m_duration - timeDifference > 0) {
-            this.m_duration -= timeDifference;
-            this._shiftPosition(timeDifference);
-        }
-        else if (this.m_duration - timeDifference < 0 && this.m_duration) {
+        else if (this.m_duration - delta < 0 && this.m_duration > 0) {
             this._shiftPosition(this.m_duration);
-            this.m_duration = 0;
+            this.m_duration = this.m_durations;
             if (this.m_stateMode) {
                 this.m_onState = true;
                 this.m_currentTime = undefined;
@@ -191,24 +224,31 @@ class CameraManager {
             this.m_camera.position.x += diffTime * this.m_coordinatesShifts['x'];
             this.m_camera.position.y += diffTime * this.m_coordinatesShifts['y'];
             this.m_camera.position.z += diffTime * this.m_coordinatesShifts['z'];
-            this.m_camera.rotation.x += diffTime * this.m_coordinatesShifts['x_deg'] * Math.PI / 180;
-            this.m_camera.rotation.y += diffTime * this.m_coordinatesShifts['y_deg'] * Math.PI / 180;
-            this.m_camera.rotation.z += diffTime * this.m_coordinatesShifts['z_deg'] * Math.PI / 180;
+            this.m_camera.rotation.x += diffTime * this.m_coordinatesShifts['x_deg'];
+            this.m_camera.rotation.y += diffTime * this.m_coordinatesShifts['y_deg'];
+            this.m_camera.rotation.z += diffTime * this.m_coordinatesShifts['z_deg'];
         }
         else {
             console.warn("Bad shifting");
         }
     }
+
+    _onStateMachineStateChanged(stateMachineState)
+    {
+        if (stateMachineState === undefined)
+        {
+            return;
+        }
+        this.m_menu._onCameraStateChanged(stateMachineState);
+    }
 }
 
 // export {CameraManager}
 
-if (module.parent === null)
-{
+if (module.parent === null) {
     console.log("Local used");
 }
 
-else
-{
+else {
     module.exports = CameraManager;
 }

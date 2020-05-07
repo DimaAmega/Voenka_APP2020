@@ -1,7 +1,13 @@
 //This class map real 3d objects and their names
-class ObjectStateManager {
+let Events = require('events');
+
+
+StateMachineStateChanged = "StateMachineStateChanged";
+class ObjectStateManager extends Events
+{
     // текущее состояние, список реальных объектов в сцене, объект с состояниями подобъектов
     constructor (sceneObjects) {
+        super();
         this.m_objects = sceneObjects;
         this.m_stateApplied = false;
         this.m_transitions;
@@ -28,9 +34,9 @@ class ObjectStateManager {
         
         if (!this.isInitialaized()) {
             console.log("Error: state mashine is undefined");
-            return false;
+            return new Promise((resolve,reject)=>{resolve(false)});
         }
-
+        
         let requiredState = this.m_stateMashine.requestTransition(localName, localState);
 
         if (requiredState === undefined) {
@@ -51,7 +57,7 @@ class ObjectStateManager {
             await this._applyState(this.getStateByNumber(s_i));
             console.log("Current state is ", this.getStateByNumber(s_i));
         }
-        this.m_stateMashine.currentStateNumber = s_i;
+        this.m_stateMashine.currentStateNumber = parseInt(s_i,32);
         return true;
     }
     // This function loggs valid transitions
@@ -71,7 +77,8 @@ class ObjectStateManager {
             }
         return false;
     }
-
+    
+    //The function returns current local state by local name
     localState(localObjectName)
     {
         if (!localObjectName) 
@@ -92,16 +99,17 @@ class ObjectStateManager {
         this.m_stateMashine.logAllStates();
     }
     getNumberByState(state){
-        return this.m_stateMashine.numberByState(state);
+        return this.m_stateMashine.numberByState(state).toString(32);
     }
     getStateByNumber(number){
-        return this.m_stateMashine.stateByNumber(parseInt(number,32))
+        return this.m_stateMashine.stateByNumber(parseInt(number,32));
     }
     changeCurrentState(value) {
         if (!this.isInitialaized()) {
             console.log("Error: state mashine is undefined");
             return false;
         }
+
         if (this.m_stateMashine.setCurrentStateNumber(value))
             this._applyState(this.m_stateMashine.currentState).then(()=>{
                 console.log("end start transiton");
@@ -127,6 +135,7 @@ class ObjectStateManager {
         }
         var res = await Promise.all(promises); // wait end of all animations  
         this._unlockPickerManager();
+        this.emit(StateMachineStateChanged, requiredState);
         this.m_stateApplied = true;
         for(var r_i of res) if (r_i === false) {  // if all promises return true -> the state was applied
             this.m_stateApplied = false;
@@ -148,13 +157,27 @@ class ObjectStateManager {
     }
 
     //SETTERS
+
+
+    set state(stateNumber)
+    {
+        let requiredState = this.m_stateMashine.stateByNumber(stateNumber);
+        this.m_stateMashine.currentStateNumber = parseInt(stateNumber,32);
+        this._applyState(requiredState);
+    }
+
     set stateMashine(stateMashine) {
         if (!this.isInitialaized()) {
             this.m_stateMashine = stateMashine;
             if (!this.isStateApplyed) {
                 var currentState = this.m_stateMashine.currentState;
-                this._lockPickerManager() 
-                this._applyState(currentState);
+                if (currentState) {
+                    this._applyState(currentState);
+                    return;
+                }
+                else {
+                    console.log("Error: can't apply state", undefined);
+                }
             }
         }
         else {
@@ -171,8 +194,9 @@ class ObjectStateManager {
         let transitionsForStateMaschine = [];
         for (let t_i of newTransitions) 
             for(let i = 0; i < t_i.length - 1; i++) 
-                transitionsForStateMaschine.push([t_i[i],t_i[i+1]]);
+                transitionsForStateMaschine.push([parseInt(t_i[i],32),parseInt(t_i[i+1],32)]);
         this.m_transitions = newTransitions;
+        this.m_stateMashine.removeConnections();
         this.m_stateMashine.setConnection(transitionsForStateMaschine);
     }
 
@@ -188,7 +212,7 @@ class ObjectStateManager {
 
     //GETTERS
     get currentStateNumber() {
-        return this.m_stateMashine.currentStateNumber;
+        return this.m_stateMashine.currentStateNumber.toString(32);
     }
     get currentState() {
         return this.m_stateMashine.currentState;

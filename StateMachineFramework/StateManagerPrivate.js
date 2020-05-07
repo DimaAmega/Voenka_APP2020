@@ -13,12 +13,17 @@ class StateManager {
         this.m_statesCount = this.states_arr.length;
     }
 
+    isConnectionSet()
+    {
+        return this.m_transitionsReady;
+    }
+
     //PUBLIC METHODS
     setConnection(arr_connection) {
         for (let i = 0; i<arr_connection.length;i++ ){
             let elem = arr_connection[i];
-            if (!this.adjacency_list[parseInt(elem[0],32)]) this.adjacency_list[parseInt(elem[0],32)] = [parseInt(elem[1],32)];
-            else this.adjacency_list[parseInt(elem[0],32)].push(parseInt(elem[1],32))
+            if (!this.adjacency_list[elem[0]]) this.adjacency_list[elem[0]] = [elem[1]];
+            else this.adjacency_list[elem[0]].push(elem[1])
         }
     }
 
@@ -33,7 +38,7 @@ class StateManager {
         this.setConnection(newConnections);
     }
 
-    compareStates(st1,st2){
+    compareStates(st1, st2){
         for(var i in st1) if (st1[i]!=st2[i]) return false;
         return true;
     }
@@ -51,13 +56,6 @@ class StateManager {
     // This function loggs available transitions
     logAvailableTransitions() {
         console.log("Аvalible transitions list:");
-        for (var from = 0; from < this.adjacency_matrix.length; from++) {
-            for (var to = 0; to < this.adjacency_matrix[from].length; to++) {
-                if (this.adjacency_matrix[from][to]) {
-                    console.log(from, "->", to);
-                }
-            }
-        }
     }
 
     logAllStates() {
@@ -73,8 +71,8 @@ class StateManager {
     }
 
     set currentStateNumber(value){
-        console.log("Final current State is ", value);
-        this.current_state_number = parseInt(value,32);
+        console.log("Final current State is ", value.toString(32));
+        this.current_state_number = value;
     }
     //This function returns current state like JS object with local states.
     get currentState() {
@@ -100,7 +98,7 @@ class StateManager {
             let ind = obj[k_i].indexOf(state[k_i])
             number = obj[k_i].length*number + ind;
         }
-        return number.toString(32);
+        return number;
     }
     //this function returns statesArray.
     get arr_states() {
