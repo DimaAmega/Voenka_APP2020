@@ -19,7 +19,7 @@ let pickerStates = undefined;
 let transitionsInfo = undefined;
 
 let ObjectsNamesArray = [
-    "Main_part.gltf",
+    "Main_part_1.gltf",
     "base.gltf",
     "Cube1.gltf",
     "Cube2.gltf",
@@ -45,6 +45,7 @@ let ObjectsNamesArray = [
     "CPClamp5.gltf",
     "B_start.gltf",
     "B_stop.gltf",
+    "Hangar.gltf",
     // "Anvil_tr.gltf",
     "Lock1.gltf",
     // "Lock1_tr.gltf",

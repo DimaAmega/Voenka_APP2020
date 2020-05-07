@@ -188,7 +188,7 @@ class MilitaryApplication extends Events {
             45,
             window.innerWidth / window.innerHeight,
             0.1,
-            10
+            30
         );
         camera.position.set(3, 1, 5);
 

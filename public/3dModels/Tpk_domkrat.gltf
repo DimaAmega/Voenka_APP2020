@@ -1,0 +1,258 @@
+{
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 1477,
+      "type": "VEC3",
+      "max": [
+        1.594622015953064,
+        0.35868412256240845,
+        0.16941098868846893
+      ],
+      "min": [
+        -0.064042411744594574,
+        -0.063998214900493622,
+        -0.16941098868846893
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1477,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 1477,
+      "type": "VEC4",
+      "max": [
+        1.0,
+        1.0,
+        1.0,
+        -1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 1477,
+      "type": "VEC2",
+      "max": [
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5125,
+      "count": 4248,
+      "type": "SCALAR",
+      "max": [
+        1328.0
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5125,
+      "count": 432,
+      "type": "SCALAR",
+      "max": [
+        1476.0
+      ],
+      "min": [
+        1329.0
+      ]
+    }
+  ],
+  "asset": {
+    "generator": "Plattar UnityGLTF (2019.3.8f1)",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "uri": "Tpk_domkrat.bin",
+      "byteLength": 89616
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 17724
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 17724,
+      "byteLength": 17724
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 35448,
+      "byteLength": 23632
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 59080,
+      "byteLength": 11816
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 70896,
+      "byteLength": 16992
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 87888,
+      "byteLength": 1728
+    }
+  ],
+  "images": [
+    {
+      "uri": "MetalDusty.jpg",
+      "name": "MetalDusty"
+    },
+    {
+      "uri": "Armydiarrhea.jpg",
+      "name": "Armydiarrhea"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 1,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "normalTexture": {
+        "index": 0,
+        "extensions": {
+          "KHR_texture_transform": {
+            "offset": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "name": "Армейский поносный_3"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.63,
+          0.63,
+          0.63,
+          1.0
+        ],
+        "metallicFactor": 0.0
+      },
+      "name": "Материал.2"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 5,
+          "material": 1
+        }
+      ],
+      "name": "Tpk_domkrat"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0445745625,
+        -0.999006033
+      ],
+      "translation": [
+        4.57092762,
+        1.48695731,
+        0.720303953
+      ],
+      "name": "Tpk_domkrat"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9729
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "Tpk_domkrat"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "MetalDusty"
+    },
+    {
+      "sampler": 0,
+      "source": 1,
+      "name": "Armydiarrhea"
+    }
+  ]
+}
