@@ -93,6 +93,12 @@ class MilitaryApplication extends Events {
         this.emit(startApplication);
     }
 
+    readyEvent(){
+        if (this.m_applicationStarted && this.m_applicationReady) 
+            return new Promise((resolve,reject)=>{resolve(true)})
+        return new Promise((resolve,reject)=>{this.start_resolve_fun = resolve})
+    }
+
     _applicationReady() {
         this.m_applicationReady = true;
         this.emit(applicationReady);
@@ -276,8 +282,10 @@ class MilitaryApplication extends Events {
         if (this.m_applicationStarted && this.m_applicationReady) {
             console.log("----APPLICATION IS STARTED---")
             // this.m_controls = new OrbitControls(this.m_cameraManager.camera, this.m_render.domElement);
-
             // Set the states for picker manager, objectState manager and transitions
+            if (this.start_resolve_fun) {
+                this.start_resolve_fun(true);
+            }
             this._applyCurrentState();
 
             this._mainRenderLoop();
@@ -295,13 +303,13 @@ class MilitaryApplication extends Events {
     }
 
     _applyCurrentState() {
-        if (this.m_currentMode > -1 && this.m_currentMode < 12) {
+        if (this.m_currentMode > -1 && this.m_currentMode < 8) {
             this.m_pickerManager.state = pathProvider.pickerStateByMode(this.m_currentMode);
             this.m_objectStateManager.state = pathProvider.objectManagerStateByMode(this.m_currentMode);
             this.m_objectStateManager.transitions = pathProvider.transitionsByMode(this.m_currentMode);
             return;
         }
-        console.log("Error: invalid  mode", mode);
+        console.log("Error: invalid  mode");
     }
 }
 
