@@ -156,6 +156,7 @@ body{
   background:black;
   transform: translateX(0px);
   transition: transform 800ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  overflow: hidden;
 }
 
 html {
@@ -192,7 +193,7 @@ form{
 }
 
 #menu{
-
+  height: 100vh;
 }
 
 #modes{
