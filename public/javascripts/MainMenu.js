@@ -27,9 +27,18 @@ class Menu{
     //    HANDLE EVENTS  
     ///////////////////////////
     $('iframe').on("load",()=>{ 
-      console.log("is load");
       window.winFrame = $('iframe').prop("contentWindow") 
+      window.winFrame.app.readyEvent().then(()=>{
+        $('#cube-loader').css({opacity:0});
+        setTimeout(()=>{
+          $('#cube-loader').css({display:"none"})
+          this.show();
+        },1000)
+      })
     })
+    ////////////////////////////
+    //    MENU SETTINGS  
+    ///////////////////////////
     $('#start_position input').on('click',(e)=>{
       $(`#end_position input`).prop('disabled',false);
       $(`#end_position #${e.target.value}`).prop('checked',false);
@@ -53,5 +62,20 @@ class Menu{
     for (var k_i in this.setup) if (!this.setup[k_i]) return false; 
     return true;
   }
+  show(){
+    $('#regimes').css({animation: "fadeInMenu 0.7s 1 ease-in-out forwards"})
+    $('iframe').css({animation: "blurBackground .5s 1 ease-in forwards", zIndex:-1})
+  }
+  hide() {
+    $('#regimes').css({animation: "fadeOutMenu 0.7s 1 ease-in-out forwards"})
+    $('iframe').css({animation: "unBlurBackground .5s 1 ease-in forwards", zIndex: 0})
+  }
 }
-new Menu();
+
+let menu = new Menu();
+let isOpen = 0;
+$("#hamburger").click((e)=>{
+  if (isOpen ===1) menu.show();
+  else menu.hide();
+  isOpen = (isOpen+1)%2;
+})
