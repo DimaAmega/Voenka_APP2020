@@ -93,7 +93,7 @@ let modesInformation = [
     //1
     {
         "pickerState": "secondState",
-        "objectManagerState": 3
+        "objectManagerState": 0
     },
     //2
     {
@@ -121,31 +121,6 @@ let modesInformation = [
         "objectManagerState": 1
     },
     //7
-    {
-        "pickerState": "firstState",
-        "objectManagerState": 1
-    },
-    //8
-    {
-        "pickerState": "firstState",
-        "objectManagerState": 1
-    },
-    //8
-    {
-        "pickerState": "firstState",
-        "objectManagerState": 1
-    },
-    //9
-    {
-        "pickerState": "firstState",
-        "objectManagerState": 1
-    },
-    //10
-    {
-        "pickerState": "firstState",
-        "objectManagerState": 1
-    },
-    //11
     {
         "pickerState": "firstState",
         "objectManagerState": 1
@@ -287,7 +262,7 @@ class PathProvider {
     }
 
     objectManagerStateByMode(mode) {
-        if ((mode < 0) && (mode > 12)) {
+        if ((mode < 0) && (mode > 7)) {
             console.log("Error: error mode", mode);
             return undefined;
         }
@@ -295,7 +270,7 @@ class PathProvider {
     }
 
     transitionsByMode(mode) {
-        if ((mode < 0) && (mode > 12)) {
+        if ((mode < 0) && (mode > 7)) {
             console.log("Error: error mode", mode);
             return undefined;
         }

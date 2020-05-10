@@ -289,12 +289,11 @@ form{
 .regimes_grid {
   grid-template-areas: "a a"
                        "b c"
-                       "d e"
                        "f g"
                        "i i";
   display: grid; 
-  grid-template-rows: repeat(5fr, 5);
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4fr, 4);
+  grid-template-columns: 1fr 2fr;
   gap: 0 10px;
 }
 
@@ -302,9 +301,9 @@ form{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-.start_position_form_grid , .end_position_form_grid{
+.start_position_form_grid {
   display: grid;
-  grid-template-rows: 42px 42px 42px;
+  grid-template-rows: 42px 42px 42px 42px;
 }
 .control_form_grid{
   display: grid;
@@ -312,7 +311,7 @@ form{
 }
 .form_item{
   display: grid;
-  grid-template-columns: 1fr 1fr; 
+  grid-template-columns: 1fr 2fr; 
 }
 .regimes_def_position{            
   grid-area: b;
