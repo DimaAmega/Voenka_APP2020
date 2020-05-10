@@ -161,7 +161,7 @@ eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! jQuery
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var MilitaryApplication = __webpack_require__(/*! ../../application/militaryApplication */ \"./application/militaryApplication.js\");\nvar app = new MilitaryApplication();\napp.selectMode(0);\napp.startApplication();\nwindow.app = app;\n\n//# sourceURL=webpack:///./Scenes/Scene1/core.js?");
+eval("var MilitaryApplication = __webpack_require__(/*! ../../application/militaryApplication */ \"./application/militaryApplication.js\");\nvar app = new MilitaryApplication();\n// app.selectMode(0);\napp.startApplication();\nwindow.app = app;\n\n//# sourceURL=webpack:///./Scenes/Scene1/core.js?");
 
 /***/ }),
 
