@@ -1,0 +1,199 @@
+{
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 997,
+      "type": "VEC3",
+      "max": [
+        0.003604318480938673,
+        0.0025049927644431591,
+        0.0036044418811798096
+      ],
+      "min": [
+        -0.003604318480938673,
+        -0.0025049927644431591,
+        -0.0036044418811798096
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 997,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 997,
+      "type": "VEC4",
+      "max": [
+        1.0,
+        0.044302497059106827,
+        1.0,
+        -1.0
+      ],
+      "min": [
+        -1.0,
+        -0.056908421218395233,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 997,
+      "type": "VEC2",
+      "max": [
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5125,
+      "count": 4968,
+      "type": "SCALAR",
+      "max": [
+        996.0
+      ],
+      "min": [
+        0.0
+      ]
+    }
+  ],
+  "asset": {
+    "generator": "Plattar UnityGLTF (2019.3.8f1)",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "uri": "CPClamp5.bin",
+      "byteLength": 67728
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 11964
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 11964,
+      "byteLength": 11964
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 23928,
+      "byteLength": 15952
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 39880,
+      "byteLength": 7976
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 47856,
+      "byteLength": 19872
+    }
+  ],
+  "images": [
+    {
+      "uri": "MetallGayki.jpg",
+      "name": "MetallGayki"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Shineng Metal"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        }
+      ],
+      "name": "CPClamp5"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "translation": [
+        -0.378047824,
+        2.12701344,
+        1.27236414
+      ],
+      "name": "CPClamp5"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9729
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "CPClamp5"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "MetallGayki"
+    }
+  ]
+}

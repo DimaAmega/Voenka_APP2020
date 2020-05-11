@@ -1,25 +1,25 @@
 class StatesCreator
 {
-    _product(args) {
-        if(!args.length)
-            return [[]];
-        var prod = this._product(args.slice(1)), r = [];
-        args[0].forEach(function(x) {
-            prod.forEach(function(p) {
-                r.push([x].concat(p));
-            });
-        });
-        return r;
-    };
-    
+    getStateByNumber(i) {
+        let res = {};
+        for (let k_i in this.obj){
+            let tmp = i%this.obj[k_i].length;
+            res[k_i] = this.obj[k_i][tmp]
+            i = Math.floor(i/this.obj[k_i].length)
+        }
+        return res;
+    }
     objectProduct(obj) {
-        var keys = Object.keys(obj),
-            values = keys.map(function(x) { return obj[x] });
-        return this._product(values).map(function(p) {
-            var e = {};
-            keys.forEach(function(k, n) { e[k] = p[n] });
-            return e;
-        });
+        console.log(obj);
+        this.obj = obj;
+        let count = 1;
+        for(let k_i in obj) count*=obj[k_i].length
+        console.log("Count of States ",count.toLocaleString());
+        return {
+            get: this.getStateByNumber,
+            length: count,
+            obj:obj
+        }
     }
 }
 if (module.parent === null)

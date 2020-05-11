@@ -1,0 +1,323 @@
+{
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 1170,
+      "type": "VEC3",
+      "max": [
+        0.00943605974316597,
+        0.0017821250949054956,
+        0.0090818554162979126
+      ],
+      "min": [
+        -0.00943605974316597,
+        -0.0010090743890032172,
+        -0.0090818554162979126
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1170,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 1170,
+      "type": "VEC4",
+      "max": [
+        1.0,
+        0.28585571050643921,
+        1.0,
+        -1.0
+      ],
+      "min": [
+        -1.0,
+        -0.28585571050643921,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 1170,
+      "type": "VEC2",
+      "max": [
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5125,
+      "count": 6480,
+      "type": "SCALAR",
+      "max": [
+        1169.0
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5126,
+      "count": 47,
+      "type": "SCALAR",
+      "max": [
+        1.533333420753479
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "count": 47,
+      "type": "VEC3",
+      "max": [
+        3.388289213180542,
+        1.3689488172531128,
+        -1.309999942779541
+      ],
+      "min": [
+        3.388289213180542,
+        1.3689488172531128,
+        -1.3110053539276123
+      ]
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5126,
+      "count": 47,
+      "type": "VEC4",
+      "max": [
+        0.5,
+        0.5,
+        -0.5,
+        -0.5
+      ],
+      "min": [
+        0.5,
+        0.5,
+        -0.5,
+        -0.5
+      ]
+    },
+    {
+      "bufferView": 8,
+      "componentType": 5126,
+      "count": 47,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 0,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 1,
+          "target": {
+            "node": 0,
+            "path": "rotation"
+          }
+        },
+        {
+          "sampler": 2,
+          "target": {
+            "node": 0,
+            "path": "scale"
+          }
+        }
+      ],
+      "samplers": [
+        {
+          "input": 5,
+          "output": 6
+        },
+        {
+          "input": 5,
+          "output": 7
+        },
+        {
+          "input": 5,
+          "output": 8
+        }
+      ],
+      "name": "Push"
+    }
+  ],
+  "asset": {
+    "generator": "Plattar UnityGLTF (2019.3.8f1)",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "uri": "ppo_button.bin",
+      "byteLength": 84148
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 14040
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 14040,
+      "byteLength": 14040
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 28080,
+      "byteLength": 18720
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 46800,
+      "byteLength": 9360
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 56160,
+      "byteLength": 25920
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 82080,
+      "byteLength": 188
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 82268,
+      "byteLength": 564
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 82832,
+      "byteLength": 752
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 83584,
+      "byteLength": 564
+    }
+  ],
+  "images": [
+    {
+      "uri": "Black-texture.jpg",
+      "name": "Black-texture"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Материал.1_1"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        }
+      ],
+      "name": "ppo_button"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "translation": [
+        3.38828921,
+        1.36894882,
+        1.31100535
+      ],
+      "name": "ppo_button"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9729
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "ppo_button"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "Black-texture"
+    }
+  ]
+}

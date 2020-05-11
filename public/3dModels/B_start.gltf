@@ -1,0 +1,297 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 1170,
+      "type": "VEC3",
+      "max": [
+        0.011894955299794674,
+        0.0023274836130440235,
+        0.011895362287759781
+      ],
+      "min": [
+        -0.011894955299794674,
+        -0.00131786719430238,
+        -0.011895362287759781
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1170,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 1170,
+      "type": "VEC4",
+      "max": [
+        1.0,
+        0.29367679357528687,
+        1.0,
+        -1.0
+      ],
+      "min": [
+        -1.0,
+        -0.29367679357528687,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 1170,
+      "type": "VEC2",
+      "max": [
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5125,
+      "count": 6480,
+      "type": "SCALAR",
+      "max": [
+        1169.0
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5126,
+      "count": 49,
+      "type": "SCALAR",
+      "max": [
+        1.6326529979705811
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "count": 49,
+      "type": "VEC3",
+      "max": [
+        -0.39282631874084473,
+        2.0311627388000488,
+        -1.2629033327102661
+      ],
+      "min": [
+        -0.39282631874084473,
+        2.0311627388000488,
+        -1.26558256149292
+      ]
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5126,
+      "count": 49,
+      "type": "VEC4",
+      "max": [
+        -0.5,
+        -0.5,
+        0.5,
+        0.5
+      ],
+      "min": [
+        -0.5,
+        -0.5,
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "bufferView": 8,
+      "componentType": 5126,
+      "count": 49,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 0,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 1,
+          "target": {
+            "node": 0,
+            "path": "rotation"
+          }
+        },
+        {
+          "sampler": 2,
+          "target": {
+            "node": 0,
+            "path": "scale"
+          }
+        }
+      ],
+      "samplers": [
+        {
+          "input": 5,
+          "output": 6
+        },
+        {
+          "input": 5,
+          "output": 7
+        },
+        {
+          "input": 5,
+          "output": 8
+        }
+      ],
+      "name": "Push"
+    }
+  ],
+  "asset": {
+    "generator": "Plattar UnityGLTF (2019.3.8f1)",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "uri": "B_start.bin",
+      "byteLength": 84236
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 14040
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 14040,
+      "byteLength": 14040
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 28080,
+      "byteLength": 18720
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 46800,
+      "byteLength": 9360
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 56160,
+      "byteLength": 25920
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 82080,
+      "byteLength": 196
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 82276,
+      "byteLength": 588
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 82864,
+      "byteLength": 784
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 83648,
+      "byteLength": 588
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.17,
+          0.17,
+          0.17,
+          1.0
+        ],
+        "metallicFactor": 0.0
+      },
+      "name": "Материал.1"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        }
+      ],
+      "name": "B_start"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "translation": [
+        -0.392826319,
+        2.03116274,
+        1.26558256
+      ],
+      "name": "B_start"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "B_start"
+    }
+  ]
+}

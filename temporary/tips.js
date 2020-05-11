@@ -1,5 +1,5 @@
 import $ from "../Custom_Modules/jQuery";
-class tips{
+class tips {
     constructor(){
         this.elem = $('<div class="tips">Some text here<div>')
         this.elem.css({
