@@ -5,8 +5,10 @@ let CameraMenuClass = require("./CameraMenu.js");
 //events
 let pathUtils = require("../application/pathProvider");
 let pathProvider = pathUtils["getInstance"]();
-
-StateMachineStateChanged = "StateMachineStateChanged";
+//events list
+let StateMachineStateChanged = "StateMachineStateChanged";
+let PickerManagerCreated = "PickerManagerCreated";
+let CheckCurentPickerStateRequest = "CheckCurentPickerStateRequest";
 
 class CameraManager extends Events {
     constructor(positions, durations) {
@@ -22,34 +24,8 @@ class CameraManager extends Events {
         let cameraMenuCallbacks = pathProvider.cameraMenuCallbacks(this);
         let cameraDisabledItems = pathProvider.cameraDisabledItems();
 
-        // this.m_menu = new CameraMenuClass("cameraMenu", ["первое", "второе", "что то длиннее", "ЕЩЕЕЕЕ ДЛИННЕЕЕЕ"],
-        //     [
-        //         (() => {
-        //             this.state = "default";
-        //         }).bind(this),
-        //         (() => {
-        //             this.state = "next";
-        //         }).bind(this),
-        //         (() => {
-        //             this.state = "next2";
-        //         }).bind(this)
-        //     ],
-        //     {
-        //         "0": {
-        //         },
-        //         "1": {
-        //         },
-        //         "2": {
-        //             "name": "Cap_of_PPO",
-        //             "state": "Static"
-        //         }
-        //         , "4": {
-        //         }
-        //     }
-        // );
-
         this.m_menu = new CameraMenuClass(domElementId, menuItems, cameraMenuCallbacks, cameraDisabledItems);
-
+        this.m_pickerAndDisabledInfo = cameraDisabledItems;
         if (Array.isArray(positions)) {
             this._orderModeConstructor(positions, durations);
         }
@@ -79,6 +55,16 @@ class CameraManager extends Events {
 
         if (stateIndex == this.m_states.length) {
             console.log(`${newState} not found.`);
+        }
+    }
+
+    applyState(stateName)
+    {
+        this.state = stateName;
+        let pickerInfo = this.m_pickerAndDisabledInfo[this.m_currentPointIndex]["pickerInformation"];
+        
+        if (pickerInfo) {
+            this.emit(CheckCurentPickerStateRequest, pickerInfo);
         }
     }
 
@@ -240,6 +226,11 @@ class CameraManager extends Events {
             return;
         }
         this.m_menu._onCameraStateChanged(stateMachineState);
+
+    }
+
+    _onPickerManagerCreated() {
+        console.log("HELLLOOO");
     }
 }
 
