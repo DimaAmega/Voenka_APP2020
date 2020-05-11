@@ -4,99 +4,85 @@
             "Static",
             "Open"
         ],
-        "ppo_lock":[
+        "ppo_lock": [
             "Static",
             "Open"
         ],
-        "Lock1":[
+        "Lock1": [
             "Static",
             "Open"
         ]
     },
     "pickerManagerStates": {
         "1_State": {
-            "ClickableItems": {
-                "Cap_of_PPO": {
+            "ClickableItems": [
+                {
                     "triggerAction": {
                         "name": "Cap_of_PPO",
-                        "state": "Open",
-                        "pickerState": "2_State"
+                        "state": "Open"
+                        
                     },
                     "highlightObject": {
                         "name": "Cap_of_PPO_tr",
                         "state": "Open"
-                    }
-                }
-            }
-        },
-        "3_State": {
-            "ClickableItems": {
-                "Cap_of_PPO": {
-                    "triggerAction": {
-                        "name": "Cap_of_PPO",
-                        "state": "Static",
-                        "pickerState": "4_State"
-                    },
-                    "highlightObject": {
-                        "name": "Cap_of_PPO_tr",
-                        "state": "Static"
                     }
                 },
-                "ppo_lock": {
-                    "triggerAction": {
-                        "name": "ppo_lock",
-                        "state": "Static",
-                        "pickerState": "2_State"
-                    },
-                    "highlightObject": {
-                        "name": "ppo_lock_tr",
-                        "state": "Static"
-                    }
-                }
-            }
-        },
-        "4_State": {
-            "ClickableItems": {
-                "Cap_of_PPO": {
+                {
                     "triggerAction": {
                         "name": "Cap_of_PPO",
-                        "state": "Open",
-                        "pickerState": "3_State"
+                        "state": "Static"
                     },
                     "highlightObject": {
                         "name": "Cap_of_PPO_tr",
-                        "state": "Open"
+                        "state": "Static"
                     }
                 }
-            }
+            ]
         },
         "2_State": {
-            "ClickableItems": {
-                "Cap_of_PPO": {
+            "ClickableItems": [
+                {
                     "triggerAction": {
                         "name": "Cap_of_PPO",
-                        "state": "Static",
-                        "pickerState" : "1_State"
+                        "state": "Static"
                     },
                     "highlightObject": {
                         "name": "Cap_of_PPO_tr",
                         "state": "Static"
                     }
                 },
-                "ppo_lock": {
+                {
+                    "triggerAction": {
+                        "name": "Cap_of_PPO",
+                        "state": "Open"
+                    },
+                    "highlightObject": {
+                        "name": "Cap_of_PPO_tr",
+                        "state": "Open"
+                    }
+                },
+                {
                     "triggerAction": {
                         "name": "ppo_lock",
-                        "state": "Open",
-                        "pickerState": "3_State"
+                        "state": "Open"
                     },
                     "highlightObject": {
                         "name": "ppo_lock_tr",
                         "state": "Open"
                     }
+                },
+                {
+                    "triggerAction": {
+                        "name": "ppo_lock",
+                        "state": "Static"
+                    },
+                    "highlightObject": {
+                        "name": "ppo_lock_tr",
+                        "state": "Static"
+                    }
                 }
-            }
+            ]
         },
-        "lockedState": {
-        }
+        "lockedState": {}
     }
 }

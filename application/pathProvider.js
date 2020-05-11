@@ -163,28 +163,28 @@ var cameraMenuItems = [
     "ЕЩЕЕЕЕ ДЛИННЕЕЕЕ"
 ];
 
-// var cameraCallbacks = [
-//     (() => {
-//         this.state = "default";
-//     }),
-//     (() => {
-//         this.state = "next";
-//     }),
-//     (() => {
-//         this.state = "next2";
-//     })
-// ];
-
 var cameraDisabledItems = {
+    // далеко от машины
     "0": {
     },
+    // перед большой крышкой
     "1": {
-    },
+        "pickerInformation":{
+            "checkedObjectName": "Cap_of_PPO",
+            "pickerStatesByObjectState": {
+                "Static": "1_State",
+                "Open": "2_State"
+            }
+        }
+    }, // перед маленькой крышкой
     "2": {
-        "name": "Cap_of_PPO",
-        "state": "Static"
+        "disableInformation": {
+            "name": "Cap_of_PPO",
+            "state": "Static"
+        },
     },
     "3": {
+
     }
 }
 
@@ -293,13 +293,13 @@ class PathProvider {
     cameraMenuCallbacks(bindObject) {
         var cameraCallBacks = [
             (() => {
-                bindObject.state = "default";
+                bindObject.applyState("default");
             }).bind(bindObject),
             (() => {
-                bindObject.state = "next";
+                bindObject.applyState("next");
             }).bind(bindObject),
             (() => {
-                bindObject.state = "next2";
+                bindObject.applyState("next2");
             }).bind(bindObject)
         ];
         return cameraCallBacks;

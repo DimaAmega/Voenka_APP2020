@@ -50,8 +50,14 @@ class СameraMenu extends Events
         let currentItem = 0
         for(let item in this.m_disableItems)
         {
-            if (this.m_disableItems[item]["name"] 
-            && this.m_disableItems[item]["state"] === objects[this.m_disableItems[item]["name"]])
+            
+            if (!this.m_disableItems[item]["disableInformation"])
+            {
+                currentItem++;
+                continue;
+            }
+            if (this.m_disableItems[item]["disableInformation"]["name"]
+            && this.m_disableItems[item]["disableInformation"]["state"] === objects[this.m_disableItems[item]["disableInformation"]["name"]])
             {
                 this._disableMenuItem(currentItem, true);
             }

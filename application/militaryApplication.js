@@ -24,6 +24,9 @@ let rendererCreated = "RendererCreated";
 let cameraManagerCreated = "CameraCreated";
 
 let readyToPickerManager = "readyToPickerManager";
+let pickerManagerCreated = "pickerManagerCreated";
+
+let CheckCurentPickerStateRequest = "CheckCurentPickerStateRequest";
 
 let startApplication = "startApplication";
 let applicationReady = "applicationReady";
@@ -137,6 +140,7 @@ class MilitaryApplication extends Events {
         this.m_objectStateManager = new StateMachine(this.m_sceneObjects);
         this.m_objectStateManager.stateMashine = privateStateMashine;
         this.m_objectStateManager.on(StateMachineStateChanged, this.m_cameraManager._onStateMachineStateChanged.bind(this.m_cameraManager));
+        // this.m_objectStateManager.on(StateMachineStateChanged, this.m_pickerManager._onStateMachineStateChanged.bind(this.m_pickerManager));
         window.SM = this.m_objectStateManager;
         // this.emit(StateMashineCreated);
         this.emit(checkRequiredModules);
@@ -148,10 +152,12 @@ class MilitaryApplication extends Events {
         let PickerManagerClass = pathProvider.module("PickerManager");
 
         this.m_pickerManager = new PickerManagerClass(this.m_render.domElement, this.m_cameraManager.camera, this.m_mainScene, pickerStates, this.m_objectStateManager);
-
         this.m_objectStateManager.pickerManager = this.m_pickerManager;
         // emit end signal
         //TODO: move to right place
+
+        this.m_cameraManager.on(CheckCurentPickerStateRequest, this.m_pickerManager._onCheckCurrentPickerState.bind(this.m_pickerManager));
+        this.emit(pickerManagerCreated);
         this._applicationReady();
     }
 
@@ -209,7 +215,7 @@ class MilitaryApplication extends Events {
 
         let states = pathProvider.cameraManagerStates();
         this.m_cameraManager = new CameraManagerClass(states, 2000);
-        
+        this.on(pickerManagerCreated, this.m_cameraManager._onPickerManagerCreated.bind(this.m_cameraManager));
         // window.camera = this.m_cameraManager.camera;
         // window.cameraManager = this.m_cameraManager;
         window.addEventListener('resize', (() => {
