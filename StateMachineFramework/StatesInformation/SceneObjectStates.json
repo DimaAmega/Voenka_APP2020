@@ -4,16 +4,88 @@
             "Static",
             "Open"
         ],
+<<<<<<< HEAD
         "ppo_lock": [
+=======
+        "Power_checker":[
+            "Static",
+            "SwitchOn"
+        ],
+        "ppo_lock":[
+>>>>>>> d57c8c9b89c193774f4a308ffd30ef5c047a4162
             "Static",
             "Open"
         ],
         "Lock1": [
             "Static",
             "Open"
+        ],
+        "Radio_PPO":[
+            "Static",
+            "Used"
+        ],
+        "ppo_button":[
+            "Static",
+            "Push"
+        ],
+        "Anvil":[
+            "Move3",
+            "Move1",
+            "Move2",
+            "Move4",
+            "Move5",
+            "Move6",
+            "Move7",
+            "Move8",
+            "Move9"
+        ],
+        "lamp1":[
+            "Static",
+            "Emissive"    
+        ], 
+        "lamp2":[
+            "Static",
+            "Emissive"    
+        ], 
+        "lamp4":[
+            "Static",
+            "Emissive"    
+        ], 
+        "lamp5":[
+            "Static",
+            "Emissive"    
+        ], 
+        "lamp6":[
+            "Static",
+            "Emissive"    
+        ], 
+        "lamp7":[
+            "Static",
+            "Emissive"    
+        ],
+        "TPK_small_very":[
+            "Static",
+            "GoUp"
+        ],
+        "Support1":[
+            "Static",
+            "Down"  
+        ],
+          "Support2":[
+            "Static",
+            "Down"  
+        ],
+          "Support3":[
+              "Static",
+              "Down"  
+        ],
+          "Support4":[
+              "Static",
+              "Down"  
         ]
-    },
+    },  
     "pickerManagerStates": {
+<<<<<<< HEAD
         "1_State": {
             "ClickableItems": [
                 {
@@ -84,5 +156,9 @@
             ]
         },
         "lockedState": {}
+=======
+       "lockedState": {
+        }
+>>>>>>> d57c8c9b89c193774f4a308ffd30ef5c047a4162
     }
 }

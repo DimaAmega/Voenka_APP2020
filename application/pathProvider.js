@@ -19,34 +19,58 @@ let pickerStates = undefined;
 let transitionsInfo = undefined;
 
 let ObjectsNamesArray = [
-    "Main_part.gltf",
+    "Main_part_1.gltf",
     "base.gltf",
-    "Cube.gltf",
-    "Cube_1.gltf",
-    "Cube_2.gltf",
-    "Cube_3.gltf",
-    "Cube_4.gltf",
-    "Cube_5.gltf",
-    "Cube_6.gltf",
-    "Cube_7.gltf",
-    "Cube_8.gltf",
+    "Cube1.gltf",
+    "Cube2.gltf",
+    "Cube3.gltf",
+    "Cube4.gltf",
+    "Cube5.gltf",
+    "Cube6.gltf",
+    "Cube7.gltf",
+    "Cube8.gltf",
+    "Cube9.gltf",
     "Anvil.gltf",
+    "CPC_base.gltf",
+    "CpcAnvil.gltf",
+    "CPCcube1.gltf",
+    "CPCcube2.gltf",
+    "CPCcube3.gltf",
+    "CPCcube4.gltf",
+    "CPCcube5.gltf",
+    "CPClamp1.gltf",
+    "CPClamp2.gltf",
+    "CPClamp3.gltf",
+    "CPClamp4.gltf",
+    "CPClamp5.gltf",
+    "B_start.gltf",
+    "B_stop.gltf",
+    "Hangar.gltf",
     "Anvil_tr.gltf",
     "Lock1.gltf",
     "Lock1_tr.gltf",
-    "Oil_Tank.gltf",
     "ppo_lock.gltf",
     "ppo_lock_tr.gltf",
     "Support1.gltf",
     "Support2.gltf",
     "Support3.gltf",
     "Support4.gltf",
-    "ValveTopR.gltf",
+    "ppo_button.gltf",
+    "lamp1.gltf",
+    "lamp2.gltf",
+    "lamp3.gltf",
+    "lamp4.gltf",
+    "lamp5.gltf",
+    "lamp6.gltf",
+    "lamp7.gltf",
+    "Radio_PPO.gltf",
+    "Radiostation.gltf",
     "Back_door.gltf",
     "Cap_of_PPO.gltf",
     "Cap_of_PPO_tr.gltf",
     "Front_door.gltf",
     "Power_checker.gltf",
+    "Power_checker_tr.gltf",
     "TPK_small_very.gltf",
 ];
 
@@ -69,7 +93,7 @@ let modesInformation = [
     //1
     {
         "pickerState": "secondState",
-        "objectManagerState": 3
+        "objectManagerState": 0
     },
     //2
     {
@@ -97,31 +121,6 @@ let modesInformation = [
         "objectManagerState": 1
     },
     //7
-    {
-        "pickerState": "firstState",
-        "objectManagerState": 1
-    },
-    //8
-    {
-        "pickerState": "firstState",
-        "objectManagerState": 1
-    },
-    //8
-    {
-        "pickerState": "firstState",
-        "objectManagerState": 1
-    },
-    //9
-    {
-        "pickerState": "firstState",
-        "objectManagerState": 1
-    },
-    //10
-    {
-        "pickerState": "firstState",
-        "objectManagerState": 1
-    },
-    //11
     {
         "pickerState": "firstState",
         "objectManagerState": 1
@@ -263,7 +262,7 @@ class PathProvider {
     }
 
     objectManagerStateByMode(mode) {
-        if ((mode < 0) && (mode > 12)) {
+        if ((mode < 0) && (mode > 7)) {
             console.log("Error: error mode", mode);
             return undefined;
         }
@@ -271,7 +270,7 @@ class PathProvider {
     }
 
     transitionsByMode(mode) {
-        if ((mode < 0) && (mode > 12)) {
+        if ((mode < 0) && (mode > 7)) {
             console.log("Error: error mode", mode);
             return undefined;
         }
