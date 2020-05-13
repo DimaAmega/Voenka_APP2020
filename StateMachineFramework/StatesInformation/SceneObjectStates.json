@@ -4,15 +4,19 @@
             "Static",
             "Open"
         ],
+<<<<<<< HEAD
+        "ppo_lock": [
+=======
         "Power_checker":[
             "Static",
             "SwitchOn"
         ],
         "ppo_lock":[
+>>>>>>> d57c8c9b89c193774f4a308ffd30ef5c047a4162
             "Static",
             "Open"
         ],
-        "Lock1":[
+        "Lock1": [
             "Static",
             "Open"
         ],
@@ -81,7 +85,80 @@
         ]
     },  
     "pickerManagerStates": {
+<<<<<<< HEAD
+        "1_State": {
+            "ClickableItems": [
+                {
+                    "triggerAction": {
+                        "name": "Cap_of_PPO",
+                        "state": "Open"
+                        
+                    },
+                    "highlightObject": {
+                        "name": "Cap_of_PPO_tr",
+                        "state": "Open"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Cap_of_PPO",
+                        "state": "Static"
+                    },
+                    "highlightObject": {
+                        "name": "Cap_of_PPO_tr",
+                        "state": "Static"
+                    }
+                }
+            ]
+        },
+        "2_State": {
+            "ClickableItems": [
+                {
+                    "triggerAction": {
+                        "name": "Cap_of_PPO",
+                        "state": "Static"
+                    },
+                    "highlightObject": {
+                        "name": "Cap_of_PPO_tr",
+                        "state": "Static"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Cap_of_PPO",
+                        "state": "Open"
+                    },
+                    "highlightObject": {
+                        "name": "Cap_of_PPO_tr",
+                        "state": "Open"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "ppo_lock",
+                        "state": "Open"
+                    },
+                    "highlightObject": {
+                        "name": "ppo_lock_tr",
+                        "state": "Open"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "ppo_lock",
+                        "state": "Static"
+                    },
+                    "highlightObject": {
+                        "name": "ppo_lock_tr",
+                        "state": "Static"
+                    }
+                }
+            ]
+        },
+        "lockedState": {}
+=======
        "lockedState": {
         }
+>>>>>>> d57c8c9b89c193774f4a308ffd30ef5c047a4162
     }
 }

@@ -21,10 +21,15 @@ var clickableItems = "ClickableItems";
 var triggerAction = "triggerAction";
 var highlightObject = "highlightObject";
 
-class PickerManager {
+let Events = require('events');
+
+//events list
+
+class PickerManager extends Events {
     //передаем сцену для того чтобы знать где искать объекты
     // в конструктор передаются родительский элемент
     constructor(domObject, camera, scene, states, stateMachine = undefined, currentState = "lockState", name) {
+        super();
         if (!THREE) {
             console.log("Need three js module");
             return;
@@ -107,13 +112,28 @@ class PickerManager {
     _parceActiveStates() {
         for (let state in this.m_states) {
             this.m_internalPickedObject[state] = [];
-            for (let internalObject in this.m_states[state][clickableItems]) {
-                let foundedObject = this.m_scene.getObjectByName(internalObject);
+            let currentStateObjArr = this.m_states[state][clickableItems]
+            for (let internalObject in currentStateObjArr) {
+                let foundedObject = this.m_scene.getObjectByName(currentStateObjArr[internalObject][triggerAction]["name"]);
                 if (foundedObject) {
+                    this._addObjectToState(state, foundedObject)
                     this.m_internalPickedObject[state].push(foundedObject);
                 }
             }
         }
+    }
+
+    _addObjectToState(state, object)
+    {
+        
+        for(let addedObject in this.m_internalPickedObject[state])
+        {
+            if (addedObject["name"] === object["name"])
+            {
+                return;
+            }
+        }
+        this.m_internalPickedObject[state].push(object)
     }
     // PRIVATE FUNCTIONS
     _sendStateMashineRequest(requestID, requestArguments) {
@@ -148,16 +168,37 @@ class PickerManager {
         }
         firstIntersectObject = firstIntersectObject[0];
         let foundedName = firstIntersectObject['object'].name;
-        // console.log(foundedName);
         foundedName = foundedName.replace(/_\d+$/, "");
-        // console.log(foundedName);
-        let foundedObject = this.m_states[this.m_currentState][clickableItems][foundedName];
+        let currentLocalState = this.m_stateMachine.localState(foundedName)
 
+        if (!foundedName && !currentLocalState)
+        {
+            this._updateClickedObject(undefined);
+            this._updateHighlightObject(undefined);
+            return;
+        }
+
+        let foundedObject =  this._getLocalState(foundedName, currentLocalState);
+    
         let clickedObject = foundedObject[triggerAction];
         let highlightedObject = foundedObject[highlightObject];
+
         this._updateClickedObject(clickedObject);
         this._updateHighlightObject(highlightedObject);
         return true;
+    }
+
+    _getLocalState(name, state) {
+        let currentStateObjects = this.m_states[this.m_currentState][clickableItems]
+        for (let index in currentStateObjects)
+        {
+            if (currentStateObjects[index][triggerAction]["name"] === name
+                && currentStateObjects[index][triggerAction]["state"] !== state)
+                {
+                    return currentStateObjects[index];
+                }
+        }
+        return undefined;
     }
 
     _onMouseMoveCallback(event) {
@@ -234,6 +275,26 @@ class PickerManager {
             }
         }
         this.m_currentHighlightedShape = object;
+    }
+
+    _onCheckCurrentPickerState(pickerInformation) {
+        if (!pickerInformation) {
+            console.log("Error: empty picker information");
+            return;
+        }
+        let currentLocalState = this.m_stateMachine.localState(pickerInformation["checkedObjectName"])
+        if (!currentLocalState)
+        {
+            console.log("Error: cannot find object with name", currentLocalState);
+            return;
+        }
+        let localStateObject = pickerInformation["pickerStatesByObjectState"];
+
+        let requiredPickerState = localStateObject[currentLocalState];
+        if (requiredPickerState) {
+            // console.log("Applyed ")
+            this.state = requiredPickerState;
+        }
     }
 };
 

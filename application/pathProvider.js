@@ -46,11 +46,11 @@ let ObjectsNamesArray = [
     "B_start.gltf",
     "B_stop.gltf",
     "Hangar.gltf",
-    // "Anvil_tr.gltf",
+    "Anvil_tr.gltf",
     "Lock1.gltf",
-    // "Lock1_tr.gltf",
+    "Lock1_tr.gltf",
     "ppo_lock.gltf",
-    // "ppo_lock_tr.gltf",
+    "ppo_lock_tr.gltf",
     "Support1.gltf",
     "Support2.gltf",
     "Support3.gltf",
@@ -67,10 +67,10 @@ let ObjectsNamesArray = [
     "Radiostation.gltf",
     "Back_door.gltf",
     "Cap_of_PPO.gltf",
-    // "Cap_of_PPO_tr.gltf",
+    "Cap_of_PPO_tr.gltf",
     "Front_door.gltf",
     "Power_checker.gltf",
-    // "Power_checker_tr.gltf",
+    "Power_checker_tr.gltf",
     "TPK_small_very.gltf",
 ];
 
@@ -162,28 +162,28 @@ var cameraMenuItems = [
     "ЕЩЕЕЕЕ ДЛИННЕЕЕЕ"
 ];
 
-// var cameraCallbacks = [
-//     (() => {
-//         this.state = "default";
-//     }),
-//     (() => {
-//         this.state = "next";
-//     }),
-//     (() => {
-//         this.state = "next2";
-//     })
-// ];
-
 var cameraDisabledItems = {
+    // далеко от машины
     "0": {
     },
+    // перед большой крышкой
     "1": {
-    },
+        "pickerInformation":{
+            "checkedObjectName": "Cap_of_PPO",
+            "pickerStatesByObjectState": {
+                "Static": "1_State",
+                "Open": "2_State"
+            }
+        }
+    }, // перед маленькой крышкой
     "2": {
-        "name": "Cap_of_PPO",
-        "state": "Static"
+        "disableInformation": {
+            "name": "Cap_of_PPO",
+            "state": "Static"
+        },
     },
     "3": {
+
     }
 }
 
@@ -292,13 +292,13 @@ class PathProvider {
     cameraMenuCallbacks(bindObject) {
         var cameraCallBacks = [
             (() => {
-                bindObject.state = "default";
+                bindObject.applyState("default");
             }).bind(bindObject),
             (() => {
-                bindObject.state = "next";
+                bindObject.applyState("next");
             }).bind(bindObject),
             (() => {
-                bindObject.state = "next2";
+                bindObject.applyState("next2");
             }).bind(bindObject)
         ];
         return cameraCallBacks;
