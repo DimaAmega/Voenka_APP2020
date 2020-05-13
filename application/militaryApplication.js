@@ -225,6 +225,7 @@ class MilitaryApplication extends Events {
 
         let states = pathProvider.cameraManagerStates();
         this.m_cameraManager = new CameraManagerClass(states, 2000);
+        window.m_cameraManager = this.m_cameraManager;
         this.on(pickerManagerCreated, this.m_cameraManager._onPickerManagerCreated.bind(this.m_cameraManager));
         // window.camera = this.m_cameraManager.camera;
         // window.cameraManager = this.m_cameraManager;
@@ -292,8 +293,7 @@ class MilitaryApplication extends Events {
             if (this.start_resolve_fun) {
                 this.start_resolve_fun(true);
             }
-            this._applyCurrentState();
-
+            // this._applyCurrentState(); \\ it is not necessary here
             this._mainRenderLoop();
             this.m_pickerManager.startToCheckIntersects();
         }

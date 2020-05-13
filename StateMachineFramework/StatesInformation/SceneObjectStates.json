@@ -4,15 +4,11 @@
             "Static",
             "Open"
         ],
-<<<<<<< HEAD
-        "ppo_lock": [
-=======
         "Power_checker":[
             "Static",
             "SwitchOn"
         ],
         "ppo_lock":[
->>>>>>> d57c8c9b89c193774f4a308ffd30ef5c047a4162
             "Static",
             "Open"
         ],
@@ -85,13 +81,16 @@
         ]
     },  
     "pickerManagerStates": {
-<<<<<<< HEAD
         "1_State": {
             "ClickableItems": [
                 {
                     "triggerAction": {
                         "name": "Cap_of_PPO",
-                        "state": "Open"
+                        "requestData":{
+                            "name": "Cap_of_PPO",
+                            "state": "Open"
+                        },
+                        "pickerState":"2_State"
                         
                     },
                     "highlightObject": {
@@ -102,11 +101,40 @@
                 {
                     "triggerAction": {
                         "name": "Cap_of_PPO",
-                        "state": "Static"
+                        "requestData":{
+                            "name": "Cap_of_PPO",
+                            "state": "Static"
+                        }
                     },
                     "highlightObject": {
                         "name": "Cap_of_PPO_tr",
                         "state": "Static"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Power_checker",
+                        "requestData":{
+                            "name":"Power_checker",
+                            "state": "Static"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Power_checker_tr",
+                        "state": "Static"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Power_checker",
+                        "requestData":{
+                            "name":"Power_checker",
+                            "state": "SwitchOn"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Power_checker_tr",
+                        "state": "SwitchOn"
                     }
                 }
             ]
@@ -116,17 +144,33 @@
                 {
                     "triggerAction": {
                         "name": "Cap_of_PPO",
-                        "state": "Static"
+                        "requestData":{
+                            "name":"Cap_of_PPO",
+                            "state": "Static"
+                        },
+                        "pickerState":"1_State"
                     },
                     "highlightObject": {
                         "name": "Cap_of_PPO_tr",
                         "state": "Static"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Radio_PPO",
+                        "requestData":{
+                            "name":"Radio_PPO",
+                            "state": "Used"
+                        }
                     }
                 },
                 {
                     "triggerAction": {
                         "name": "Cap_of_PPO",
-                        "state": "Open"
+                        "requestData":{
+                            "name":"Cap_of_PPO",
+                            "state": "Open"
+                        }
                     },
                     "highlightObject": {
                         "name": "Cap_of_PPO_tr",
@@ -135,8 +179,37 @@
                 },
                 {
                     "triggerAction": {
+                        "name": "Power_checker",
+                        "requestData":{
+                            "name":"Power_checker",
+                            "state": "Static"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Power_checker_tr",
+                        "state": "Static"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Power_checker",
+                        "requestData":{
+                            "name":"Power_checker",
+                            "state": "SwitchOn"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Power_checker_tr",
+                        "state": "SwitchOn"
+                    }
+                },
+                {
+                    "triggerAction": {
                         "name": "ppo_lock",
-                        "state": "Open"
+                        "requestData":{
+                            "name":"ppo_lock",
+                            "state": "Open"
+                        }
                     },
                     "highlightObject": {
                         "name": "ppo_lock_tr",
@@ -146,7 +219,10 @@
                 {
                     "triggerAction": {
                         "name": "ppo_lock",
-                        "state": "Static"
+                        "requestData":{
+                            "name":"ppo_lock",
+                            "state": "Static"
+                        }
                     },
                     "highlightObject": {
                         "name": "ppo_lock_tr",
@@ -155,10 +231,258 @@
                 }
             ]
         },
+        "3_State": {
+            "ClickableItems": [
+                {
+                    "triggerAction": {
+                        "name": "ppo_lock",
+                        "requestData":{
+                            "name":"ppo_lock",
+                            "state": "Open"
+                        },
+                        "pickerState":"4_State"
+                    },
+                    "highlightObject": {
+                        "name": "ppo_lock_tr",
+                        "state": "Open"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "ppo_lock",
+                        "requestData":{
+                            "name":"ppo_lock",
+                            "state": "Static"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "ppo_lock_tr",
+                        "state": "Static"
+                    }
+                }
+            ]
+        },
+        "4_State": {
+            "ClickableItems": [
+                {
+                    "triggerAction": {
+                        "name": "ppo_lock",
+                        "requestData":{
+                            "name":"ppo_lock",
+                           "state": "Open"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "ppo_lock_tr",
+                        "state": "Open"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "ppo_lock",
+                        "requestData":{
+                            "name":"ppo_lock",
+                            "state": "Static"
+                        },
+                        "pickerState":"3_State"
+                    },
+                    "highlightObject": {
+                        "name": "ppo_lock_tr",
+                        "state": "Static"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Lock1",
+                        "requestData":{
+                            "name":"Lock1",
+                            "state": "Open"
+                        },
+                        "pickerState":"5_State"
+                    },
+                    "highlightObject": {
+                        "name": "Lock1_tr",
+                        "state": "Open"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Lock1",
+                        "requestData":{
+                            "name":"Lock1",
+                            "state": "Static"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Lock1_tr",
+                        "state": "Static"
+                    }
+                }                
+            ]
+        },
+        "5_State": {
+            "ClickableItems": [
+                {
+                    "triggerAction": {
+                        "name": "ppo_button",
+                        "requestData":{
+                            "name":"ppo_button",
+                            "state": "Push"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "ppo_button_tr",
+                        "state": "Push"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Lock1",
+                        "requestData":{
+                            "name":"Lock1",
+                            "state": "Open"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Lock1_tr",
+                        "state": "Open"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Lock1",
+                        "requestData":{
+                            "name":"Lock1",
+                            "state": "Static"
+                        },
+                        "pickerState":"4_State"
+                    },
+                    "highlightObject": {
+                        "name": "Lock1_tr",
+                        "state": "Static"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Cube1",
+                        "requestData":{
+                            "name":"Anvil",
+                            "state": "Move1"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Anvil_tr",
+                        "state": "Move1"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Cube2",
+                        "requestData":{
+                            "name":"Anvil",
+                            "state": "Move2"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Anvil_tr",
+                        "state": "Move2"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Cube3",
+                        "requestData":{
+                            "name":"Anvil",
+                            "state": "Move3"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Anvil_tr",
+                        "state": "Move3"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Cube4",
+                        "requestData":{
+                            "name":"Anvil",
+                            "state": "Move4"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Anvil_tr",
+                        "state": "Move4"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Cube5",
+                        "requestData":{
+                            "name":"Anvil",
+                            "state": "Move5"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Anvil_tr",
+                        "state": "Move5"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Cube6",
+                        "requestData":{
+                            "name":"Anvil",
+                            "state": "Move6"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Anvil_tr",
+                        "state": "Move6"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Cube7",
+                        "requestData":{
+                            "name":"Anvil",
+                            "state": "Move7"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Anvil_tr",
+                        "state": "Move7"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Cube8",
+                        "requestData":{
+                            "name":"Anvil",
+                            "state": "Move8"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Anvil_tr",
+                        "state": "Move8"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Cube9",
+                        "requestData":{
+                            "name":"Anvil",
+                            "state": "Move9"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Anvil_tr",
+                        "state": "Move9"
+                    }
+                }
+            ]
+        },
+        
+        
         "lockedState": {}
-=======
-       "lockedState": {
-        }
->>>>>>> d57c8c9b89c193774f4a308ffd30ef5c047a4162
     }
 }

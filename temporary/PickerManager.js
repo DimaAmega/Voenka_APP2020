@@ -37,6 +37,7 @@ class PickerManager extends Events {
         // before creation
         this._processInitialParameters(domObject, camera, scene, states, stateMachine);
         this.m_internalPickedObject = {};
+        this.m_mapTriggerToData = {};
         this._parceActiveStates();
 
         //initial propertiess
@@ -57,6 +58,7 @@ class PickerManager extends Events {
         if (state !== this.m_currentState && state !== undefined) {
             this.m_previousState = this.m_currentState;
             this.m_currentState = state;
+            console.log(state);
         }
     }
 
@@ -116,6 +118,8 @@ class PickerManager extends Events {
             for (let internalObject in currentStateObjArr) {
                 let foundedObject = this.m_scene.getObjectByName(currentStateObjArr[internalObject][triggerAction]["name"]);
                 if (foundedObject) {
+                    let tmp = currentStateObjArr[internalObject][triggerAction];
+                    this.m_mapTriggerToData[tmp["name"]] = tmp["requestData"]["name"];
                     this._addObjectToState(state, foundedObject)
                     this.m_internalPickedObject[state].push(foundedObject);
                 }
@@ -140,7 +144,11 @@ class PickerManager extends Events {
         if (!requestArguments) return;
         switch (requestID) {
             case TRANSITION_REQUEST:
-                this.m_stateMachine.transition(requestArguments).then(()=>{
+                let requestData = {
+                    ...requestArguments.requestData,
+                    pickerState:requestArguments.pickerState
+                }
+                this.m_stateMachine.transition(requestData).then(()=>{
                     console.log("End of transition");
                     console.log(this.m_currentState);
                 });
@@ -169,31 +177,34 @@ class PickerManager extends Events {
         firstIntersectObject = firstIntersectObject[0];
         let foundedName = firstIntersectObject['object'].name;
         foundedName = foundedName.replace(/_\d+$/, "");
-        let currentLocalState = this.m_stateMachine.localState(foundedName)
+        let mappedName = this.m_mapTriggerToData[foundedName]
+        let currentLocalState = this.m_stateMachine.localState(mappedName)
 
-        if (!foundedName && !currentLocalState)
+        
+        let foundedObject =  this._getLocalState(foundedName, mappedName, currentLocalState);
+        
+        if (!foundedName || !currentLocalState || !foundedObject)
         {
             this._updateClickedObject(undefined);
             this._updateHighlightObject(undefined);
             return;
         }
-
-        let foundedObject =  this._getLocalState(foundedName, currentLocalState);
-    
         let clickedObject = foundedObject[triggerAction];
+        
         let highlightedObject = foundedObject[highlightObject];
-
+        
         this._updateClickedObject(clickedObject);
         this._updateHighlightObject(highlightedObject);
         return true;
     }
 
-    _getLocalState(name, state) {
+    _getLocalState(clickedName, mappedName, state) {
         let currentStateObjects = this.m_states[this.m_currentState][clickableItems]
         for (let index in currentStateObjects)
         {
-            if (currentStateObjects[index][triggerAction]["name"] === name
-                && currentStateObjects[index][triggerAction]["state"] !== state)
+            if (currentStateObjects[index][triggerAction]["requestData"]["name"] === mappedName 
+                && clickedName === currentStateObjects[index][triggerAction]["name"]
+                && currentStateObjects[index][triggerAction]["requestData"]["state"] !== state)
                 {
                     return currentStateObjects[index];
                 }
