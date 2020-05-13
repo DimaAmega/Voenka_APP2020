@@ -11,6 +11,7 @@ class ObjectStateManager extends Events
         this.m_objects = sceneObjects;
         this.m_stateApplied = false;
         this.m_transitions;
+        this.currentHighLight = {};
     }
 
     //PUBLIC METHODS
@@ -29,6 +30,7 @@ class ObjectStateManager extends Events
     async transition(localObject) {
         let localName = localObject["name"];
         let localState = localObject["state"];
+        let pickerState = localObject["pickerState"];
 
         let currentStateNumber = this.getNumberByState(this.currentState);
         
@@ -47,6 +49,8 @@ class ObjectStateManager extends Events
             console.log("Start Transition");
             let requiredStateNumber = this.getNumberByState(requiredState);
             let transition_sequence = this.get_transition_sequence(currentStateNumber,requiredStateNumber);
+            this.m_pickerManager.state = pickerState;
+            this.m_stateMashine.currentStateNumber = parseInt(transition_sequence[transition_sequence.length - 1],32);
             return await this.waitSequenceTarnsition(transition_sequence);
         }
     }
@@ -55,9 +59,8 @@ class ObjectStateManager extends Events
         for(var s_i of sequence.slice(1)) {
             console.log("Wait tarnsition to ",s_i);
             await this._applyState(this.getStateByNumber(s_i));
-            console.log("Current state is ", this.getStateByNumber(s_i));
+            console.log("Now state is ", this.getStateByNumber(s_i));
         }
-        this.m_stateMashine.currentStateNumber = parseInt(s_i,32);
         return true;
     }
     // This function loggs valid transitions
@@ -69,6 +72,12 @@ class ObjectStateManager extends Events
         if (!localObject.name || !localObject.state) {
             return false;
         }
+        if (localObject.name === this.currentHighLight.name &&
+            localObject.state === this.currentHighLight.state ) return true;
+        else this.currentHighLight = {
+            name: localObject.name,
+            state: localObject.state
+        }
         for(let obj of this.m_objects)
             if (obj.name === localObject.name) {
                 obj.blindUp(0.4);
@@ -77,7 +86,6 @@ class ObjectStateManager extends Events
             }
         return false;
     }
-    
     //The function returns current local state by local name
     localState(localObjectName)
     {

@@ -133,24 +133,24 @@ var cameraStates = {
         y: 2,
         z: 6,
         x_deg: -0.22,
-        y_deg: 0.11,
-        z_deg: 0.029
+        y_deg: 0,
+        z_deg: 0
     },
     "next": {
-        x: 3.33,
-        y: 1.49,
-        z: 2.1,
+        x: 3.3,
+        y: 1.55,
+        z: 2.2,
         x_deg: -0.40,
-        y_deg: 0.021,
-        z_deg: 0.009,
+        y_deg: 0,
+        z_deg: 0,
     },
     "next2": {
-        x: 3.42,
-        y: 1.45,
-        z: 1.65,
-        x_deg: -0.44,
-        y_deg: 0.09,
-        z_deg: 0.044,
+        x: 3.44,
+        y: 1.44,
+        z: 1.5,
+        x_deg: -0.3,
+        y_deg: 0,
+        z_deg: 0,
     }
 }
 
@@ -177,13 +177,19 @@ var cameraDisabledItems = {
         }
     }, // перед маленькой крышкой
     "2": {
+        "pickerInformation":{
+            "checkedObjectName": "Lock1",
+            "pickerStatesByObjectState": {
+                "Static": "4_State",
+                "Open": "5_State"
+            }
+        },
         "disableInformation": {
             "name": "Cap_of_PPO",
             "state": "Static"
         },
     },
     "3": {
-
     }
 }
 
@@ -254,7 +260,7 @@ class PathProvider {
     }
 
     pickerStateByMode(mode) {
-        if ((mode < 0) && (mode > 12)) {
+        if ((mode < 0) && (mode > 7)) {
             console.log("Error: error mode", mode);
             return undefined;
         }
