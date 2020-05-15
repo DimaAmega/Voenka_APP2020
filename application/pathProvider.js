@@ -89,12 +89,14 @@ let modesInformation = [
     //0
     {
         "pickerState": "1_State",
-        "objectManagerState": 0
+        "objectManagerState": 0,
+        "finalStates": ["12f6f"]
     },
     //1
     {
-        "pickerState": "secondState",
-        "objectManagerState": 0
+        "pickerState": "1_State",
+        "objectManagerState": 0,
+        "finalStates": ["13h1v"]
     },
     //2
     {
@@ -268,6 +270,13 @@ class PathProvider {
             return undefined;
         }
         return modesInformation[mode]["pickerState"];
+    }
+    finalStatesByMode(mode){
+        if ((mode < 0) && (mode > 7)) {
+            console.log("Error: error mode", mode);
+            return undefined;
+        }
+        return modesInformation[mode]["finalStates"];
     }
 
     objectManagerStateByMode(mode) {

@@ -83,8 +83,10 @@ class MilitaryApplication extends Events {
 
     //Setters
 
-    selectMode(mode) {
-        this.m_currentMode = mode;
+    selectMode(sequenceMode,controllerMode) {
+        this.m_currentMode = sequenceMode;
+        this.m_controllerMode = controllerMode;
+        console.log(arguments);
         if (this.m_objectStateManager && this.m_pickerManager
             && this.m_objectStateManager.isInitialaized() && this.m_pickerManager.isInitialaized()
             && this.m_applicationReady && this.m_applicationStarted) {
@@ -310,14 +312,14 @@ class MilitaryApplication extends Events {
         console.log("Error: the app isn't ready");
     }
 
-    _applyCurrentState() {
+    async _applyCurrentState() {
         if (this.m_currentMode > -1 && this.m_currentMode < 8) {
             this.m_pickerManager.state = pathProvider.pickerStateByMode(this.m_currentMode);
-            this.m_objectStateManager.state = pathProvider.objectManagerStateByMode(this.m_currentMode);
             this.m_objectStateManager.transitions = pathProvider.transitionsByMode(this.m_currentMode);
-            return;
+            await this.m_objectStateManager.setState(pathProvider.objectManagerStateByMode(this.m_currentMode));
+            this.m_controller.launch(this.m_controllerMode,pathProvider.finalStatesByMode(this.m_currentMode));
         }
-        console.log("Error: invalid  mode");
+        else console.log("Error: invalid  mode");
     }
 }
 
