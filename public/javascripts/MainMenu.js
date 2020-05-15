@@ -11,9 +11,9 @@ class Menu{
     this.isOpen = 0;
     this.map = {
       down_supports_ppo:0,
-      up_supports_ppo:1,
-      down_tpk_ppo:2,
-      up_tpk_ppo:3,
+      up_supports_ppo:2,
+      down_tpk_ppo:3,
+      up_tpk_ppo:1,
       down_supports_ppu:4,
       up_supports_ppu:5,
       down_tpk_ppu:6,
@@ -45,7 +45,7 @@ class Menu{
     $('#start_button').on('click',()=>{
       if(this.checkSetup()){
         var str_descr_regimes = `${this.setup.start_position}_${this.setup.control}`;
-        window.winFrame.app.selectMode(this.map[str_descr_regimes]);
+        window.winFrame.app.selectMode(this.map[str_descr_regimes],this.setup.modes);
         $("#hamburger").click();
       }
     })

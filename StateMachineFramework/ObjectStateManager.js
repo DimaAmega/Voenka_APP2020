@@ -179,12 +179,12 @@ class ObjectStateManager extends Events
     //SETTERS
 
 
-    set state(stateNumber)
+    async setState(stateNumber)
     {
         let requiredState = this.m_stateMashine.stateByNumber(stateNumber);
         this.m_stateMashine.currentStateNumber = parseInt(stateNumber,32);
-        this._applyState(requiredState);
         this._applyStateToTransparentObjects(requiredState);
+        await this._applyState(requiredState);
     }
 
     set stateMashine(stateMashine) {
