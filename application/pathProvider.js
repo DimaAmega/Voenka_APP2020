@@ -4,6 +4,7 @@
 
 // map names to paths
 let objectsContainer = "ObjectsContainer";
+let controller = "Controller";
 let cameraManager = "CameraManager";
 let statesCreator = "StatesCreator";
 let transitionMatrises = "TransitionMatrises";
@@ -215,6 +216,8 @@ class PathProvider {
                 return require("../StateMachineFramework/ObjectStateManager");
             case stateManagerPrivate:
                 return require("../StateMachineFramework/StateManagerPrivate");
+            case controller:
+                return require("../temporary/Controller");
             case pickerManager:
                 return require("../temporary/PickerManager");
             default:

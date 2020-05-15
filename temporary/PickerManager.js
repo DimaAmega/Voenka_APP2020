@@ -28,14 +28,14 @@ let Events = require('events');
 class PickerManager extends Events {
     //передаем сцену для того чтобы знать где искать объекты
     // в конструктор передаются родительский элемент
-    constructor(domObject, camera, scene, states, stateMachine = undefined, currentState = "lockState", name) {
+    constructor(domObject, camera, scene, states, stateMachine = undefined,controller = undefined , currentState = "lockState", name) {
         super();
         if (!THREE) {
             console.log("Need three js module");
             return;
         }
         // before creation
-        this._processInitialParameters(domObject, camera, scene, states, stateMachine);
+        this._processInitialParameters(domObject, camera, scene, states, stateMachine,controller);
         this.m_internalPickedObject = {};
         this.m_mapTriggerToData = {};
         this._parceActiveStates();
@@ -144,13 +144,9 @@ class PickerManager extends Events {
         if (!requestArguments) return;
         switch (requestID) {
             case TRANSITION_REQUEST:
-                let requestData = {
-                    ...requestArguments.requestData,
-                    pickerState:requestArguments.pickerState
-                }
-                this.m_stateMachine.transition(requestData).then(()=>{
+                this.m_stateMachine.transition({...requestArguments.requestData,pickerState:requestArguments.pickerState}).then((result)=>{
                     console.log("End of transition");
-                    console.log(this.m_currentState);
+                    this.m_controller.callback(result);
                 });
                 break;
             case HIGHLIGHT_REQUEST:
@@ -223,7 +219,7 @@ class PickerManager extends Events {
         }
     }
 
-    _processInitialParameters(domObject, camera, scene, states, stateMachine) {
+    _processInitialParameters(domObject, camera, scene, states, stateMachine, controller) {
         if (domObject) {
             this.m_domObject = domObject;
             this._processMouseCallbacks();
@@ -246,6 +242,9 @@ class PickerManager extends Events {
         }
         else {
             console.error("ERROR: State mashine is necessary.");
+        }
+        if (controller){
+            this.m_controller = controller;
         }
     }
 

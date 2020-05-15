@@ -80,7 +80,7 @@ class ObjectStateManager extends Events
         }
         for(let obj of this.m_objects)
             if (obj.name === localObject.name) {
-                obj.blindUp(0.4);
+                // obj.blindUp(0.4);
                 obj.applyState(localObject.state);
                 return true;
             }
@@ -151,6 +151,18 @@ class ObjectStateManager extends Events
         }
         return this.m_stateApplied; 
     }
+    _applyStateToTransparentObjects(requiredState){
+        let map = {}
+        for (let obj of this.m_objects){
+            if(obj.name.slice(-3) === "_tr") map[obj.name.slice(0,obj.name.length - 3)] = obj;
+        }
+        for(let s_i in requiredState){
+            if (map[s_i]) {
+                    map[s_i].applyState(requiredState[s_i]);
+                    map[s_i].blindUp(0.3); 
+                }
+        }
+    }
 
     _lockPickerManager() {
         if (this.m_pickerManager) {
@@ -172,6 +184,7 @@ class ObjectStateManager extends Events
         let requiredState = this.m_stateMashine.stateByNumber(stateNumber);
         this.m_stateMashine.currentStateNumber = parseInt(stateNumber,32);
         this._applyState(requiredState);
+        this._applyStateToTransparentObjects(requiredState);
     }
 
     set stateMashine(stateMashine) {

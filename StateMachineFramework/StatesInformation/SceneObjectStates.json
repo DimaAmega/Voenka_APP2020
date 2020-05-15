@@ -85,6 +85,32 @@
             "ClickableItems": [
                 {
                     "triggerAction": {
+                        "name": "Power_checker",
+                        "requestData":{
+                            "name":"Power_checker",
+                            "state": "Static"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Power_checker_tr",
+                        "state": "Static"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Power_checker",
+                        "requestData":{
+                            "name":"Power_checker",
+                            "state": "SwitchOn"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Power_checker_tr",
+                        "state": "SwitchOn"
+                    }
+                },
+                {
+                    "triggerAction": {
                         "name": "Cap_of_PPO",
                         "requestData":{
                             "name": "Cap_of_PPO",
@@ -109,32 +135,6 @@
                     "highlightObject": {
                         "name": "Cap_of_PPO_tr",
                         "state": "Static"
-                    }
-                },
-                {
-                    "triggerAction": {
-                        "name": "Power_checker",
-                        "requestData":{
-                            "name":"Power_checker",
-                            "state": "Static"
-                        }
-                    },
-                    "highlightObject": {
-                        "name": "Power_checker_tr",
-                        "state": "Static"
-                    }
-                },
-                {
-                    "triggerAction": {
-                        "name": "Power_checker",
-                        "requestData":{
-                            "name":"Power_checker",
-                            "state": "SwitchOn"
-                        }
-                    },
-                    "highlightObject": {
-                        "name": "Power_checker_tr",
-                        "state": "SwitchOn"
                     }
                 }
             ]
@@ -481,8 +481,6 @@
                 }
             ]
         },
-        
-        
         "lockedState": {}
     }
 }
