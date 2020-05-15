@@ -8,6 +8,7 @@ class Menu{
       control:undefined,
       modes:undefined,
     };
+    this.isOpen = 0;
     this.map = {
       down_supports_ppo:0,
       up_supports_ppo:1,
@@ -45,7 +46,7 @@ class Menu{
       if(this.checkSetup()){
         var str_descr_regimes = `${this.setup.start_position}_${this.setup.control}`;
         window.winFrame.app.selectMode(this.map[str_descr_regimes]);
-        this.hide();
+        $("#hamburger").click();
       }
     })
   }
@@ -61,12 +62,11 @@ class Menu{
     $('#regimes').css({animation: "fadeOutMenu 0.7s 1 ease-in-out forwards"})
     $('iframe').css({animation: "unBlurBackground .5s 1 ease-in forwards", zIndex: 0})
   }
-}
-
-let menu = new Menu();
-let isOpen = 0;
-$("#hamburger").click((e)=>{
-  if (isOpen ===1) menu.show();
+  burgerClick(){
+  if (this.isOpen ===1) menu.show();
   else menu.hide();
-  isOpen = (isOpen+1)%2;
-})
+  this.isOpen = (this.isOpen+1)%2;
+  }
+}
+let menu = new Menu();
+$("#hamburger").click(()=>{menu.burgerClick()})

@@ -75,6 +75,7 @@ class MilitaryApplication extends Events {
         this.on(applicationReady, this._tryToStartApp);
 
         this.on(checkRequiredModules, this._checkRequiredModules);
+        this.on(readyToPickerManager, this._initController);
         this.on(readyToPickerManager, this._initPickerManager);
 
         this.on(modeSelected, this._checkToReady);
@@ -155,13 +156,16 @@ class MilitaryApplication extends Events {
         // this.emit(StateMashineCreated);
         this.emit(checkRequiredModules);
     }
-
+    _initController(){
+        let ControllerClass = pathProvider.module("Controller").Controller;
+        this.m_controller = new ControllerClass(this.m_objectStateManager);
+    }
     _initPickerManager() {
         let pickerStates = pathProvider.pickerStates();
 
         let PickerManagerClass = pathProvider.module("PickerManager");
 
-        this.m_pickerManager = new PickerManagerClass(this.m_render.domElement, this.m_cameraManager.camera, this.m_mainScene, pickerStates, this.m_objectStateManager);
+        this.m_pickerManager = new PickerManagerClass(this.m_render.domElement, this.m_cameraManager.camera, this.m_mainScene, pickerStates, this.m_objectStateManager, this.m_controller);
         this.m_objectStateManager.pickerManager = this.m_pickerManager;
         // emit end signal
         //TODO: move to right place
@@ -290,9 +294,7 @@ class MilitaryApplication extends Events {
             console.log("----APPLICATION IS STARTED---")
             // this.m_controls = new OrbitControls(this.m_cameraManager.camera, this.m_render.domElement);
             // Set the states for picker manager, objectState manager and transitions
-            if (this.start_resolve_fun) {
-                this.start_resolve_fun(true);
-            }
+            if (this.start_resolve_fun) { this.start_resolve_fun(true); }
             // this._applyCurrentState(); \\ it is not necessary here
             this._mainRenderLoop();
             this.m_pickerManager.startToCheckIntersects();
