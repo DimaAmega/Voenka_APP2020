@@ -8,7 +8,7 @@ function timer()    {
     function updateTimer(){
         timer +=0.1;
         timer = Number(timer.toFixed(2));
-        // console.log(timer);
+        console.log(timer);
     }
     ///////////////////////////
     //      PUBLIC
