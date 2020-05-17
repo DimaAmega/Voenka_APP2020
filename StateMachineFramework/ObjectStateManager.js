@@ -11,6 +11,7 @@ class ObjectStateManager extends Events
         this.m_objects = sceneObjects;
         this.m_stateApplied = false;
         this.m_transitions;
+        this.transparentProperty = 0.3;
         this.currentHighLight = {};
     }
 
@@ -117,7 +118,6 @@ class ObjectStateManager extends Events
             console.log("Error: state mashine is undefined");
             return false;
         }
-
         if (this.m_stateMashine.setCurrentStateNumber(value))
             this._applyState(this.m_stateMashine.currentState).then(()=>{
                 console.log("end start transiton");
@@ -159,7 +159,7 @@ class ObjectStateManager extends Events
         for(let s_i in requiredState){
             if (map[s_i]) {
                     map[s_i].applyState(requiredState[s_i]);
-                    map[s_i].blindUp(0.3); 
+                    map[s_i].blindUp(this.transparentProperty); 
                 }
         }
     }

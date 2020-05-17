@@ -86,17 +86,31 @@ var pathInfo = {
 }
 
 let modesInformation = [
-    //0
+    //0 SUPPORTS DOWN
     {
         "pickerState": "1_State",
         "objectManagerState": 0,
-        "finalStates": ["12f6f"]
+        "finalStates": ["12f6f"],
+        "timeMarks":[32,34,36],
+        "toolTips":{
+            "0": "<h3>ВКЛЮЧИТЕ ПИТАНИЕ ДЛЯ ПУЛЬТА ППО И СНИМИТЕ БЛОКИРОВКУ</h3>",
+            "f6f":"<h3>ОТДАЙТЕ ПРИКАЗ 'ОТ ПУСКОВОЙ!'</h3>",
+            "f6v":"<h3>ОПУСТИТЕ ДОМНКРАТЫ</h3>"
+        }
     },
-    //1
-    {
+    //1 TPK UP
+    { 
         "pickerState": "1_State",
         "objectManagerState": 0,
-        "finalStates": ["13h1v"]
+        "finalStates": ["13h1v"],
+        "timeMarks":[45,50,55],
+        "toolTips":{
+            "0": "<h3>ВКЛЮЧИТЕ ПИТАНИЕ ДЛЯ ПУЛЬТА ППО И СНИМИТЕ БЛОКИРОВКУ</h3>",
+            "f6f":"<h3>ОТДАЙТЕ ПРИКАЗ 'ОТ ПУСКОВОЙ!'</h3>",
+            "f6v":"<h3>ОПУСТИТЕ ДОМНКРАТЫ</h3>",
+            "12f6f":"<h3><h3>ОТДАЙТЕ ПРИКАЗ 'ОТ ПУСКОВОЙ!'</h3></h3>",
+            "12f6v":"<h3>ПОДНИМИТЕ ТПК'</h3>",
+        }
     },
     //2
     {
@@ -286,7 +300,20 @@ class PathProvider {
         }
         return modesInformation[mode]["objectManagerState"];
     }
-
+    timeMarksByMode(mode){
+        if ((mode < 0) && (mode > 7)) {
+            console.log("Error: error mode", mode);
+            return undefined;
+        }
+        return modesInformation[mode]["timeMarks"]
+    }
+    toolTipsByMode(mode){
+        if ((mode < 0) && (mode > 7)) {
+            console.log("Error: error mode", mode);
+            return undefined;
+        }
+        return modesInformation[mode]["toolTips"]
+    }
     transitionsByMode(mode) {
         if ((mode < 0) && (mode > 7)) {
             console.log("Error: error mode", mode);

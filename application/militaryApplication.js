@@ -3,6 +3,10 @@
 let tips = require("../temporary/tips").tips;
 tips = new tips();
 window.tips = tips;
+let mw = require("../Custom_Modules/modalWindow").modalWindow;
+mw = new mw();
+window.mw = mw;
+mw.hide();
 
 let pathUtils = require("./pathProvider");
 let pathProvider = pathUtils["getInstance"]();
@@ -89,7 +93,7 @@ class MilitaryApplication extends Events {
         console.log(arguments);
         if (this.m_objectStateManager && this.m_pickerManager
             && this.m_objectStateManager.isInitialaized() && this.m_pickerManager.isInitialaized()
-            && this.m_applicationReady && this.m_applicationStarted) {
+            && this.m_applicationReady && this.m_applicationStarted) {   
             this._applyCurrentState();
         }
     }
@@ -317,7 +321,7 @@ class MilitaryApplication extends Events {
             this.m_pickerManager.state = pathProvider.pickerStateByMode(this.m_currentMode);
             this.m_objectStateManager.transitions = pathProvider.transitionsByMode(this.m_currentMode);
             await this.m_objectStateManager.setState(pathProvider.objectManagerStateByMode(this.m_currentMode));
-            this.m_controller.launch(this.m_controllerMode,pathProvider.finalStatesByMode(this.m_currentMode));
+            this.m_controller.launch(this.m_controllerMode,pathProvider.finalStatesByMode(this.m_currentMode),pathProvider.timeMarksByMode(this.m_currentMode),pathProvider.toolTipsByMode(this.m_currentMode));
         }
         else console.log("Error: invalid  mode");
     }

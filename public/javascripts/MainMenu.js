@@ -46,6 +46,7 @@ class Menu{
       if(this.checkSetup()){
         var str_descr_regimes = `${this.setup.start_position}_${this.setup.control}`;
         window.winFrame.app.selectMode(this.map[str_descr_regimes],this.setup.modes);
+        window.winFrame.mw.hide();
         $("#hamburger").click();
       }
     })

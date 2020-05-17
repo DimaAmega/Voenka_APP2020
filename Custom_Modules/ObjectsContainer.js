@@ -117,7 +117,7 @@ class obj_API{
                                 .play()
                     }
                     if(value === "Used") {
-                        tips.setText('ОТ ПУСКОВОЙ!');
+                        tips.setText('<h3>ОТ ПУСКОВОЙ!</h3>');
                         setTimeout(()=>{tips.hide()},3000)
                     }
                     return this.transitionPromise();
