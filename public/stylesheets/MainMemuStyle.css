@@ -440,3 +440,11 @@ form{
 .ham6.active .bottom {
   stroke-dashoffset: -132px;
 }
+
+h3{
+  text-align: center;
+}
+
+h5 {
+  text-align: left;
+}
