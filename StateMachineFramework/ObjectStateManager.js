@@ -175,13 +175,10 @@ class ObjectStateManager extends Events
             this.m_pickerManager.unLock();
         }
     }
-
     //SETTERS
-
-
     async setState(stateNumber)
     {
-        let requiredState = this.m_stateMashine.stateByNumber(stateNumber);
+        let requiredState = this.m_stateMashine.stateByNumber(parseInt(stateNumber,32));
         this.m_stateMashine.currentStateNumber = parseInt(stateNumber,32);
         this._applyStateToTransparentObjects(requiredState);
         await this._applyState(requiredState);
@@ -230,7 +227,6 @@ class ObjectStateManager extends Events
     get isStateApplyed() {
         return this.m_stateApplied;
     }
-
     //GETTERS
     get currentStateNumber() {
         return this.m_stateMashine.currentStateNumber.toString(32);
