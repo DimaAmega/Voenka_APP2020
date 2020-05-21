@@ -67,6 +67,7 @@ let ObjectsNamesArray = [
     "Radio_PPO.gltf",
     "Radiostation.gltf",
     "Back_door.gltf",
+    "Back_door_tr.gltf",
     "Cap_of_PPO.gltf",
     "Cap_of_PPO_tr.gltf",
     "Front_door.gltf",
@@ -89,7 +90,7 @@ let modesInformation = [
     //0 SUPPORTS DOWN
     {
         "pickerState": "1_State",
-        "objectManagerState": 0,
+        "objectManagerState": "0",
         "finalStates": ["12f6f"],
         "timeMarks":[32,34,36],
         "toolTips":{
@@ -108,7 +109,7 @@ let modesInformation = [
     //1 TPK UP
     { 
         "pickerState": "1_State",
-        "objectManagerState": 0,
+        "objectManagerState": '0',
         "finalStates": ["13h1v"],
         "timeMarks":[45,50,55],
         "toolTips":{
@@ -131,34 +132,53 @@ let modesInformation = [
                         <h5>2) НАЖМИТЕ КНОПКУ 'ВКЛ'</h5>`,
         }
     },
-    //2
+    //2  SUPPORTS UP
     {
-        "pickerState": "firstState",
-        "objectManagerState": 1
+        "pickerState": "1_State",
+        "objectManagerState": "12f6f",
+        "finalStates":["e5v"],
+        "timeMarks":[15,20,25],
+        "toolTips":{
+            "12f6f": `<h3>ОТДАЙТЕ ПРИКАЗ 'ОТ ПУСКОВОЙ!'</h3>`,
+            "12f6v": `<h5>ПОВЕРНИТЕ РЕГУЛЯТОР ППО В ПОЛОЖЕНИЕ 'ПОДЪЕМ ДОМКР'</h5>
+                      <h5>НАЖМИТЕ КНОПКУ 'ВКЛ'</h5>`
+        }
     },
-    //3
+    //3  TPK DOWN
     {
-        "pickerState": "firstState",
-        "objectManagerState": 1
+        "pickerState": "1_State",
+        "objectManagerState": "13h0f",
+        "finalStates": ["12fbv"],
+        "timeMarks":[40,50,60],
+        "toolTips":{
+            "13h0f": `<h3>ОТДАЙТЕ ПРИКАЗ 'ОТ ПУСКОВОЙ!'</h3>`,
+            "13h0v": `<h5>ПОВЕРНИТЕ РЕГУЛЯТОР ППО В ПОЛОЖЕНИЕ 'ОПУСК ТПК'</h5>
+                      <h5>НАЖМИТЕ КНОПКУ 'ВКЛ'</h5>`
+        }
     },
-    //4
+    //4 SUPPORTS DOWN
     {
-        "pickerState": "firstState",
-        "objectManagerState": 1
+        "pickerState": "1_State",
+        "objectManagerState": "0",
+        "finalStates": ["12fbv"],
+        "timeMarks":[40,50,60],
+        "toolTips":{
+            "0": `<h3>ОТДАЙТЕ ПРИКАЗ 'ОТ ПУСКОВОЙ!'</h3>`,
+        }
     },
     //5
     {
-        "pickerState": "secondState",
+        "pickerState": "1_State",
         "objectManagerState": 40
     },
     //6
     {
-        "pickerState": "firstState",
+        "pickerState": "1_State",
         "objectManagerState": 1
     },
     //7
     {
-        "pickerState": "firstState",
+        "pickerState": "1_State",
         "objectManagerState": 1
     }
 ];
@@ -187,19 +207,26 @@ var cameraStates = {
         x_deg: -0.3,
         y_deg: 0,
         z_deg: 0,
+    },
+    "next3": {
+        x: 0,
+        y: 2,
+        z: 3,
+        x_deg: -0.3,
+        y_deg: 0,
+        z_deg: 0,
     }
 }
-
-var cameraMenuDomObjectId = "cameraMenu";
 var cameraMenuItems = [
     "первое",
     "второе",
-    "что то длиннее",
-    "ЕЩЕЕЕЕ ДЛИННЕЕЕЕ"
+    "третье",
+    "четвёртое"
 ];
 
+var cameraMenuDomObjectId = "cameraMenu";
+// далеко от машины
 var cameraDisabledItems = {
-    // далеко от машины
     "0": {
     },
     // перед большой крышкой
@@ -226,6 +253,13 @@ var cameraDisabledItems = {
         },
     },
     "3": {
+        "pickerInformation":{
+            "checkedObjectName": "Back_door",
+            "pickerStatesByObjectState": {
+                "Static": "6_State",
+                "Open": "6_State"
+            }
+        }
     }
 }
 
@@ -233,10 +267,7 @@ var classInstance = undefined;
 
 // The internal class provides path to required modules for MillitaryApplication.
 class PathProvider {
-    constructor() {
-
-    }
-
+    constructor() {}
     module(moduleName) {
         switch (moduleName) {
             case objectsContainer:
@@ -363,7 +394,10 @@ class PathProvider {
             }).bind(bindObject),
             (() => {
                 bindObject.applyState("next2");
-            }).bind(bindObject)
+            }).bind(bindObject),
+            (() => {
+                bindObject.applyState("next3");
+            }).bind(bindObject),
         ];
         return cameraCallBacks;
     }

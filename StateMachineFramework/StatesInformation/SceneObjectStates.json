@@ -78,6 +78,10 @@
           "Support4":[
               "Static",
               "Down"  
+        ],
+        "Back_door":[
+            "Static",
+            "Open"
         ]
     },  
     "pickerManagerStates": {
@@ -477,6 +481,36 @@
                     "highlightObject": {
                         "name": "Anvil_tr",
                         "state": "Move9"
+                    }
+                }
+            ]
+        },
+        "6_State": {
+            "ClickableItems": [
+                {
+                    "triggerAction": {
+                        "name": "Back_door",
+                        "requestData":{
+                            "name":"Back_door",
+                            "state": "Static"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Back_door_tr",
+                        "state": "Static"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Back_door",
+                        "requestData":{
+                            "name":"Back_door",
+                            "state": "Open"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Back_door_tr",
+                        "state": "Open"
                     }
                 }
             ]

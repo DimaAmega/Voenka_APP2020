@@ -318,6 +318,7 @@ class MilitaryApplication extends Events {
 
     async _applyCurrentState() {
         if (this.m_currentMode > -1 && this.m_currentMode < 8) {
+            this.m_cameraManager.applyState("default");
             this.m_pickerManager.state = pathProvider.pickerStateByMode(this.m_currentMode);
             this.m_objectStateManager.transitions = pathProvider.transitionsByMode(this.m_currentMode);
             await this.m_objectStateManager.setState(pathProvider.objectManagerStateByMode(this.m_currentMode));

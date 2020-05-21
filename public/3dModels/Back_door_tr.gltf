@@ -1,0 +1,501 @@
+{
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 13162,
+      "type": "VEC3",
+      "max": [
+        0.32342752814292908,
+        0.35265475511550903,
+        0.046601485460996628
+      ],
+      "min": [
+        -0.0020417445339262486,
+        -0.50741040706634521,
+        -0.038892198354005814
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 13162,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 13162,
+      "type": "VEC4",
+      "max": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 13162,
+      "type": "VEC2",
+      "max": [
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5125,
+      "count": 774,
+      "type": "SCALAR",
+      "max": [
+        279.0
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5125,
+      "count": 44226,
+      "type": "SCALAR",
+      "max": [
+        12507.0
+      ],
+      "min": [
+        280.0
+      ]
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5125,
+      "count": 1368,
+      "type": "SCALAR",
+      "max": [
+        12993.0
+      ],
+      "min": [
+        12508.0
+      ]
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5125,
+      "count": 324,
+      "type": "SCALAR",
+      "max": [
+        13161.0
+      ],
+      "min": [
+        12994.0
+      ]
+    },
+    {
+      "bufferView": 8,
+      "componentType": 5126,
+      "count": 55,
+      "type": "SCALAR",
+      "max": [
+        1.8000000715255737
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 9,
+      "componentType": 5126,
+      "count": 55,
+      "type": "VEC3",
+      "max": [
+        -0.086771212518215179,
+        1.7120802402496338,
+        -1.594767689704895
+      ],
+      "min": [
+        -0.086771212518215179,
+        1.7120802402496338,
+        -1.594767689704895
+      ]
+    },
+    {
+      "bufferView": 10,
+      "componentType": 5126,
+      "count": 55,
+      "type": "VEC4",
+      "max": [
+        0.0,
+        0.72094839811325073,
+        0.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0,
+        0.0,
+        0.69298875331878662
+      ]
+    },
+    {
+      "bufferView": 11,
+      "componentType": 5126,
+      "count": 55,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 0,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 1,
+          "target": {
+            "node": 0,
+            "path": "rotation"
+          }
+        },
+        {
+          "sampler": 2,
+          "target": {
+            "node": 0,
+            "path": "scale"
+          }
+        }
+      ],
+      "samplers": [
+        {
+          "input": 8,
+          "output": 9
+        },
+        {
+          "input": 8,
+          "output": 10
+        },
+        {
+          "input": 8,
+          "output": 11
+        }
+      ],
+      "name": "Open"
+    }
+  ],
+  "asset": {
+    "generator": "Plattar UnityGLTF (2019.3.8f1)",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "uri": "Back_door.bin",
+      "byteLength": 820964
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 157944
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 157944,
+      "byteLength": 157944
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 315888,
+      "byteLength": 210592
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 526480,
+      "byteLength": 105296
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 631776,
+      "byteLength": 3096
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 634872,
+      "byteLength": 176904
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 811776,
+      "byteLength": 5472
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 817248,
+      "byteLength": 1296
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 818544,
+      "byteLength": 220
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 818764,
+      "byteLength": 660
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 819424,
+      "byteLength": 880
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 820304,
+      "byteLength": 660
+    }
+  ],
+  "images": [
+    {
+      "uri": "MetalDusty.jpg",
+      "name": "MetalDusty"
+    },
+    {
+      "uri": "Armydiarrhea 1.jpg",
+      "name": "Armydiarrhea 1"
+    },
+    {
+      "uri": "Armydiarrhea.jpg",
+      "name": "Armydiarrhea"
+    },
+    {
+      "uri": "Black-texture.jpg",
+      "name": "Black-texture"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 1,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "normalTexture": {
+        "index": 0,
+        "extensions": {
+          "KHR_texture_transform": {
+            "offset": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "name": "Армейский поносный_1"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 2,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "normalTexture": {
+        "index": 0,
+        "extensions": {
+          "KHR_texture_transform": {
+            "offset": [
+              0.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "name": "Армейский поносный_3"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 3,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Материал.1_1"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "metallicFactor": 0.27500000596046448,
+        "roughnessFactor": 0.66999998688697815
+      },
+      "alphaMode": "BLEND",
+      "name": "Материал.4"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 5,
+          "material": 1
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 6,
+          "material": 2
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 7,
+          "material": 3
+        }
+      ],
+      "name": "Back_door"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        -1.14491749E-16,
+        -6.06069E-17,
+        -1.14251282E-11,
+        -1.0
+      ],
+      "translation": [
+        -0.08677121,
+        1.71208024,
+        1.59476769
+      ],
+      "name": "Back_door"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9729
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "Back_door"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "MetalDusty"
+    },
+    {
+      "sampler": 0,
+      "source": 1,
+      "name": "Armydiarrhea 1"
+    },
+    {
+      "sampler": 0,
+      "source": 2,
+      "name": "Armydiarrhea"
+    },
+    {
+      "sampler": 0,
+      "source": 3,
+      "name": "Black-texture"
+    }
+  ]
+}
