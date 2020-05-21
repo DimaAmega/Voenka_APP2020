@@ -103,7 +103,8 @@ class obj_API{
                     else return this.fadeOutPromise();
                 case "Emissive":
                     this.currentAction = { name: "Emissive" };
-                    return this.EmissivePromise(0,1,0);
+                    if(this.name === "lamp1") return this.EmissivePromise(1,1,1);
+                    else return this.EmissivePromise(0,1,0);
                 default:
                     if (this.currentAction.name !== "Static"){
                         var sec = this.durations_arr[this.currentAction.name];
