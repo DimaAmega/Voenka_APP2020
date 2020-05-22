@@ -10,7 +10,7 @@ body{
 
 #cameraMenu {
     position: absolute;
-    top:-40px;
+    top:-62px;
     right: 20px;
     background-color: rgb(59, 55, 55);
     transition: top 0.5s cubic-bezier(0.18, 0.89, 0.28, 1.57);
@@ -20,7 +20,7 @@ body{
 #pointer
 {
     position: relative;
-    top: 40px;
+    top: 62px;
 }
 
 #pointer::after
@@ -37,7 +37,7 @@ body{
     top:0px;
     right: 20px;
     /* width: 200px; */
-    height: 40px;
+    /* height: 40px; */
     /* background-color:  rgb(20, 19, 19); */
 }
 
@@ -61,7 +61,7 @@ body{
 
 #cameraMenu .menuItem:disabled
 {
-    background-color:  rgb(20, 19, 19);
+    background-color:  rgb(193, 179, 179);
     color: rgb(59, 55, 55);
 }
 
@@ -83,4 +83,10 @@ text-align: center;
 }
 h5 {
 text-align: left;
+}
+
+.image
+{
+    width: 40px;
+    height: 40px;
 }

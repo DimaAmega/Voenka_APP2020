@@ -249,12 +249,12 @@ var cameraStates = {
     }
 }
 var cameraMenuItems = [
-    "СТАРТ",
-    "ЛЮК ППО",
-    "МАЛЫЙ ПУЛЬТ",
-    "ДВЕРИ",
-    "КАБИНА",
-    "РАЦИЯ"
+    "../images/vehicleImage.png",
+    "../images/outerCoverImage.png",
+    "../images/ppoImage.png",
+    "четвёртое",
+    "5",
+    "6"
 ];
 
 var cameraMenuDomObjectId = "cameraMenu";
@@ -342,9 +342,9 @@ class PathProvider {
             case stateManagerPrivate:
                 return require("../StateMachineFramework/StateManagerPrivate");
             case controller:
-                return require("../temporary/Controller");
+                return require("../TrainingClass/Controller");
             case pickerManager:
-                return require("../temporary/PickerManager");
+                return require("../PickerManagerClass/PickerManager");
             default:
                 console.error("Error: no ", moduleName);
                 break;
