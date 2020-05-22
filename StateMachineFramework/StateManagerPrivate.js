@@ -47,6 +47,7 @@ class StateManager {
     // if state in statesArray and required transition is valid
     requestTransition(localName, localState) {
         var candidates = this.adjacency_list[this.current_state_number];
+        if (!candidates) return  invalidState
         for (let i = 0; i < candidates.length; i++)
             if (this.stateByNumber(candidates[i])[localName]===localState) {
                 return this.stateByNumber(candidates[i]);
