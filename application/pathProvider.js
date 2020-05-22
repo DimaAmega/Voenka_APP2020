@@ -34,6 +34,7 @@ let ObjectsNamesArray = [
     "Anvil.gltf",
     "CPC_base.gltf",
     "CpcAnvil.gltf",
+    "CpcAnvil_tr.gltf",
     "CPCcube1.gltf",
     "CPCcube2.gltf",
     "CPCcube3.gltf",
@@ -67,10 +68,10 @@ let ObjectsNamesArray = [
     "Radio_PPO.gltf",
     "Radiostation.gltf",
     "Back_door.gltf",
-    "Back_door_tr.gltf",
     "Cap_of_PPO.gltf",
     "Cap_of_PPO_tr.gltf",
     "Front_door.gltf",
+    "Front_door_tr.gltf",
     "Power_checker.gltf",
     "Power_checker_tr.gltf",
     "TPK_small_very.gltf",
@@ -149,7 +150,7 @@ let modesInformation = [
         "pickerState": "1_State",
         "objectManagerState": "13h0f",
         "finalStates": ["12fbv"],
-        "timeMarks":[40,50,60],
+        "timeMarks":[30,35,40],
         "toolTips":{
             "13h0f": `<h3>ОТДАЙТЕ ПРИКАЗ 'ОТ ПУСКОВОЙ!'</h3>`,
             "13h0v": `<h5>ПОВЕРНИТЕ РЕГУЛЯТОР ППО В ПОЛОЖЕНИЕ 'ОПУСК ТПК'</h5>
@@ -160,10 +161,24 @@ let modesInformation = [
     {
         "pickerState": "1_State",
         "objectManagerState": "0",
-        "finalStates": ["12fbv"],
+        "finalStates": ["i4e772"],
         "timeMarks":[40,50,60],
         "toolTips":{
-            "0": `<h3>ОТДАЙТЕ ПРИКАЗ 'ОТ ПУСКОВОЙ!'</h3>`,
+            "0":   `<h3>ДЛЯ ВЫДАЧИ КОМАНДЫ С ППК:</h3>
+                    <h5>1) ПОВЕРНИТЕ РЕГУЛЯТОР ПИТАНИЯ В ПОЛОЖЕНИЕ 'ВКЛ'</h5>
+                    <h5>УБЕДИТЕСЬ В ТОМ, ЧТО НА ППО ВКЛЮЧЕН РЕЖИМ 'ДИСТАНЦИЯ'</h5>
+                    <h5>2) ОТКРОЙТЕ КРЫШКУ ОТСЕКА №1 </h5>
+                    <h5>3) ОТКРОЙТЕ КРЫШКУ ППО</h5>
+                    <h5>4) ПРОВЕРЬТЕ ИНДИКАЦИЮ ЛАМПЫ 'ДИСТ'</h5>
+                    `,
+            "f67": `<h3>НАЧНИТЕ РАБОТУ С ППК</h3>
+                    <h5>1) ЗАКРОЙТЕ КРЫШКУ ППО</h5>
+                    <h5>2) ЗАКРОЙТЕ КРЫШКУ ОТСЕКА №1 </h5>
+                    <h5>3) ОТКРОЙТЕ ПЕРЕДНЮЮ ДВЕРЬ КАБИНЫ</h5>`,
+            "24kf72":`<h3>ОТДАЙТЕ ПРИКАЗ 'ОТ ПУСКОВОЙ!'</h3>`,
+            "dckf72":`<h3>ОПУСТИТЕ ДОМКРАТЫ:</h3>
+                        <h5>1) ПОВЕРНИТЕ РЕГУЛЯТОР ППK В ПОЛОЖЕНИЕ 'СПУСК. ДОМКР.'</h5>
+                        <h5>1) НАЖМИТЕ КНОПКУ 'ВКЛ'</h5>`
         }
     },
     //5
@@ -215,13 +230,31 @@ var cameraStates = {
         x_deg: -0.3,
         y_deg: 0,
         z_deg: 0,
+    },
+    "next4": {
+        x: -0.3,
+        y: 2.15,
+        z: 1.5,
+        x_deg: -0.3,
+        y_deg: 0,
+        z_deg: 0,
+    },
+    "next5": {
+        x: -0.1,
+        y: 2,
+        z: 1.5,
+        x_deg: -0.3,
+        y_deg: 0,
+        z_deg: 0,
     }
 }
 var cameraMenuItems = [
-    "первое",
-    "второе",
-    "третье",
-    "четвёртое"
+    "СТАРТ",
+    "ЛЮК ППО",
+    "МАЛЫЙ ПУЛЬТ",
+    "ДВЕРИ",
+    "КАБИНА",
+    "РАЦИЯ"
 ];
 
 var cameraMenuDomObjectId = "cameraMenu";
@@ -254,12 +287,38 @@ var cameraDisabledItems = {
     },
     "3": {
         "pickerInformation":{
-            "checkedObjectName": "Back_door",
+            "checkedObjectName": "Front_door",
             "pickerStatesByObjectState": {
                 "Static": "6_State",
                 "Open": "6_State"
             }
         }
+    },
+    "4": {
+        "pickerInformation":{
+            "checkedObjectName": "Front_door",
+            "pickerStatesByObjectState": {
+                "Static": "7_State",
+                "Open": "7_State"
+            }
+        },
+        "disableInformation": {
+            "name": "Front_door",
+            "state": "Static"
+        },
+    },
+    "5": {
+        "pickerInformation":{
+            "checkedObjectName": "Front_door",
+            "pickerStatesByObjectState": {
+                "Static": "7_State",
+                "Open": "7_State"
+            }
+        },
+        "disableInformation": {
+            "name": "Front_door",
+            "state": "Static"
+        },
     }
 }
 
@@ -397,6 +456,12 @@ class PathProvider {
             }).bind(bindObject),
             (() => {
                 bindObject.applyState("next3");
+            }).bind(bindObject),
+            (() => {
+                bindObject.applyState("next4");
+            }).bind(bindObject),
+            (() => {
+                bindObject.applyState("next5");
             }).bind(bindObject),
         ];
         return cameraCallBacks;

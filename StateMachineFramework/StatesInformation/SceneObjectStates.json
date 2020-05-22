@@ -79,9 +79,40 @@
               "Static",
               "Down"  
         ],
-        "Back_door":[
+        "Front_door":[
             "Static",
             "Open"
+        ],
+        "CpcAnvil":[
+            "Move3",
+            "Move1",
+            "Move2",
+            "Move4",
+            "Move5"
+        ],
+        "CPClamp1":[
+            "Static",
+            "Emissive"
+        ],
+        "CPClamp2":[
+            "Static",
+            "Emissive"
+        ],
+        "CPClamp3":[
+            "Static",
+            "Emissive"
+        ],
+        "CPClamp4":[
+            "Static",
+            "Emissive"
+        ],
+        "B_start":[
+            "Static",
+            "Push"
+        ],
+        "Radiostation":[
+            "Static",
+            "Used"
         ]
     },  
     "pickerManagerStates": {
@@ -489,28 +520,141 @@
             "ClickableItems": [
                 {
                     "triggerAction": {
-                        "name": "Back_door",
+                        "name": "Front_door",
                         "requestData":{
-                            "name":"Back_door",
+                            "name":"Front_door",
                             "state": "Static"
                         }
                     },
                     "highlightObject": {
-                        "name": "Back_door_tr",
+                        "name": "Front_door_tr",
                         "state": "Static"
                     }
                 },
                 {
                     "triggerAction": {
-                        "name": "Back_door",
+                        "name": "Front_door",
                         "requestData":{
-                            "name":"Back_door",
+                            "name":"Front_door",
                             "state": "Open"
                         }
                     },
                     "highlightObject": {
-                        "name": "Back_door_tr",
+                        "name": "Front_door_tr",
                         "state": "Open"
+                    }
+                }
+            ]
+        },
+        "7_State": {
+            "ClickableItems": [
+                {
+                    "triggerAction": {
+                        "name": "Front_door",
+                        "requestData":{
+                            "name":"Front_door",
+                            "state": "Static"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Front_door_tr",
+                        "state": "Static"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Front_door",
+                        "requestData":{
+                            "name":"Front_door",
+                            "state": "Open"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "Front_door_tr",
+                        "state": "Open"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "CPCcube1",
+                        "requestData":{
+                            "name":"CpcAnvil",
+                            "state": "Move1"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "CpcAnvil_tr",
+                        "state": "Move1"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "CPCcube2",
+                        "requestData":{
+                            "name":"CpcAnvil",
+                            "state": "Move2"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "CpcAnvil_tr",
+                        "state": "Move2"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "CPCcube3",
+                        "requestData":{
+                            "name":"CpcAnvil",
+                            "state": "Move3"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "CpcAnvil_tr",
+                        "state": "Move3"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "CPCcube4",
+                        "requestData":{
+                            "name":"CpcAnvil",
+                            "state": "Move4"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "CpcAnvil_tr",
+                        "state": "Move4"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "CPCcube5",
+                        "requestData":{
+                            "name":"CpcAnvil",
+                            "state": "Move5"
+                        }
+                    },
+                    "highlightObject": {
+                        "name": "CpcAnvil_tr",
+                        "state": "Move5"
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "B_start",
+                        "requestData":{
+                            "name":"B_start",
+                            "state": "Push"
+                        }
+                    }
+                },
+                {
+                    "triggerAction": {
+                        "name": "Radiostation",
+                        "requestData":{
+                            "name":"Radiostation",
+                            "state": "Used"
+                        }
                     }
                 }
             ]
