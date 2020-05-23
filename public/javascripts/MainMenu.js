@@ -15,9 +15,9 @@ class Menu{
       up_supports_ppo:2,
       down_tpk_ppo:3,
       down_supports_ppu:4,
-      up_supports_ppu:5,
-      down_tpk_ppu:6,
-      up_tpk_ppu:7,
+      up_tpk_ppu:5,
+      up_supports_ppu:6,
+      down_tpk_ppu:7,
     }
     ////////////////////////////
     //    HANDLE EVENTS  
