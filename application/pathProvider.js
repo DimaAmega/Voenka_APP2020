@@ -249,12 +249,30 @@ var cameraStates = {
     }
 }
 var cameraMenuItems = [
-    "../images/vehicleImage.png",
-    "../images/outerCoverImage.png",
-    "../images/ppoImage.png",
-    "четвёртое",
-    "5",
-    "6"
+    {
+        "iconPath": "../images/vehicleImage.png",
+        "caption": "Установка"
+    },
+    {
+        "iconPath": "../images/outerCoverImage.png",
+        "caption": "Отсек №1"
+    },
+    {
+        "iconPath": "../images/ppoImage.png",
+        "caption": "ППО"
+    },
+    {
+        "iconPath": "../images/cabinImage.png",
+        "caption": "Двери"
+    },
+    {
+        "iconPath": "../images/ppkImage.png",
+        "caption": "ППК"
+    },
+    {
+        "iconPath": "../images/radioImage.png",
+        "caption": "Радиостанция"
+    },
 ];
 
 var cameraMenuDomObjectId = "cameraMenu";
