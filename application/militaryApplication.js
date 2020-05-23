@@ -1,6 +1,6 @@
 
 //internal objects
-let tips = require("../temporary/tips").tips;
+let tips = require("../TrainingClass/tips").tips;
 tips = new tips();
 window.tips = tips;
 let mw = require("../Custom_Modules/modalWindow").modalWindow;

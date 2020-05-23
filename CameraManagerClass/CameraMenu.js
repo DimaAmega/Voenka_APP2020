@@ -23,11 +23,19 @@ class СameraMenu extends Events
             for (let index in this.m_menuItemsArray)
             {
                 let temporaryElement = document.createElement("button");
-                // temporaryElement.disabled = true;
                 temporaryElement.onclick = this.m_callbacks[index];
+                
+                let internalImage = document.createElement("img");
+                let internalCaption  = document.createElement("p");
 
-                temporaryElement.innerText = this.m_menuItemsArray[index];
+                internalImage.src = this.m_menuItemsArray[index]["iconPath"];
+                internalCaption.innerHTML = this.m_menuItemsArray[index]["caption"];
+                temporaryElement.append(internalImage);
+                temporaryElement.append(internalCaption);
+                
                 temporaryElement.classList.add("menuItem");
+                internalImage.classList.add("image");
+
                 this.m_menu.append(temporaryElement);
             }
             this._resize();
