@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 //  ROUTE INDEX PAGE WHOSE REDIRECT TO MAIN MENU
 ///////////////////////////////////////////////////
 app.get('/', function(req, res, next) {
-  res.sendFile(path.join(__dirname, 'MainMenu.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 ///////////////////////////////////////
 //          HANDLE ERROR 404
