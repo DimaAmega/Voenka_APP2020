@@ -184,7 +184,7 @@ class MilitaryApplication extends Events {
     _loadSceneObjects() {
         let ObjectLoader = pathProvider.module("ObjectsContainer");
         this.m_objectLoader = new ObjectLoader();
-        this.m_objectLoader.setPathToModels("/3dModels/");
+        this.m_objectLoader.setPathToModels("../public/3dModels/");
         this.m_objectLoader.loadObjects(pathProvider.objectsNamesArray()).then(
             ((Obj_arr) => {
                 for (let obj of Obj_arr) {
