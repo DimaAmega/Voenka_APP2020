@@ -164,6 +164,11 @@ class PickerManager extends Events {
             return;
         }
         this.m_raycaster.setFromCamera(this.m_mouse_position, this.m_camera);
+        if (!this.m_currentState || this.m_currentState === "lockedState")
+        {
+            return;
+        }
+
         let firstIntersectObject = this.m_raycaster.intersectObjects(this.m_internalPickedObject[this.m_currentState], true);
         if (firstIntersectObject.length === 0) {
             this._updateClickedObject(undefined);

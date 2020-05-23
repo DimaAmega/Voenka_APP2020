@@ -659,6 +659,9 @@
                 }
             ]
         },
-        "lockedState": {}
+        "lockedState": 
+        {
+            "ClickableItems": []
+        }
     }
 }

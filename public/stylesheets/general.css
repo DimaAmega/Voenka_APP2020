@@ -10,22 +10,25 @@ body{
 
 #cameraMenu {
     position: absolute;
-    top:-62px;
+    top:-83px;
     right: 20px;
     background-color: rgb(59, 55, 55);
-    transition: top 0.5s cubic-bezier(0.18, 0.89, 0.28, 1.57);
+    transition: top 0.5s ease-in-out;
+    padding-bottom: 5px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    font-family: sans-serif;
 }
+
 #pointer
 {
     position: relative;
-    top: 62px;
+    top: 83px;
 }
 
 #pointer::after
 {
-    content: 'camera'; 
+    content: 'camera';
     position: absolute; /* Абсолютное позиционирование */
     border: 19px solid transparent; /* Прозрачные границы */
     border-top: 10px solid rgb(59, 55, 55); /* Добавляем треугольник */
@@ -44,7 +47,7 @@ body{
 #cameraMenu .menuItem {
     border: none;
     outline: none;
-    color: red;
+    color: #f6f8ff;
     background-color: transparent;
     display: inline-block;
     padding-left: 20px;
@@ -61,8 +64,9 @@ body{
 
 #cameraMenu .menuItem:disabled
 {
-    background-color:  rgb(193, 179, 179);
+    background-color:  rgb(152, 152, 152);
     color: rgb(59, 55, 55);
+    opacity: 0.2;
 }
 
 #timer_container{
