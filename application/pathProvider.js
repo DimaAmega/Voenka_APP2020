@@ -308,27 +308,27 @@ var cameraStates = {
 }
 var cameraMenuItems = [
     {
-        "iconPath": "../images/vehicleImage.png",
+        "iconPath": "../../public/images/vehicleImage.png",
         "caption": "Установка"
     },
     {
-        "iconPath": "../images/outerCoverImage.png",
+        "iconPath": "../../public/images/outerCoverImage.png",
         "caption": "Отсек №1"
     },
     {
-        "iconPath": "../images/ppoImage.png",
+        "iconPath": "../../public/images/ppoImage.png",
         "caption": "ППО"
     },
     {
-        "iconPath": "../images/cabinImage.png",
+        "iconPath": "../../public/images/cabinImage.png",
         "caption": "Двери"
     },
     {
-        "iconPath": "../images/ppkImage.png",
+        "iconPath": "../../public/images/ppkImage.png",
         "caption": "ППК"
     },
     {
-        "iconPath": "../images/radioImage.png",
+        "iconPath": "../../public/images/radioImage.png",
         "caption": "Радиостанция"
     },
 ];
