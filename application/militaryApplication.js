@@ -191,7 +191,7 @@ class MilitaryApplication extends Events {
                     this.m_mainScene.add(obj.obj);
                 }
                 this.m_sceneObjects = Obj_arr;
-                console.log(Obj_arr);
+                // console.log(Obj_arr);
                 window.Obj_arr = Obj_arr;
                 this._addLightToScene();
                 this.emit(SceneObjectsLoaded);

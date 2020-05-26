@@ -14,7 +14,7 @@ function timer()    {
     //      PUBLIC
     ///////////////////////////
     this.startTimer = function()  {
-        timerId = setInterval(updateTimer.bind(this),100);
+        timerId = setInterval(updateTimer,100);
         elem.style.padding = "20px";
         elem.innerHTML = "0";
     };

@@ -210,7 +210,7 @@ form{
   padding: 5px 15px;
   transition: background 0.3s ease-in 0.1s;
 }
-#start_button:hover{
+#start_button:hover,#exit_button:hover {
   border: 0;
   cursor: pointer;
   background: rgb(223, 27, 44);
@@ -227,6 +227,17 @@ form{
   margin-top: 10px;
 }
 
+#exit_button{
+border: 0;
+border-radius: 1px;
+padding: 5px 15px;
+position: absolute;
+bottom: 10px;
+left: 10px;
+font-size: 28px;
+transition: background 0.3s ease-in 0.1s;
+font-family: Georgia, 'Times New Roman', Times, serif;
+}
 /**********************
       KEYFRAMES 
 **********************/
