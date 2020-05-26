@@ -8,7 +8,7 @@ class tips {
             background:"rgba(10,10,10,0.9)",
             left:"50%",
             transform: "translateX(-50%)",
-            bottom:"-100px",
+            bottom:"-130px",
             borderRadius:"20px",
             textAlign:"center",
             fontSize:"30px",

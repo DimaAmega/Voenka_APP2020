@@ -7,20 +7,20 @@ function timer()    {
     //      PRIVATE
     ///////////////////////////
     function updateTimer(){
-        timer +=0.1;
-        elem.innerHTML = timer.toFixed(1);
+        timer +=1;
+        elem.innerHTML = timer.toFixed();
     }
     ///////////////////////////
     //      PUBLIC
     ///////////////////////////
     this.startTimer = function()  {
-        timerId = setInterval(updateTimer,100);
-        elem.style.padding = "20px";
+        timerId = setInterval(updateTimer,1000);
+        elem.style.padding = "20px";    
         elem.innerHTML = "0";
     };
     this.stopTimer = function() {  
         clearTimeout(timerId);
-        var res = Number((timer - 0.1).toFixed(2));
+        var res = Number((timer).toFixed());
         elem.innerHTML = "";
         elem.style.padding = "0";
         return res;
