@@ -1,0 +1,323 @@
+{
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 609,
+      "type": "VEC3",
+      "max": [
+        0.0146562485024333,
+        0.0072425846010446548,
+        0.014106094837188721
+      ],
+      "min": [
+        -0.0146562485024333,
+        -0.0072425846010446548,
+        -0.014106094837188721
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 609,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 609,
+      "type": "VEC4",
+      "max": [
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        0.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 609,
+      "type": "VEC2",
+      "max": [
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5125,
+      "count": 1020,
+      "type": "SCALAR",
+      "max": [
+        344.0
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5125,
+      "count": 186,
+      "type": "SCALAR",
+      "max": [
+        428.0
+      ],
+      "min": [
+        345.0
+      ]
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5125,
+      "count": 864,
+      "type": "SCALAR",
+      "max": [
+        608.0
+      ],
+      "min": [
+        429.0
+      ]
+    }
+  ],
+  "asset": {
+    "generator": "Plattar UnityGLTF (2019.3.8f1)",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "uri": "Tablo.bin",
+      "byteLength": 37512
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 7308
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 7308,
+      "byteLength": 7308
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 14616,
+      "byteLength": 9744
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 24360,
+      "byteLength": 4872
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 29232,
+      "byteLength": 4080
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 33312,
+      "byteLength": 744
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 34056,
+      "byteLength": 3456
+    }
+  ],
+  "images": [
+    {
+      "uri": "smallpanelbase.jpg",
+      "name": "smallpanelbase"
+    },
+    {
+      "uri": "base3.jpg",
+      "name": "base3"
+    },
+    {
+      "uri": "CounterTable.jpg",
+      "name": "CounterTable"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1.0
+        ],
+        "baseColorTexture": {
+          "index": 0,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Base2"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1.0
+        ],
+        "baseColorTexture": {
+          "index": 1,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Серый"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1.0
+        ],
+        "baseColorTexture": {
+          "index": 2,
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Табло Счетчика"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 5,
+          "material": 1
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 6,
+          "material": 2
+        }
+      ],
+      "name": "Tablo"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "translation": [
+        3.389031,
+        1.40002191,
+        1.31674635
+      ],
+      "name": "Tablo"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9729
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "Tablo"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "smallpanelbase"
+    },
+    {
+      "sampler": 0,
+      "source": 1,
+      "name": "base3"
+    },
+    {
+      "sampler": 0,
+      "source": 2,
+      "name": "CounterTable"
+    }
+  ]
+}

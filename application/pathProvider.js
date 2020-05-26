@@ -33,8 +33,11 @@ let ObjectsNamesArray = [
     "Cube9.gltf",
     "Anvil.gltf",
     "CPC_base.gltf",
+    "numbers.gltf",
+    "Tablo.gltf",
     "CpcAnvil.gltf",
     "CpcAnvil_tr.gltf",
+    "Tpk_domkrat.gltf",
     "CPCcube1.gltf",
     "CPCcube2.gltf",
     "CPCcube3.gltf",
@@ -47,6 +50,7 @@ let ObjectsNamesArray = [
     "CPClamp5.gltf",
     "B_start.gltf",
     "B_stop.gltf",
+    "text_CPC_final.gltf",
     "Hangar.gltf",
     "Anvil_tr.gltf",
     "Lock1.gltf",
@@ -77,23 +81,13 @@ let ObjectsNamesArray = [
     "TPK_small_very.gltf",
 ];
 
-var pathInfo = {
-    [objectsContainer]: "../../Custom_Modules/ObjectsContainer",
-    [cameraManager]: "../../Custom_Modules/CameraManager",
-    [statesCreator]: "../../Custom_Modules/StatesObjectCreator",
-    [transitionMatrises]: "../../StateMachineFramework/StatesInformation/StatesTransitions",
-    [localObjectStates]: "../../StateMachineFramework/StatesInformation/SceneObjectStates",
-    [stateManagerPrivate]: "../../StateMachineFramework/StateManagerPrivate",
-    [objectStateManager]: "../../StateMachineFramework/ObjectStateManager"
-}
-
 let modesInformation = [
     //0 SUPPORTS DOWN
     {
         "pickerState": "1_State",
         "objectManagerState": "0",
         "finalStates": ["12f6f"],
-        "timeMarks":[29,33,36],
+        "timeMarks":[40,45,50],
         "toolTips":{
             "0": `<h3>ДЛЯ ВЫДАЧИ КОМАНДЫ С ППО:</h3>
                     <h5><li> ОТКРОЙТЕ КРЫШКУ ОТСЕКА №1 </li></h5>
@@ -111,7 +105,7 @@ let modesInformation = [
         "pickerState": "1_State",
         "objectManagerState": '0',
         "finalStates": ["13h1v"],
-        "timeMarks":[34,40,45],
+        "timeMarks":[150,170,190],
         "toolTips":{
             "0": `<h3>ДЛЯ ВЫДАЧИ КОМАНДЫ С ППО:</h3>
                     <h5><li> ПОВЕРНИТЕ РЕГУЛЯТОР ПИТАНИЯ В ПОЛОЖЕНИЕ 'ВКЛ'</li></h5>
@@ -135,12 +129,19 @@ let modesInformation = [
     //2  SUPPORTS UP
     {
         "pickerState": "1_State",
-        "objectManagerState": "12f6f",
+        "objectManagerState": "13h0f",
         "finalStates":["e5v"],
-        "timeMarks":[13,16,20],
+        "timeMarks":[150,170,190],
         "toolTips":{
-            "12f6f": `<h3>ОТДАЙТЕ ПРИКАЗ 'ОТ ПУСКОВОЙ!'</h3>`,
-            "12f6v": `<h3>ПОДНИМИТЕ ДОМКРАТЫ:</h3>
+            "13h0f": `<h3>ОТДАЙТЕ ПРИКАЗ 'ОТ ПУСКОВОЙ!'</h3>`,
+            "13h0v": `<h3> ПОДНИМИТЕ ДОМКРАТЫ:</h3>
+                        <h5>1) ПОВЕРНИТЕ РЕГУЛЯТОР ППК В ПОЛОЖЕНИЕ 'ПОДЪЕМ. ДОМКР.'</h5>
+                        <h5>2) НАЖМИТЕ КНОПКУ 'ВКЛ', В ТАКОМ СЛУЧАЕ ТПК ОПУСТЯТСЯ АВТОМАТИЧЕСКИ</h5>
+                        <li>ЛИБО ОПУСТИТЕ ТПК ВРУЧНУЮ:</li>
+                        <h5>1) ПОВЕРНИТЕ РЕГУЛЯТОР ППK В ПОЛОЖЕНИЕ 'ОПУСК ТПК'</h5>
+                        <h5>2) НАЖМИТЕ КНОПКУ 'ВКЛ'</h5>`,
+            "12faf": `<h3>ОТДАЙТЕ ПРИКАЗ 'ОТ ПУСКОВОЙ!'</h3>`,
+            "12fav": `<h3>ПОДНИМИТЕ ДОМКРАТЫ:</h3>
                       <h5>1) ПОВЕРНИТЕ РЕГУЛЯТОР ППО В ПОЛОЖЕНИЕ 'ПОДЪЕМ ДОМКР'</h5>
                       <h5>2) НАЖМИТЕ КНОПКУ 'ВКЛ'</h5>`
         }
@@ -150,12 +151,12 @@ let modesInformation = [
         "pickerState": "1_State",
         "objectManagerState": "13h0f",
         "finalStates": ["12fbv"],
-        "timeMarks":[16,20,24],
+        "timeMarks":[75,80,85],
         "toolTips":{
             "13h0f": `<h3>ОТДАЙТЕ ПРИКАЗ 'ОТ ПУСКОВОЙ!'</h3>`,
             "13h0v": `<h3>ОПУСТИТЕ ТПК:</h3>
-                      <h5>ПОВЕРНИТЕ РЕГУЛЯТОР ППО В ПОЛОЖЕНИЕ 'ОПУСК ТПК'</h5>
-                      <h5>НАЖМИТЕ КНОПКУ 'ВКЛ'</h5>`
+                      <h5>1) ПОВЕРНИТЕ РЕГУЛЯТОР ППО В ПОЛОЖЕНИЕ 'ОПУСК ТПК'</h5>
+                      <h5>2) НАЖМИТЕ КНОПКУ 'ВКЛ'</h5>`
         }
     },
     //4 SUPPORTS DOWN
@@ -163,7 +164,7 @@ let modesInformation = [
         "pickerState": "1_State",
         "objectManagerState": "0",
         "finalStates": ["i4e772"],
-        "timeMarks":[29,33,37],
+        "timeMarks":[70,80,90],
         "toolTips":{
             "0":   `<h3>ДЛЯ ВЫДАЧИ КОМАНДЫ С ППК:</h3>
                     <h5>УБЕДИТЕСЬ В ТОМ, ЧТО НА ППО ВКЛЮЧЕН РЕЖИМ 'ДИСТАНЦИЯ'</h5>
@@ -187,7 +188,7 @@ let modesInformation = [
         "pickerState": "1_State",
         "objectManagerState": "0",
         "finalStates": ["kcfb72"],
-        "timeMarks":[37,41,45],
+        "timeMarks":[150,170,190],
         "toolTips":{
             "0":   `<h3>ДЛЯ ВЫДАЧИ КОМАНДЫ С ППК:</h3>
                     <h5>УБЕДИТЕСЬ В ТОМ, ЧТО НА ППО ВКЛЮЧЕН РЕЖИМ 'ДИСТАНЦИЯ'</h5>
@@ -216,20 +217,27 @@ let modesInformation = [
     //6 SUPPORTS UP
     { 
         "pickerState": "1_State",
-        "objectManagerState": "18eg72",
-        "finalStates":["j2so62"],
-        "timeMarks":[23,27,31],
+        "objectManagerState": "3gfhv2",
+        "finalStates":["j2so62","j2slu2"],
+        "timeMarks":[150,170,190],
         "toolTips":{
-            "18eg72": `<h3>ДЛЯ ВЫДАЧИ КОМАНДЫ С ППК:</h3>
+            "3gfhv2": `<h3>ДЛЯ ВЫДАЧИ КОМАНДЫ С ППК:</h3>
                         <h5>УБЕДИТЕСЬ В ТОМ, ЧТО НА ППО ВКЛЮЧЕН РЕЖИМ 'ДИСТАНЦИЯ'</h5>
                         <h5>1) ОТКРОЙТЕ КРЫШКУ ОТСЕКА №1 </h5>
                         <h5>2) ОТКРОЙТЕ КРЫШКУ ППО</h5>
                         <h5>3) ПРОВЕРЬТЕ ИНДИКАЦИЮ ЛАМПЫ 'ДИСТ'</h5>`,
-            "18eg77": `<h3>НАЧНИТЕ РАБОТУ С ППК</h3>
+            "3gfhv7": `<h3>НАЧНИТЕ РАБОТУ С ППК</h3>
                         <h5>1) ЗАКРОЙТЕ КРЫШКУ ППО</h5>
                         <h5>2) ЗАКРОЙТЕ КРЫШКУ ОТСЕКА №1 </h5>`,
-            "18eg62": `<h3>ОТДАЙТЕ ПРИКАЗ 'ОТ ПУСКОВОЙ!'</h3>`,
-            "cgeg62": `<h3>ПОДНИМИТЕ ДОМКР:</h3>
+            "3gfhu2": `<h3>ОТДАЙТЕ ПРИКАЗ 'ОТ ПУСКОВОЙ!'</h3>`,
+            "eofhu2": `<h3> ПОДНИМИТЕ ДОМКРАТЫ:</h3>
+                        <h5>1) ПОВЕРНИТЕ РЕГУЛЯТОР ППК В ПОЛОЖЕНИЕ 'ПОДЪЕМ. ДОМКР.'</h5>
+                        <h5>2) НАЖМИТЕ КНОПКУ 'ВКЛ', В ТАКОМ СЛУЧАЕ ТПК ОПУСТЯТСЯ АВТОМАТИЧЕСКИ</h5>
+                        <li>ЛИБО ОПУСТИТЕ ТПК ВРУЧНУЮ:</li>
+                        <h5>1) ПОВЕРНИТЕ РЕГУЛЯТОР ППK В ПОЛОЖЕНИЕ 'ОПУСК ТПК'</h5>
+                        <h5>2) НАЖМИТЕ КНОПКУ 'ВКЛ'</h5>`,
+            "1amg62": `<h3>ОТДАЙТЕ ПРИКАЗ 'ОТ ПУСКОВОЙ!'</h3>`,
+            "cimg62": `<h3>ПОДНИМИТЕ ДОМКР:</h3>
                     <h5>1) ПОВЕРНИТЕ РЕГУЛЯТОР ППК В ПОЛОЖЕНИЕ 'ПОДЪЕМ ДОМКР'</h5>
                     <h5>2) НАЖМИТЕ КНОПКУ 'ВКЛ'</h5>`
         }
@@ -239,7 +247,7 @@ let modesInformation = [
         "pickerState": "1_State",
         "objectManagerState": "3gfhv2",
         "finalStates":["i6mdu2"],
-        "timeMarks":[27,31,35],
+        "timeMarks":[90,100,110],
         "toolTips":{
             "3gfhv2": `<h3>ДЛЯ ВЫДАЧИ КОМАНДЫ С ППК:</h3>
                         <h5>УБЕДИТЕСЬ В ТОМ, ЧТО НА ППО ВКЛЮЧЕН РЕЖИМ 'ДИСТАНЦИЯ'</h5>

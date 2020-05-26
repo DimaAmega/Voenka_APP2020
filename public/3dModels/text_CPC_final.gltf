@@ -1,0 +1,254 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 40711,
+      "type": "VEC3",
+      "max": [
+        0.027563266456127167,
+        0.0091920662671327591,
+        0.0008470019674859941
+      ],
+      "min": [
+        -0.027563266456127167,
+        -0.0091920662671327591,
+        -0.0008470019674859941
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 40711,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 40711,
+      "type": "VEC4",
+      "max": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 40711,
+      "type": "VEC2",
+      "max": [
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5125,
+      "count": 110640,
+      "type": "SCALAR",
+      "max": [
+        37438.0
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5125,
+      "count": 8040,
+      "type": "SCALAR",
+      "max": [
+        40422.0
+      ],
+      "min": [
+        37439.0
+      ]
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5125,
+      "count": 324,
+      "type": "SCALAR",
+      "max": [
+        40674.0
+      ],
+      "min": [
+        40423.0
+      ]
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5125,
+      "count": 54,
+      "type": "SCALAR",
+      "max": [
+        40710.0
+      ],
+      "min": [
+        40675.0
+      ]
+    }
+  ],
+  "asset": {
+    "generator": "Plattar UnityGLTF (2019.3.8f1)",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "uri": "text_CPC_final.bin",
+      "byteLength": 2430360
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 488532
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 488532,
+      "byteLength": 488532
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 977064,
+      "byteLength": 651376
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1628440,
+      "byteLength": 325688
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1954128,
+      "byteLength": 442560
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2396688,
+      "byteLength": 32160
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2428848,
+      "byteLength": 1296
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2430144,
+      "byteLength": 216
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "metallicFactor": 0.0
+      },
+      "name": "WhiteColor"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "metallicFactor": 0.0
+      },
+      "name": "No Name"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 5,
+          "material": 0
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 6,
+          "material": 0
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 7,
+          "material": 1
+        }
+      ],
+      "name": "text_CPC_final"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "translation": [
+        -0.378842741,
+        2.07572484,
+        1.26427567
+      ],
+      "name": "text_CPC_final"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "text_CPC_final"
+    }
+  ]
+}

@@ -33,7 +33,8 @@
     ],
     "SUPPORTS_UP":{},
     "StateTransitions2":[ 
-        ["12f6f","12f6v"],["12f6v","12f4v"],["12f4v","n5v","e5v"]
+        ["13h0f","13h0v"],["13h0v","13h2v"],["13h2v","13h0v"],["13h2v","13gsv"],["13gsv","13h2v"],["13h2v","12d3v","12faf"],["12faf","12fav"],["12fav","12f4v"],["12f4v","n5v","e5v"],
+        ["13h0v","13gsv"],["13gsv","13h0v"],["13gsv","13gtv","12ctv","12f5v","n5v","e5v"]
     ],
     "TPK_DOWN":{},
     "StateTransitions3":[ 
@@ -71,8 +72,12 @@
     ],
     "SUPPORTS_UP2":{},
     "StateTransitions6":[ 
-        ["18eg72","18eg73"],["18eg73","18eg72"],["18eg73","18eg77"],["18eg77","18eg63"],
-        ["18eg63","18eg62"],["18eg62","cgeg62"],["cgeg62","ce6g62"],["ce6g62","i26g62","i14o62","j2so62"]
+        ["3gfhv2", "3gfhv3"],["3gfhv3", "3gfhv2"],["3gfhv3", "3gfhv7"],["3gfhv7", "3gfhu3"],
+        ["3gfhu3", "3gfhu2"],["3gfhu2", "3gfhu3"],["3gfhu2", "eofhu2"],["eofhu2", "em7hu2"],
+        ["em7hu2", "eofhu2"],["em7hu2","ka7hu2","ka6du2","1amg62"],["1amg62","cimg62"],
+        ["cimg62","ce6g62"],["ce6g62","i26g62","i14o62","j2so62"],["eofhu2","ehnhu2"],
+        ["em7hu2","ehnhu2"],["ehnhu2","em7hu2"],
+        ["ehnhu2","eofhu2"],["ehnhu2","k5nhu2","k5mdu2","i26du2","i14lu2","j2slu2"]
     ],
     "TPK_DOWN2":{},
     "StateTransitions7":[ 

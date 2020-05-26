@@ -71,3 +71,4 @@ class Menu{
 }
 let menu = new Menu();
 $("#hamburger").click(()=>{menu.burgerClick()})
+// $("#exit_button").click(()=>{require('nw.gui').App.quit()})
