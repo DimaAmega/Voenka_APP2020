@@ -1,6 +1,14 @@
 {
   "name": "voenka-app2020",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "nodejs": "true",
+  "main": "http://localhost:8000/",
+  "node-remote": "http://localhost",
+  "node-main": "server.js",
+  "window": {
+    "fullscreen": true,
+    "icon": "Icon1.png"
+  },
   "private": true,
   "scripts": {
     "build": "webpack --config webpack.config.js"
