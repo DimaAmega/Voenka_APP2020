@@ -87,7 +87,7 @@ let modesInformation = [
         "pickerState": "1_State",
         "objectManagerState": "0",
         "finalStates": ["12f6f"],
-        "timeMarks":[40,45,50],
+        "timeMarks":[45,50,55],
         "toolTips":{
             "0": `<h3>ДЛЯ ВЫДАЧИ КОМАНДЫ С ППО:</h3>
                     <h5><li> ОТКРОЙТЕ КРЫШКУ ОТСЕКА №1 </li></h5>
@@ -164,7 +164,7 @@ let modesInformation = [
         "pickerState": "1_State",
         "objectManagerState": "0",
         "finalStates": ["i4e772"],
-        "timeMarks":[70,80,90],
+        "timeMarks":[75,85,95],
         "toolTips":{
             "0":   `<h3>ДЛЯ ВЫДАЧИ КОМАНДЫ С ППК:</h3>
                     <h5>УБЕДИТЕСЬ В ТОМ, ЧТО НА ППО ВКЛЮЧЕН РЕЖИМ 'ДИСТАНЦИЯ'</h5>
