@@ -7,6 +7,7 @@ let mw = require("../Custom_Modules/modalWindow").modalWindow;
 mw = new mw();
 window.mw = mw;
 mw.hide();
+let fastTransition = true;
 
 let pathUtils = require("./pathProvider");
 let pathProvider = pathUtils["getInstance"]();
