@@ -11,15 +11,15 @@ let fastTransition = true;
 
 let pathUtils = require("./pathProvider");
 let pathProvider = pathUtils["getInstance"]();
-var clock = new THREE.Clock();
+let clock = new THREE.Clock();
 
 let Events = require('events');
-var OrbitControls = require("../Custom_Modules/OrbitControls").OrbitControls;
+let OrbitControls = require("../Custom_Modules/OrbitControls").OrbitControls;
 // import { OrbitControls } from "../Custom_Modules/OrbitControls";
 
 let application = undefined;
 
-// var controls = new OrbitControls(camera, renderer.domElement);
+// let controls = new OrbitControls(camera, renderer.domElement);
 
 //Signals:
 
@@ -46,7 +46,7 @@ let weAreReady = "weAreReady";
 class MilitaryApplication extends Events {
     // The constructor of main class, temprorary without arguments
     constructor() {
-        // declare variables
+        // declare letiables
         super();
 
         this.m_applicationReady = false;
@@ -64,7 +64,7 @@ class MilitaryApplication extends Events {
         this.m_transitionInfo;
         this.m_statesDiscriptions;
 
-        // render variable
+        // render letiable
         this.m_mainScene;
         this.m_render;
         this.m_statesObject;
@@ -260,16 +260,15 @@ class MilitaryApplication extends Events {
             return;
         }
 
-        let hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.6);
-        hemiLight.position.set(0, -5, 0);
-        var dirLight = new THREE.DirectionalLight(0xffffff, 3);
+        let hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1.5);
+        let dirLight = new THREE.DirectionalLight(0xffffff, 3);
         dirLight.position.set(0, -5, -2);
         dirLight.position.multiplyScalar(50);
         dirLight.name = "dirlight";
         dirLight.castShadow = true;
         dirLight.shadowMapWidth = dirLight.shadowMapHeight = 1024 * 2;
 
-        var d = 300;
+        let d = 300;
 
         dirLight.shadowCameraLeft = -d;
         dirLight.shadowCameraRight = d;
@@ -280,9 +279,9 @@ class MilitaryApplication extends Events {
         dirLight.shadowBias = -0.0001;
         dirLight.shadowDarkness = 0.35;
 
-
         this.m_mainScene.add(hemiLight);
         this.m_mainScene.add(dirLight);
+        // this.m_mainScene.add(hemiLight2)
     }
 
     // private slots:

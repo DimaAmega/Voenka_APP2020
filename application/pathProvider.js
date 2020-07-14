@@ -51,7 +51,7 @@ let ObjectsNamesArray = [
     "B_start.gltf",
     "B_stop.gltf",
     "text_CPC_final.gltf",
-    "Hangar.gltf",
+    "Area.gltf",
     "Anvil_tr.gltf",
     "Lock1.gltf",
     "Lock1_tr.gltf",
@@ -267,10 +267,10 @@ let modesInformation = [
 
 var cameraStates = {
     "default": {
-        x: 2,
+        x: 2.3,
         y: 2,
         z: 6,
-        x_deg: -0.22,
+        x_deg: -0.1,
         y_deg: 0,
         z_deg: 0
     },
