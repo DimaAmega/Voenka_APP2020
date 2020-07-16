@@ -260,15 +260,40 @@ class MilitaryApplication extends Events {
             return;
         }
 
-        let hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1.5);
+        // let hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
         let dirLight = new THREE.DirectionalLight(0xffffff, 3);
+        let dirLigh2 = new THREE.DirectionalLight(0xffffff, 0.8);
+        let dirLigh3 = new THREE.DirectionalLight(0xffffff, 2);
         dirLight.position.set(0, -5, -2);
+        dirLigh2.position.set(2.3, 2, 6);
+        dirLigh3.position.set(0, 1000, -3000);
+        dirLigh3.target.position.set(0,800,-3100)
+        this._dirLightSettings(dirLight)
+        this._dirLightSettings(dirLigh2)
+        this._dirLightSettings(dirLigh3)
+
+        // this.m_mainScene.add(hemiLight);
+        this.m_mainScene.add(dirLight);
+        this.m_mainScene.add(dirLigh2);
+        // this.m_mainScene.add(dirLigh3);
+        // this.m_mainScene.add(dirLigh3.target);
+        window.dirLight = dirLigh3
+        // this.m_mainScene.add(hemiLight2)
+    }
+
+    // private slots:
+    _onSceneObjectsLoaded() {
+
+    }
+
+    _dirLightSettings(dirLight){
+
         dirLight.position.multiplyScalar(50);
         dirLight.name = "dirlight";
         dirLight.castShadow = true;
         dirLight.shadowMapWidth = dirLight.shadowMapHeight = 1024 * 2;
 
-        let d = 300;
+        const d = 300;
 
         dirLight.shadowCameraLeft = -d;
         dirLight.shadowCameraRight = d;
@@ -278,15 +303,6 @@ class MilitaryApplication extends Events {
         dirLight.shadowCameraFar = 3500;
         dirLight.shadowBias = -0.0001;
         dirLight.shadowDarkness = 0.35;
-
-        this.m_mainScene.add(hemiLight);
-        this.m_mainScene.add(dirLight);
-        // this.m_mainScene.add(hemiLight2)
-    }
-
-    // private slots:
-    _onSceneObjectsLoaded() {
-
     }
 
     _checkRequiredModules() {
