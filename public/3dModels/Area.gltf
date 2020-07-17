@@ -5595,12 +5595,6 @@
   "materials": [
     {
       "pbrMetallicRoughness": {
-        "baseColorFactor": [
-          1.0,
-          0.811740458,
-          0.3915094,
-          1.0
-        ],
         "baseColorTexture": {
           "index": 0,
           "extensions": {
@@ -6929,7 +6923,7 @@
       ],
       "translation": [
         10.84918,
-        18.0465069,
+        17.99051,
         -3.44126773
       ],
       "name": "Объект_Ландшафт_2_6"

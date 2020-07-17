@@ -259,50 +259,50 @@ class MilitaryApplication extends Events {
             console.log("Error: need main scene");
             return;
         }
+        //////////////////
+        //    MAIN LIGHT 
+        //////////////////
+        const color = 0xFFFFFF;
+        let light = new THREE.SpotLight(color, 1.5);
+        light.angle = 0.7;
+        light.decay = 1;
+        light.distance = 80;
+        light.position.set(2.3, 30, -2);
+        light.target.position.set(2.3,2,-4);
+        this.m_mainScene.add(light);
+        this.m_mainScene.add(light.target);
+        window.light = light
 
-        // let hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
-        let dirLight = new THREE.DirectionalLight(0xffffff, 3);
-        let dirLigh2 = new THREE.DirectionalLight(0xffffff, 0.8);
-        let dirLigh3 = new THREE.DirectionalLight(0xffffff, 2);
-        dirLight.position.set(0, -5, -2);
-        dirLigh2.position.set(2.3, 2, 6);
-        dirLigh3.position.set(0, 1000, -3000);
-        dirLigh3.target.position.set(0,800,-3100)
-        this._dirLightSettings(dirLight)
-        this._dirLightSettings(dirLigh2)
-        this._dirLightSettings(dirLigh3)
+        //////////////////
+        //    FRONT LIGHT 
+        //////////////////
+        light = new THREE.SpotLight(color, 6);
+        light.angle = 0.5;
+        light.decay = 1;
+        light.distance = 200;
+        light.position.set(-7,-20,3.4);
+        light.target.position.set(2, -10, 0);
+        this.m_mainScene.add(light);
+        this.m_mainScene.add(light.target);
+        window.light2 = light
+        //////////////////
+        //   SKY LIGHT 
+        //////////////////
+        light = new THREE.SpotLight(color, 2);
+        light.angle = 0.9;
+        light.decay = 1;
+        light.distance = 400;
+        light.position.set(2.3,30,6);
+        light.target.position.set(2, 30, 0);
+        this.m_mainScene.add(light);
+        this.m_mainScene.add(light.target);
+        window.light3 = light
 
-        // this.m_mainScene.add(hemiLight);
-        this.m_mainScene.add(dirLight);
-        this.m_mainScene.add(dirLigh2);
-        // this.m_mainScene.add(dirLigh3);
-        // this.m_mainScene.add(dirLigh3.target);
-        window.dirLight = dirLigh3
-        // this.m_mainScene.add(hemiLight2)
     }
 
     // private slots:
     _onSceneObjectsLoaded() {
 
-    }
-
-    _dirLightSettings(dirLight){
-
-        dirLight.position.multiplyScalar(50);
-        dirLight.name = "dirlight";
-        dirLight.castShadow = true;
-        dirLight.shadowMapWidth = dirLight.shadowMapHeight = 1024 * 2;
-
-        const d = 300;
-
-        dirLight.shadowCameraLeft = -d;
-        dirLight.shadowCameraRight = d;
-        dirLight.shadowCameraTop = d;
-        dirLight.shadowCameraBottom = -d;
-
-        dirLight.shadowCameraFar = 3500;
-        dirLight.shadowBias = -0.0001;
-        dirLight.shadowDarkness = 0.35;
     }
 
     _checkRequiredModules() {
