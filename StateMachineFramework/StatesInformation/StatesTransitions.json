@@ -13,6 +13,14 @@
         ["f6f","d"],["f6f","f6v"],["f6v","fav","e6v"],
         ["e6v","e2v","f6v"],["e6v","57v","11t7v","12f7v"]
     ],
+    "SUPPORTS_UP":{},
+    "StateTransitions2":[ 
+        ["12faf","12fav"],["12fav","12f4v"],["12f4v","11t5v","55v","e5v"]
+    ],
+    "TPK_DOWN":{},
+    "StateTransitions3":[ 
+        ["13h0f","13h0v"],["13h0v","13h2v"],["13h2v","13erv","12arv","12fbv"]
+    ],
     "TPK_UP":{},
     "StateTransitions1":[
         ["0","1"],["1","0"],["0","f62"],["f62","0"],
@@ -31,57 +39,33 @@
         ["12f6f","12f6v"],["12f6v","12f8v"],["12f8v","12f6v"],
         ["12f8v","12apv","13epv","13h1v"]
     ],
-    "SUPPORTS_UP":{},
-    "StateTransitions2":[ 
-        ["12faf","12fav"],["12fav","12f4v"],["12f4v","11t5v","55v","e5v"]
-    ],
-    "TPK_DOWN":{},
-    "StateTransitions3":[ 
-        ["13h0f","13h0v"],["13h0v","13h2v"],["13h2v","13erv","12arv","12fbv"]
-    ],
     "SUPPORTS_DOWN2":{},
     "StateTransitions4":[ 
         ["0","1"],["1","0"],["0","f62"],["f62","0"],
-        ["f62","f63"],["f63","f62"],["f63","f67"],
-        ["f67","f6f"],["f6f","f67"],["1","f63"],
-        ["f63","1"],["1","5"],["5","1"],["5","4"],
-        ["4","5"],["5","d"],["d","5"],["d","f","f6f"],
-        ["5","7","f67"],["f67","5"],
-        ["f67","f66"],["f6f","f6e"],["f6e","f6f"],
-        ["f66","f67"],["f66","4"],["4","f66"],["f67","f73"],
-        ["f73","f72"],["f72","24kf72"],["24kf72","f72"],
-        ["24kf72","dckf72"],["dh4f72","dckf72"],
-        ["dckf72","dh4f72"],["dh4f72","j66772","i4e772"]
+        ["f62","f73"],["1","f73"],["f73","f72"],
+        ["f72","24kf72"],["24kf72","f72"],["24kf72","dckf72"],
+        ["dh4f72","dckf72"],["dckf72","dh4f72"],["dh4f72","ho4f72","hp6772","i4e772"]
     ],
     "TPK_UP2":{},
     "StateTransitions5":[ 
         ["0","1"],["1","0"],["0","f62"],["f62","0"],
-        ["f62","f63"],["f63","f62"],["f63","f67"],
-        ["f67","f6f"],["f6f","f67"],["1","f63"],
-        ["f63","1"],["1","5"],["5","1"],["5","4"],
-        ["4","5"],["5","d"],["d","5"],["d","f","f6f"],
-        ["5","7","f67"],["f67","5"],["f67","f66"],
-        ["f6f","f6e"],["f6e","f6f"],["f66","f67"],
-        ["f66","4"],["4","f66"],["f67","f73"],["f73","f72"],
+        ["f62","f73"],["1","f73"],["f73","f72"],
         ["f72","24kf72"],["24kf72","f72"],["24kf72","dckf72"],
-        ["dh4f72","dckf72"],["dckf72","dh4f72"],["dh4f72","7u6772","6se772"],
+        ["dh4f72","dckf72"],["dckf72","dh4f72"],["dh4f72","ho4f72","hp6772","6se772"],
         ["6se772","cge772"],["cge772","cku772"],["cku772","cge772"],
-        ["cku772","i8u772","i8vb72","kcfb72"],["dckf72","dlkf72"],
-        ["dlkf72","dckf72"],["dlkf72","j9kf72","jam772","i8u772","i8vb72","kcfb72"]
+        ["cku772","hie772","hifb72","kcfb72"],["dckf72","dlkf72"],
+        ["dlkf72","dckf72"],["dlkf72","hskf72","htm772","hifb72","kcfb72"]
     ],
     "SUPPORTS_UP2":{},
     "StateTransitions6":[ 
-        ["3gfhv2", "3gfhv3"],["3gfhv3", "3gfhv2"],["3gfhv3", "3gfhv7"],["3gfhv7", "3gfhu3"],
-        ["3gfhu3", "3gfhu2"],["3gfhu2", "3gfhu3"],["3gfhu2", "eofhu2"],["eofhu2", "em7hu2"],
-        ["em7hu2", "eofhu2"],["em7hu2","ka7hu2","ka6du2","1amg62"],["1amg62","cimg62"],
-        ["cimg62","ce6g62"],["ce6g62","i26g62","i14o62","j2so62"],["eofhu2","ehnhu2"],
-        ["em7hu2","ehnhu2"],["ehnhu2","em7hu2"],
-        ["ehnhu2","eofhu2"],["ehnhu2","k5nhu2","k5mdu2","i26du2","i14lu2","j2slu2"]
+        ["1amg62","1amg73"],["1amg73","1amg72"],
+        ["1amg72","cimg72"],["cimg72","ce6g72"],
+        ["ce6g72","cimg72"],["ce6g72","hmug72","hlso72","j2so72"]
+
     ],
     "TPK_DOWN2":{},
     "StateTransitions7":[ 
-        ["3gfhv2", "3gfhv3"],["3gfhv3", "3gfhv2"],["3gfhv3", "3gfhv7"],["3gfhv7", "3gfhu3"],
-        ["3gfhu3", "3gfhu2"],["3gfhu2", "3gfhu3"],["3gfhu2", "eofhu2"],["eofhu2", "em7hu2"],
-        ["em7hu2", "eofhu2"],["em7hu2","ka7hu2","ka6du2","i6mdu2"]
+        ["3gfhv2", "3gfhu3"],["3gfhu3","3gfhu2"],["3gfhu2","eofhu2"],["eofhu2","em7hu2"],["em7hu2","eofhu2"],
+        ["em7hu2","hg7hu2","hg6du2","i6mdu2"]
     ]
 }

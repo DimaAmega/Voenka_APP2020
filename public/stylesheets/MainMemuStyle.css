@@ -150,7 +150,7 @@ body{
   padding:0;
   -webkit-box-sizing:border-box;
   box-sizing:border-box;
-  color: black;
+  color: white;
   font-family: 'Roboto', sans-serif;
   position: relative;
   background:black;
@@ -198,8 +198,8 @@ form{
 
 #modes{
   grid-area: a;
-  border-top: 3px solid black;
-  border-bottom: 3px solid black;
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
 }
 #start_button{
   border: 0;
@@ -222,8 +222,8 @@ form{
 #start{
   display: grid;
   grid-area: i;
-  border-top: 3px solid black;
-  border-bottom: 3px solid black;
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
   margin-top: 10px;
 }
 
@@ -410,7 +410,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
   position: absolute;
   top:10px;
   left: 10px;
-  color:black;
+  color:white;
 }
 
 .ham {
@@ -431,7 +431,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 .line {
   fill:none;
   transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-  stroke:black;
+  stroke: white;
   stroke-width:5.5;
   stroke-linecap:round;
 }
