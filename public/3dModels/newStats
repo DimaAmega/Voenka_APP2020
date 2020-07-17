@@ -1,0 +1,58 @@
+
+-- /////////UPDATE STORYSTATISTICS
+
+SET SQL_SAFE_UPDATES=0;
+
+UPDATE 
+	storyStatistics
+SET 
+	stats = JSON_SET(stats,'$.ommiesCount',JSON_EXTRACT(stats,'$.ommiesCount')+1);
+
+
+UPDATE 
+	storyStatistics
+SET 
+	stats = JSON_SET(stats,'$.supportersCount',JSON_EXTRACT(stats,'$.supportersCount')+1);
+
+
+UPDATE 
+	storyStatistics
+SET 
+	stats = JSON_SET(stats,'$.countriesCount',JSON_EXTRACT(stats,'$.countriesCount')+1)
+WHERE 
+	JSON_EXTRACT(stats,'$.countriesCount') = 0; 
+
+
+UPDATE 
+	storyStatistics
+SET 
+	likes = (select JSON_ARRAY_APPEND(stSt.likes,'$',JSON_OBJECT("userId",st.userId,"country","NONE","ommiesCount",1,"location",JSON_OBJECT())) as likes from stories as st, (select * from storyStatistics) as stSt where st.id = stSt.storyId and storyStatistics.storyId = stSt.storyId);
+
+SET SQL_SAFE_UPDATES=1;
+
+-- /////////UPDATE USERSTATISTICS
+
+SET SQL_SAFE_UPDATES=0;
+
+UPDATE 
+	userStatistics 
+SET stats= 
+	(select TMP.stats 
+    FROM (select usSt.userId,
+CONCAT("{\"ommiesCount\": ",CONVERT(Sum(JSON_EXTRACT(stSt.likes,concat(right(left(JSON_SEARCH(stSt.likes,'all',usSt.userId),5),4),'.ommiesCount') )),char),", \"supportedPersonCount\": ",CONVERT(COUNT(DISTINCT st.userId),char),"}")  as stats
+	from storyStatistics as stSt,userStatistics as usSt,stories as st where st.id = stSt.storyId and JSON_SEARCH(stSt.likes,'all',usSt.userId) is not null group by usSt.userId) AS TMP
+	WHERE TMP.userId = userStatistics.userId);
+
+update userStatistics SET stats = "{\"ommiesCount\":1,\"supportedPersonCount\":1}" WHERE stats is null; 
+
+SET SQL_SAFE_UPDATES=1;
+
+
+
+select userId, storyId, JSON_EXTRACT(likes,concat(right(left(JSON_SEARCH(likes,'all',userId),5),4),'.ommiesCount') ) as ommies from storyStatistics,userStatistics where JSON_SEARCH(likes,'all',userId) is not null;
+
+
+select usSt.userId,
+CONCAT("{\"ommiesCount\": ",CONVERT(Sum(JSON_EXTRACT(stSt.likes,concat(right(left(JSON_SEARCH(stSt.likes,'all',usSt.userId),5),4),'.ommiesCount') )),char),", \"supportedPersonCount\": ",CONVERT(COUNT(DISTINCT st.userId),char),"}")  as stats
+	from storyStatistics as stSt,userStatistics as usSt,stories as st where st.id = stSt.storyId and JSON_SEARCH(stSt.likes,'all',usSt.userId) is not null group by usSt.userId;
+
