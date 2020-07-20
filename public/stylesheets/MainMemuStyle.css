@@ -25,7 +25,7 @@
       cursor: pointer;
       border: 1px solid var(--bc, var(--border));
       background: var(--b, var(--background));
-      transition: background .3s, border-color .3s, box-shadow .2s;
+      /* transition: background .1s, border-color , box-shadow; */
   }
   input[type='checkbox']:after,
   input[type='radio']:after {
@@ -34,7 +34,7 @@
       left: 0;
       top: 0;
       position: absolute;
-      transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+      /* transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s); */
   }
   input[type='checkbox']:checked,
   input[type='radio']:checked {
