@@ -1,7 +1,0 @@
-export DB_NAME=etra && \
-export DB_HOSTNAME=127.0.0.1 && \
-export DB_USERNAME=root && \
-export DB_PASSWORD='13D68gJa24dGf...' && \
-export DB_PORT=3306 && \
-export SECRET_SIGN='53d90471-6cd3-47e6-9fa5-bc61ad80f708' && \
-nodemon server.js	
