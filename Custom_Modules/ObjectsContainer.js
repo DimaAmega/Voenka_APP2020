@@ -27,8 +27,9 @@ class obj_API{
         this.emptyPromise = function(bool) {
             return new Promise((resolve,reject)=>{resolve(bool)});
         }
-        this.fadeOutPromise = function () {
+        this.fadeOutPromise = function (flag) {
             var sec = this.durations_arr[this.currentAction.name];
+            if (flag) sec = sec/10;
             this.currentAction.action.fadeOut(sec);
             this.currentAction = { name: "Static" };
             return new Promise((resolve, reject) => {
@@ -91,7 +92,7 @@ class obj_API{
         });
     }
 
-    applyState(value) {
+    applyState(value,flag) {
         try{
             if (this.currentAction.name === value ) return this.emptyPromise(true);
             switch (value) {
@@ -100,7 +101,7 @@ class obj_API{
                         this.currentAction = {name:"Static"};
                         return this.EmissivePromise(0,0,0);
                     }
-                    else return this.fadeOutPromise();
+                    else return this.fadeOutPromise(flag);
                 case "Emissive":
                     this.currentAction = { name: "Emissive" };
                     if(this.name === "lamp1") return this.EmissivePromise(1,1,1);
@@ -108,13 +109,15 @@ class obj_API{
                 default:
                     if (this.currentAction.name !== "Static"){
                         var sec = this.durations_arr[this.currentAction.name];
-                        this.currentAction.action.fadeOut(sec);
+                        this.currentAction.action.fadeOut( flag ? sec/10 : sec);
                     }
+                    var sec = this.durations_arr[value];
                     this.currentAction = {
                         name: value,
                         action: this.findActionByName(value)
                                 .reset()
                                 .setLoop(this.opt.loop ? THREE.LoopPingPong : THREE.LoopOnce)
+                                .setDuration(flag ? sec/10 : sec)
                                 .play()
                     }
                     if(value === "Used") {

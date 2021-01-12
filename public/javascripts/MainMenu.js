@@ -58,10 +58,12 @@ class Menu{
   show(){
     $('#regimes').css({animation: "fadeInMenu 0.7s 1 ease-in-out forwards"})
     $('iframe').css({animation: "blurBackground .5s 1 ease-in forwards", zIndex:-1})
+    $('#exit_button').css({animation: "fadeInMenu 0.7s 1 ease-in-out forwards"})
   }
   hide() {
     $('#regimes').css({animation: "fadeOutMenu 0.7s 1 ease-in-out forwards"})
     $('iframe').css({animation: "unBlurBackground .5s 1 ease-in forwards", zIndex: 0})
+    $('#exit_button').css({animation: "fadeOutMenu 0.7s 1 ease-in-out forwards"})
   }
   burgerClick(){
   if (this.isOpen ===1) menu.show();
@@ -71,3 +73,4 @@ class Menu{
 }
 let menu = new Menu();
 $("#hamburger").click(()=>{menu.burgerClick()})
+$("#exit_button").click(()=>{require('nw.gui').App.quit()})

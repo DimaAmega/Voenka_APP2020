@@ -1,0 +1,153 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 3766,
+      "type": "VEC3",
+      "max": [
+        0.0012466913321986794,
+        2.9800419724779204E-05,
+        0.00783007312566042
+      ],
+      "min": [
+        -0.0012466913321986794,
+        -2.9800419724779204E-05,
+        -0.00783007312566042
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 3766,
+      "type": "VEC3",
+      "max": [
+        0.80629479885101318,
+        0.9999929666519165,
+        0.82147186994552612
+      ],
+      "min": [
+        -0.80624085664749146,
+        -0.9999929666519165,
+        -0.8221207857131958
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 3766,
+      "type": "VEC4",
+      "max": [
+        1.0,
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "min": [
+        1.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5125,
+      "count": 7716,
+      "type": "SCALAR",
+      "max": [
+        3765.0
+      ],
+      "min": [
+        0.0
+      ]
+    }
+  ],
+  "asset": {
+    "generator": "Plattar UnityGLTF (2019.3.8f1)",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "uri": "numbers.bin",
+      "byteLength": 181504
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 45192
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 45192,
+      "byteLength": 45192
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 90384,
+      "byteLength": 60256
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 150640,
+      "byteLength": 30864
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallicFactor": 0.0
+      },
+      "name": "No Name"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2
+          },
+          "indices": 3,
+          "material": 0
+        }
+      ],
+      "name": "numbers"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "translation": [
+        3.38926888,
+        1.40007341,
+        1.32455444
+      ],
+      "name": "numbers"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "numbers"
+    }
+  ]
+}

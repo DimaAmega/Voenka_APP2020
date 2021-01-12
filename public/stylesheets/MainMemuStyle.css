@@ -25,7 +25,7 @@
       cursor: pointer;
       border: 1px solid var(--bc, var(--border));
       background: var(--b, var(--background));
-      transition: background .3s, border-color .3s, box-shadow .2s;
+      /* transition: background .1s, border-color , box-shadow; */
   }
   input[type='checkbox']:after,
   input[type='radio']:after {
@@ -34,7 +34,7 @@
       left: 0;
       top: 0;
       position: absolute;
-      transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+      /* transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s); */
   }
   input[type='checkbox']:checked,
   input[type='radio']:checked {
@@ -150,7 +150,7 @@ body{
   padding:0;
   -webkit-box-sizing:border-box;
   box-sizing:border-box;
-  color: #fff;
+  color: white;
   font-family: 'Roboto', sans-serif;
   position: relative;
   background:black;
@@ -198,8 +198,8 @@ form{
 
 #modes{
   grid-area: a;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
 }
 #start_button{
   border: 0;
@@ -210,7 +210,7 @@ form{
   padding: 5px 15px;
   transition: background 0.3s ease-in 0.1s;
 }
-#start_button:hover{
+#start_button:hover,#exit_button:hover {
   border: 0;
   cursor: pointer;
   background: rgb(223, 27, 44);
@@ -222,11 +222,22 @@ form{
 #start{
   display: grid;
   grid-area: i;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
   margin-top: 10px;
 }
 
+#exit_button{
+border: 0;
+border-radius: 1px;
+padding: 5px 15px;
+position: absolute;
+bottom: 10px;
+left: 10px;
+font-size: 28px;
+transition: background 0.3s ease-in 0.1s;
+font-family: Georgia, 'Times New Roman', Times, serif;
+}
 /**********************
       KEYFRAMES 
 **********************/
@@ -254,11 +265,12 @@ form{
 
 #start_position p, #end_position p, #control p{
   text-align: left;
+  font-size: 20px;
 }
 
 #modes p 
 {
-  font-size: 28px;
+  font-size: 38px;
 }
 
 .left{
@@ -310,6 +322,7 @@ form{
   grid-template-rows: 42px 42px;
 }
 .form_item{
+  font-size: 20px;
   display: grid;
   grid-template-columns: 1fr 2fr; 
 }
@@ -397,6 +410,7 @@ form{
   position: absolute;
   top:10px;
   left: 10px;
+  color:white;
 }
 
 .ham {
@@ -417,7 +431,7 @@ form{
 .line {
   fill:none;
   transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-  stroke:#fff;
+  stroke: white;
   stroke-width:5.5;
   stroke-linecap:round;
 }

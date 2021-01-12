@@ -7,18 +7,19 @@ let mw = require("../Custom_Modules/modalWindow").modalWindow;
 mw = new mw();
 window.mw = mw;
 mw.hide();
+let fastTransition = true;
 
 let pathUtils = require("./pathProvider");
 let pathProvider = pathUtils["getInstance"]();
-var clock = new THREE.Clock();
+let clock = new THREE.Clock();
 
 let Events = require('events');
-var OrbitControls = require("../Custom_Modules/OrbitControls").OrbitControls;
+let OrbitControls = require("../Custom_Modules/OrbitControls").OrbitControls;
 // import { OrbitControls } from "../Custom_Modules/OrbitControls";
 
 let application = undefined;
 
-// var controls = new OrbitControls(camera, renderer.domElement);
+// let controls = new OrbitControls(camera, renderer.domElement);
 
 //Signals:
 
@@ -45,7 +46,7 @@ let weAreReady = "weAreReady";
 class MilitaryApplication extends Events {
     // The constructor of main class, temprorary without arguments
     constructor() {
-        // declare variables
+        // declare letiables
         super();
 
         this.m_applicationReady = false;
@@ -63,7 +64,7 @@ class MilitaryApplication extends Events {
         this.m_transitionInfo;
         this.m_statesDiscriptions;
 
-        // render variable
+        // render letiable
         this.m_mainScene;
         this.m_render;
         this.m_statesObject;
@@ -191,7 +192,7 @@ class MilitaryApplication extends Events {
                     this.m_mainScene.add(obj.obj);
                 }
                 this.m_sceneObjects = Obj_arr;
-                console.log(Obj_arr);
+                // console.log(Obj_arr);
                 window.Obj_arr = Obj_arr;
                 this._addLightToScene();
                 this.emit(SceneObjectsLoaded);
@@ -258,30 +259,45 @@ class MilitaryApplication extends Events {
             console.log("Error: need main scene");
             return;
         }
+        //////////////////
+        //    MAIN LIGHT 
+        //////////////////
+        const color = 0xFFFFFF;
+        let light = new THREE.SpotLight(color, 1.5);
+        light.angle = 0.7;
+        light.decay = 1;
+        light.distance = 80;
+        light.position.set(2.3, 30, -2);
+        light.target.position.set(2.3,2,-4);
+        this.m_mainScene.add(light);
+        this.m_mainScene.add(light.target);
+        window.light = light
 
-        let hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.6);
-        hemiLight.position.set(0, -5, 0);
-        var dirLight = new THREE.DirectionalLight(0xffffff, 3);
-        dirLight.position.set(0, -5, -2);
-        dirLight.position.multiplyScalar(50);
-        dirLight.name = "dirlight";
-        dirLight.castShadow = true;
-        dirLight.shadowMapWidth = dirLight.shadowMapHeight = 1024 * 2;
+        //////////////////
+        //    FRONT LIGHT 
+        //////////////////
+        light = new THREE.SpotLight(color, 6);
+        light.angle = 0.5;
+        light.decay = 1;
+        light.distance = 200;
+        light.position.set(-7,-20,3.4);
+        light.target.position.set(2, -10, 0);
+        this.m_mainScene.add(light);
+        this.m_mainScene.add(light.target);
+        window.light2 = light
+        //////////////////
+        //   SKY LIGHT 
+        //////////////////
+        light = new THREE.SpotLight(color, 2);
+        light.angle = 0.9;
+        light.decay = 1;
+        light.distance = 400;
+        light.position.set(2.3,30,6);
+        light.target.position.set(2, 30, 0);
+        this.m_mainScene.add(light);
+        this.m_mainScene.add(light.target);
+        window.light3 = light
 
-        var d = 300;
-
-        dirLight.shadowCameraLeft = -d;
-        dirLight.shadowCameraRight = d;
-        dirLight.shadowCameraTop = d;
-        dirLight.shadowCameraBottom = -d;
-
-        dirLight.shadowCameraFar = 3500;
-        dirLight.shadowBias = -0.0001;
-        dirLight.shadowDarkness = 0.35;
-
-
-        this.m_mainScene.add(hemiLight);
-        this.m_mainScene.add(dirLight);
     }
 
     // private slots:

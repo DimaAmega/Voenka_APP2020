@@ -108,7 +108,7 @@ class CameraManager extends Events {
             45,
             window.innerWidth / window.innerHeight,
             0.1,
-            10
+            150
         );
     }
 

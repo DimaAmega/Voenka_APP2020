@@ -127,7 +127,7 @@ class ObjectStateManager extends Events
     // PRIVATE METHODS
     //This function apply state
     // state is JS Object with local names and states
-    async _applyState(requiredState) { // async function will return promise
+    async _applyState(requiredState,flag) { // async function will return promise
         this.m_stateApplied = false;
 
         if (typeof requiredState != "object") {
@@ -139,7 +139,7 @@ class ObjectStateManager extends Events
         // Every object return promise
         for (var i in this.m_objects) {
             if (requiredState[this.m_objects[i].name]) //static objects dont change
-            promises.push(this.m_objects[i].applyState(requiredState[this.m_objects[i].name]));
+            promises.push(this.m_objects[i].applyState(requiredState[this.m_objects[i].name],flag));
         }
         var res = await Promise.all(promises); // wait end of all animations  
         this._unlockPickerManager();
@@ -158,12 +158,11 @@ class ObjectStateManager extends Events
         }
         for(let s_i in requiredState){
             if (map[s_i]) {
-                    map[s_i].applyState(requiredState[s_i]);
+                    map[s_i].applyState(requiredState[s_i],true);
                     map[s_i].blindUp(this.transparentProperty); 
                 }
         }
     }
-
     _lockPickerManager() {
         if (this.m_pickerManager) {
             this.m_pickerManager.lock();
@@ -181,7 +180,7 @@ class ObjectStateManager extends Events
         let requiredState = this.m_stateMashine.stateByNumber(parseInt(stateNumber,32));
         this.m_stateMashine.currentStateNumber = parseInt(stateNumber,32);
         this._applyStateToTransparentObjects(requiredState);
-        await this._applyState(requiredState);
+        await this._applyState(requiredState,true);
     }
 
     set stateMashine(stateMashine) {
